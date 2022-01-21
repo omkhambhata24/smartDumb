@@ -1,0 +1,25 @@
+<!--Parent to child-->
+<div class="padding">
+    <div class="padding"> 
+        <label for="textV">From parent to child:- </label>
+        <input type="text" name="toParent" (input)="passToChild(this.textV.value)" #textV>
+        <p>Value from child:- "{{ this.valueFromChild }}"</p>
+
+        <div class="b1">
+             <!-- [] indicates that data is passed on to the child -->
+             <!-- () indicates that thsi parent component listens to fromChild event (EventEmitter) -->
+            <app-child [fromParent]="toChild" (fromChild)="getFromChild($event)"></app-child>
+        </div>
+    </div>
+
+    <div>
+        Data Binding:- <input type="text" [(ngModel)]=v_ngModel>
+        {{ v_ngModel }}
+    </div>
+
+    <!--Property Binding-->
+    <div [class]="{'nvis': !isVisible}">
+        {{isVisible}}
+    </div>
+    <button (click)="toggleVisibility">Show</button>
+</div>

@@ -1,0 +1,8 @@
+<!--Child to Parent-->
+<div class="padding">
+    <p>Value from parent:- "{{ fromParent }}"</p>
+    <label for="text">From child to parent:- </label>
+
+    <!-- event binding onInput -->
+    <input type="text" name="toParent" #text (input)="passToParent(text.value)">
+</div>
