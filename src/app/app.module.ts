@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './parent/child/child.component';
 import { FormsModule } from '@angular/forms';
+import { PipesComponent } from './pipes/pipes.component';
+import { PipesModule } from './pipes/pipes.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    PipesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
