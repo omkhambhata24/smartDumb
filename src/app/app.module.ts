@@ -20,7 +20,7 @@ import { PipesModule } from './pipes/pipes.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    PipesModule
+    PipesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
