@@ -4,6 +4,7 @@ import { PipesComponent } from './pipes.component';
 import { CustomDirDirective } from './custom-dir/custom-dir.directive';
 import { PostsTableComponent } from './posts-table/posts-table.component';
 import { HoverDirective } from './Hover/hover.directive';
+import { CapitalPipe } from './capital-pipe/capital.pipe';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { HoverDirective } from './Hover/hover.directive';
     PipesComponent,
     CustomDirDirective,
     PostsTableComponent,
-    HoverDirective
+    HoverDirective,
+    CapitalPipe
   ],
   imports: [
     CommonModule
