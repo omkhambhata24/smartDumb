@@ -14,7 +14,7 @@ import { PipesModule } from './pipes/pipes.module';
   declarations: [
     AppComponent,
     ParentComponent,
-    ChildComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,

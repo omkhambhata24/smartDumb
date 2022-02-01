@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PipesComponent implements OnInit {
 
+  
+  presentDate = new Date(); 
+ 
+
   constructor() { }
 
   ngOnInit(): void {
