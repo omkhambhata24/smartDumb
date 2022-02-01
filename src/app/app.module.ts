@@ -8,19 +8,22 @@ import { ChildComponent } from './parent/child/child.component';
 import { FormsModule } from '@angular/forms';
 import { PipesComponent } from './pipes/pipes.component';
 import { PipesModule } from './pipes/pipes.module';
+import { SidebarComponent } from './core/sidebar/sidebar.component';
+import { CoreModule } from './core/sidebar/core.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ParentComponent,
-    ChildComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     PipesModule,
+    CoreModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -21,7 +21,7 @@ export class CustomDirDirective {
   }
 
   constructor(el: ElementRef) {
-    el.nativeElement.style.margin = "15px 0";
+    el.nativeElement.style.margin = "16px 0";
   }
 
 }
