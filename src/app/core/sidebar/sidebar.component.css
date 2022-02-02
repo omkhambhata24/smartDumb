@@ -1,3 +1,8 @@
 .active {
     color:red;
 }
+
+.side {
+    border: 1px solid;
+    height: 100%;
+}
