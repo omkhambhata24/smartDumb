@@ -10,13 +10,15 @@ import { PipesComponent } from './pipes/pipes.component';
 import { PipesModule } from './pipes/pipes.module';
 import { SidebarComponent } from './core/sidebar/sidebar.component';
 import { CoreModule } from './core/sidebar/core.module';
+import { HeaderComponent } from './core/header/header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,7 @@ import { Directive, HostBinding, HostListener, ElementRef} from '@angular/core';
 })
 export class CustomDirDirective {
 
-  dBgColor: string = "black";
+  dBgColor: string = "Yellow";
 
   @HostBinding('style.background-color') bgColor = this.dBgColor;
   @HostBinding('style.color') color = "red";
@@ -17,7 +17,7 @@ export class CustomDirDirective {
 
   @HostListener('mouseleave') onMouseLeave() {
     this.bgColor = this.dBgColor;
-    this.color = "red";
+    this.color = "Black";
   }
 
   constructor(el: ElementRef) {
