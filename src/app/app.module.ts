@@ -5,12 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './parent/child/child.component';
-import { FormsModule } from '@angular/forms';
 import { PipesComponent } from './pipes/pipes.component';
 import { PipesModule } from './pipes/pipes.module';
 import { SidebarComponent } from './core/sidebar/sidebar.component';
 import { CoreModule } from './core/sidebar/core.module';
 import { HeaderComponent } from './core/header/header.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 
 @NgModule({
@@ -19,13 +20,15 @@ import { HeaderComponent } from './core/header/header.component';
     ParentComponent,
     ChildComponent,
     HeaderComponent,
+    ReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     PipesModule,
-    CoreModule
+    CoreModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

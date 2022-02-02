@@ -1,1 +1,35 @@
+<h1 class="text-align-center">Resume Builder</h1>
+<form  [formGroup]="resume"  >
+    
+    <div class="text-align-center pad1r">
+        Name: <input formControlName="name" placeholder="Enter Name">
+       <!--<label *ngIf="name.invalid" [ngClass] = "'error'"> Name is required with 4 min character. </label>-->
+    </div>
 
+    <div class="text-align-center pad1r">
+        Skills: <input formControlName="skills" placeholder="Enter new skills">
+    </div>
+
+    <div class="text-align-center pad1r">
+        Experience: <input formControlName="experience" placeholder="Experience Details">
+    </div>
+
+    <div class="text-align-center pad1r">
+        Education: <input formControlName="Education" placeholder="Education History">
+    </div>
+
+    <div class="text-align-center pad1r">
+        Email: <input formControlName="email" placeholder="Enter E-mail id">
+    </div>
+
+    <div class="text-align-center pad1r">
+        Mobile: <input formControlName="Mobile number" placeholder="Enter Phone Number">
+    </div>
+
+    <div class="text-align-center pad1r">
+        <button class="border">Submit</button>
+    </div>    
+        	   
+
+    
+</form>
