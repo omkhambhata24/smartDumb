@@ -1,0 +1,23 @@
+.d-flex {
+    display: flex;
+}
+
+.f-col {
+    flex-direction: column;
+}
+
+.f-grow {
+    flex-grow: 1;
+}   
+
+.sidebar {
+    flex-basis: 18%;
+    max-width: 225px;
+    min-width: max-content;
+    overflow: hidden;
+    border-right: 1px solid #eceff4;
+}
+
+.h100 {
+    height: 100%;
+}
