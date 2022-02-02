@@ -6,7 +6,7 @@ import { PipesComponent } from './pipes/pipes.component';
 
 const routes: Routes = [
    { path: 'pipes', component: PipesComponent},
-   { path: 'Parent-child', _Component: ParentComponent}
+   { path: 'Parent-child', component: ParentComponent}
 
 ];
 

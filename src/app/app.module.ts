@@ -15,7 +15,8 @@ import { CoreModule } from './core/sidebar/core.module';
 @NgModule({
   declarations: [
     AppComponent,
-    
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +24,6 @@ import { CoreModule } from './core/sidebar/core.module';
     FormsModule,
     PipesModule,
     CoreModule
-    
   ],
   providers: [],
   bootstrap: [AppComponent]
