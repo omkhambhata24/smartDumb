@@ -24,13 +24,28 @@ export class ProfileFormComponent implements OnInit {
 
       firstName: ['',Validators.required],
       lastName: ['',Validators.required],
-      email: ['',Validators.email],
-      phone:['',[Validators.pattern(/^\(\d{3}\)\s\d{3}-\d{4}$/),Validators.required,Validators.maxLength(10)]],
-      department: [,Validators.required],
+      Email: ['',Validators.email],
+      phone:['',[Validators.pattern(/^\(\d{3}\)\s\d{3}-\d{4}$/),Validators.required]],
+      department: [,],
       gender: [true,Validators.required],
       datepicker: ['', Validators.required],
       
     });
+  }
+
+  saveProfile() {
+    const productToSave = this.profileForm.value;
+    if (this.profileForm.valid) {
+      /*this.createdProfile.emit(productToSave);
+      this.resetForm();*/
+    }
+    else{
+      console.log("solve Errors")
+    }
+  }
+
+  get formControl(){
+    return this.profileForm.controls;
   }
 
 }

@@ -1,1 +1,74 @@
-<p>profile-form works!</p>
+
+<form *ngIf="profileForm" [formGroup]= "profileForm" (ngSubmit)="saveProfile()">
+    <div class="mb-3 d-flex w-25">
+        <label for="firstName" class="form-label">First Name:</label>
+        <div>
+            <input type="text" formControlName="firstName" class="form-control" id="firstName"
+            placeholder="Enter First Name">
+            <div *ngIf="formControl['firstName'].touched && formControl['firstName'].errors?.['required']" class="form-text text-danger">This Field is Required.</div>
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex w-25">
+        <label for="lastName" class="form-label ">Last Name:</label>
+        <div>
+            <input type="text" formControlName="lastName" class="form-control" id="lastName"
+            placeholder="Enter Last Name">
+            <div *ngIf="formControl['lastName'].touched && formControl['lastName'].errors?.['required']" class="form-text text-danger">This Field is Required.</div>
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex w-25">
+        <label for="Email" class="form-label">Email Id:</label>
+        <div>
+            <input type="text" formControlName="email" class="form-control" id="Email"
+            placeholder="someone@something.com">
+            <div *ngIf="formControl['Email'].touched && formControl['Email'].errors?.['email']" class="form-text text-danger">Invalid format.</div>
+        </div>
+    </div>
+
+
+    <div class="mb-3 d-flex w-25">
+        <label for="phone" class="form-label ">Phone No:</label>
+        <div>
+            <input type="number" formControlName="price" class="form-control" id="price" placeholder="Phone Number">
+            <div *ngIf="formControl['phone'].touched && formControl['phone'].errors?.['required']" class="form-text  text-danger">This Field is Required.</div>
+            <div *ngIf="formControl['phone'].touched && formControl['phone'].errors?.['pattern']" class="form-text  text-danger">Phone no. should be 10 digits.</div>
+            
+        </div>
+    </div>
+    <div class="mb-3 d-flex w-25">
+        <label for="department" class="form-label">Category:</label>
+        <div>
+            <select class="form-select" formControlName="department">
+                <option [value]="0" disabled>Open this select menu</option>
+               <!-- <option *ngFor="let categorie of department" [value]="categorie.id"> {{categorie.name}}</option>-->
+            </select>
+        </div>
+    </div>
+    
+    <div class="mb-3 d-flex w-25">
+        <label for="gender" class="form-label w-25 me-3">Gender :</label>
+        <div class="form-check me-2">
+            <input formControlName="gender" [value]="true" class="form-check-input" type="radio" id="1">
+            <label class="form-check-label" for="male">
+                Male
+            </label>
+        </div>
+        <div class="form-check">
+            <input formControlName="stock" [value]="false" class="form-check-input" type="radio" id="2">
+            <label class="form-check-label" for="female">
+                Female
+            </label>
+        </div>
+    </div>
+    
+    <div class="d-flex">
+        <div class="col-sm-12">
+        <button type="submit" class="btn btn-primary w-1">Submit</button>
+        <button type="button" class="btn btn-light w-1">Reset</button>
+        </div>
+    </div>
+</form>
+
+<!--(click)="clearForm()"-->

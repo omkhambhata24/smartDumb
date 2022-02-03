@@ -1,11 +1,12 @@
-<!--<app-parent></app-parent>-->
-<!--<app-pipes></app-pipes>-->
-<div class="wrapper d-flex h100">
-    <aside class="d-flex sidebar f-col">
-        <app-sidebar></app-sidebar>
-    </aside>    
-</div>
-<!--<section>-->
-    <router-outlet></router-outlet>
-<!--</section>-->
 
+<div class="d-flex h-100">
+    
+    <div class="sidebar border-end">
+        <app-sidebar></app-sidebar>
+    </div>
+
+    <div class="main-content">
+        <router-outlet></router-outlet>
+    </div>
+
+</div>
