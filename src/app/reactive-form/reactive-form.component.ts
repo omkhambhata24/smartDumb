@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormBuilder, Validators, FormGroup, FormArray} from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, FormArray} from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -8,10 +8,10 @@ import { FormControl, FormBuilder, Validators, FormGroup, FormArray} from '@angu
 })
 export class ReactiveFormComponent implements OnInit {
 
-  resume: FormGroup;
-  Skills: FormArray;
-  Experience: FormArray;
-  Education: FormArray;
+  resume = {} as FormGroup;
+  Skills = {} as FormArray;
+  Experience = {} as FormArray;
+  Education = {} as FormArray;
 
   buildForm(): void {
     this.resume = this.fb.group({
@@ -90,7 +90,7 @@ export class ReactiveFormComponent implements OnInit {
 
   deleteEducation(index:number){
     if(this.Education.length !=1){
-      this.Education = this.resume.get('Skills') as FormArray;
+      this.Education = this.resume.get('Education') as FormArray;
       this.Education.removeAt(index)
     }
     console.log(this.Education.length)
