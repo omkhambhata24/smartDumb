@@ -12,6 +12,7 @@ import { CoreModule } from './core/sidebar/core.module';
 import { HeaderComponent } from './core/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     ParentComponent,
     ChildComponent,
     HeaderComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
