@@ -9,3 +9,7 @@
 .w-1 {
     width: 12%;
 }
+
+.align-items-center {
+    align-items: center;
+}
