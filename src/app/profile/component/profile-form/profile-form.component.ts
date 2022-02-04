@@ -15,7 +15,7 @@ export class ProfileFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildProfileForm();
-    console.log(this.profileForm);
+    console.log(this.formControl);
   }
 
 
@@ -24,22 +24,24 @@ export class ProfileFormComponent implements OnInit {
 
       firstName: ['',Validators.required],
       lastName: ['',Validators.required],
-      Email: ['',Validators.email],
-      phone:['',[Validators.pattern(/^\(\d{3}\)\s\d{3}-\d{4}$/),Validators.required]],
+      email: ['',[Validators.email]],
+      phone:['',[Validators.pattern(/\([0-9]{3}\)-\([0-9]{3}\)-[0-9]{4}$/),Validators.required]],
       department: [,],
       gender: [true,Validators.required],
-      datepicker: ['', Validators.required],
+      employment: ['', Validators.required],
       
     });
   }
-
+// \([0-9]{3}\)-\([0-9]{3}\)-[0-9]{4}
   saveProfile() {
-    const productToSave = this.profileForm.value;
+    const profileToSave = this.profileForm.value;
     if (this.profileForm.valid) {
-      /*this.createdProfile.emit(productToSave);
+      /*this.createdProfile.emit(profileToSave);
       this.resetForm();*/
     }
     else{
+    console.log(this.formControl);
+
       console.log("solve Errors")
     }
   }

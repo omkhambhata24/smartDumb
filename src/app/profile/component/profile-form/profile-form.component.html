@@ -1,11 +1,12 @@
-
-<form *ngIf="profileForm" [formGroup]= "profileForm" (ngSubmit)="saveProfile()" class="d-flex justify-content-center align-items-center">
+<form *ngIf="profileForm" [formGroup]="profileForm" (ngSubmit)="saveProfile()"
+    class="d-flex justify-content-center align-items-center">
     <div class="mb-3 d-flex w-25">
         <label for="firstName" class="form-label">First Name:</label>
         <div>
             <input type="text" formControlName="firstName" class="form-control" id="firstName"
-            placeholder="Enter First Name">
-            <div *ngIf="formControl['firstName'].touched && formControl['firstName'].errors?.['required']" class="form-text text-danger">This Field is Required.</div>
+                placeholder="Enter First Name">
+            <div *ngIf="formControl['firstName']?.touched && formControl['firstName'].errors?.['required']"
+                class="form-text text-danger">This Field is Required.</div>
         </div>
     </div>
 
@@ -13,40 +14,51 @@
         <label for="lastName" class="form-label ">Last Name:</label>
         <div>
             <input type="text" formControlName="lastName" class="form-control" id="lastName"
-            placeholder="Enter Last Name">
-            <div *ngIf="formControl['lastName'].touched && formControl['lastName'].errors?.['required']" class="form-text text-danger">This Field is Required.</div>
+                placeholder="Enter Last Name">
+            <div *ngIf="formControl['lastName']?.touched && formControl['lastName'].errors?.['required']"
+                class="form-text text-danger">This Field is Required.</div>
         </div>
     </div>
 
     <div class="mb-3 d-flex w-25">
         <label for="Email" class="form-label">Email Id:</label>
         <div>
-            <input type="email" formControlName="email" class="form-control" id="Email"
-            placeholder="someone@something.com">
-            <div *ngIf="formControl['Email'].touched && formControl['Email'].errors?.['email']" class="form-text text-danger">Invalid format.</div>
+            <input type="text" formControlName="email" class="form-control" id="Email"
+                placeholder="someone@something.com">
+            <div *ngIf="formControl['Email']?.touched && formControl['Email'].errors?.['email']"
+                class="form-text text-danger">Invalid format.</div>
         </div>
     </div>
 
+    <div class="mb-3 d-flex w-25">
+        <label for="employment" class="form-label">Date of Employment:</label>
+        <div>
+            <input type="date" formControlName="employment" class="form-control" id="employment"
+                placeholder="DD-MM-YYYY">
+        </div>
+    </div>
 
     <div class="mb-3 d-flex w-25">
         <label for="phone" class="form-label ">Phone No:</label>
         <div>
-            <input type="number" formControlName="price" class="form-control" id="price" placeholder="Phone Number">
-            <div *ngIf="formControl['phone'].touched && formControl['phone'].errors?.['required']" class="form-text  text-danger">This Field is Required.</div>
-            <div *ngIf="formControl['phone'].touched && formControl['phone'].errors?.['pattern']" class="form-text  text-danger">Phone no. should be 10 digits.</div>
-            
+            <input type="text" formControlName="phone" class="form-control" id="phone" placeholder="(XXX)-(XXX)-XXXX">
+            <div *ngIf="formControl['phone']?.touched && formControl['phone'].errors?.['required']"
+                class="form-text  text-danger">This Field is Required.</div>
+            <div *ngIf="formControl['phone']?.touched && formControl['phone'].errors?.['pattern']"
+                class="form-text  text-danger">Phone no. should be 10 digits.</div>
+
         </div>
     </div>
     <div class="mb-3 d-flex w-25">
-        <label for="department" class="form-label">Category:</label>
+        <label for="department" class="form-label">Department:</label>
         <div>
             <select class="form-select" formControlName="department">
-                <option [value]="0" disabled>Open this select menu</option>
-               
+                <option [value]="0">Selct Department</option>
+
             </select>
         </div>
     </div>
-    
+
     <div class="mb-3 d-flex w-25">
         <label for="gender" class="form-label w-25 me-3">Gender :</label>
         <div class="form-check me-2">
@@ -62,11 +74,11 @@
             </label>
         </div>
     </div>
-    
+
     <div class="d-flex">
         <div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <button type="button" class="btn btn-light">Reset</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-danger">Reset</button>
         </div>
     </div>
 </form>
