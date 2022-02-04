@@ -1,5 +1,8 @@
-<div class="input-group                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         w-25">
-  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+
+<div
+  class="input-group                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         w-25">
+  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+    aria-describedby="search-addon" />
   <button type="button" class="btn btn-outline-primary">search</button>
 
   <button type="button" class="btn btn-success w-1">Add</button>
@@ -7,12 +10,31 @@
 
 
 <table class="w-100">
-  <tr>
-    <td>Name</td>
-    <td>E-mail Id</td>
-    <td>Date of Employment</td>
-    <td>Phone No.</td>
-    <td>Department</td>
-    <td>Gender</td>
-  </tr>
+
+  <thead>
+    <tr>
+      <th scope="col">Sr.No.</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email-id</th>
+      <th scope="col">Date of Employment</th>
+      <th scope="col">Department</th>
+      <th scope="col">Phone No.</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let profile of profileList; let i=index">
+      <th scope="row">{{i+1}}.</th>
+      <td>{{profile.firstName + profile.lastName}}</td>
+      <td>{{profile.email}}</td>
+      <td>{{profile.employment}}</td>
+      <td>{{profile.department}}</td>
+      <td>{{profile.phone}}</td>
+      <td>
+        <i class="fas fa-edit me-2" (click)="editProfile(profile)"></i>
+        <!--<i class="fas fa-trash-alt" (click)="deleteProfile(profile.id)"></i> -->
+      </td>
+    </tr>
+  </tbody>
+
 </table>

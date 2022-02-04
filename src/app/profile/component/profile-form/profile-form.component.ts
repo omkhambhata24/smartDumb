@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Department, Profile } from '../../models/profile.model';
+import { ProfileService } from '../../services/profile.service';
 
 @Component({
   selector: 'app-profile-form',
@@ -10,8 +12,11 @@ export class ProfileFormComponent implements OnInit {
 
   profileForm={} as FormGroup;
 
+  @Input() department={} as Department[];
 
-  constructor(private formBuilder: FormBuilder) { }
+  @Output() createdProduct: EventEmitter<Profile> = new EventEmitter<Profile>();
+
+  constructor(private formBuilder: FormBuilder, private ProfileService:ProfileService) { }
 
   ngOnInit(): void {
     this.buildProfileForm();
@@ -45,6 +50,15 @@ export class ProfileFormComponent implements OnInit {
       console.log("solve Errors")
     }
   }
+
+  /*getProfileToEdit(){
+    this.ProfileService.getProfileToEdit().subscribe((product:Profile)=>{
+      debugger
+      this.profileForm.patchValue(profile);
+    },(error)=>{
+      alert("Something went wrong");
+    })
+  }*/
 
   get formControl(){
     return this.profileForm.controls;

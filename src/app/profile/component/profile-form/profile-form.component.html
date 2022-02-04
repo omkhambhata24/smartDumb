@@ -1,3 +1,5 @@
+
+
 <form *ngIf="profileForm" [formGroup]="profileForm" (ngSubmit)="saveProfile()"
     class="d-flex justify-content-center align-items-center">
     <div class="mb-3 d-flex w-25">
@@ -53,8 +55,8 @@
         <label for="department" class="form-label">Department:</label>
         <div>
             <select class="form-select" formControlName="department">
-                <option [value]="0">Selct Department</option>
-
+                <option [value]="0">Select Department</option>
+                <option *ngFor="let department of department" [value]="department.id"> {{department.name}}</option>
             </select>
         </div>
     </div>
