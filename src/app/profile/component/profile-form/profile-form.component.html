@@ -56,7 +56,7 @@
         <div>
             <select class="form-select" formControlName="department">
                 <option [value]="0">Select Department</option>
-                <option *ngFor="let department of department" [value]="department.id"> {{department.name}}</option>
+                <option *ngFor="let department of this.departmentlist" [value]="department.id"> {{department.name}}</option>
             </select>
         </div>
     </div>
@@ -80,7 +80,7 @@
     <div class="d-flex">
         <div>
             <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="button" class="btn btn-danger">Reset</button>
+            <button type="button" class="btn btn-danger" >Reset</button>
         </div>
     </div>
 </form>

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Profile } from '../models/profile.model';
+import { Department, Profile } from '../models/profile.model';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({
@@ -26,11 +26,19 @@ export class ProfileService {
      return this.http.get<Profile>(`${this.apiCall}/profile/`);
    }
 
-   getDepartment(profile: Profile): Observable<Profile> {
-     return this.http.get<Profile>(`${this.apiCall}/profile/`)
+   getDeptList(): Observable<Department[]> {
+    return this.http.get<Department[]>(`${this.apiCall}/departmentlist`);
    }
 
    sendProfiletoEdit(profile: Profile) {
      this.profileToEdit.next(profile)
    }
+
+   getProfileToEdit():Observable<Profile>{
+    return this.profileToEdit.asObservable();
+  }
+
+  deleteProfile(id:number):Observable<number>{
+    return this.http.delete<number>(`${this.apiCall}/profile/${id}`);
+  }
 }

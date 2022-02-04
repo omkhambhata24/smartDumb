@@ -12,15 +12,17 @@ export class ProfileFormComponent implements OnInit {
 
   profileForm={} as FormGroup;
 
-  @Input() department={} as Department[];
+  departmentlist?: Department[];
 
-  @Output() createdProduct: EventEmitter<Profile> = new EventEmitter<Profile>();
+  @Output() createdProfile: EventEmitter<Profile> = new EventEmitter<Profile>();
 
-  constructor(private formBuilder: FormBuilder, private ProfileService:ProfileService) { }
+  constructor(private formBuilder: FormBuilder, private profileService:ProfileService) { }
 
   ngOnInit(): void {
     this.buildProfileForm();
-    console.log(this.formControl);
+    console.log(this.profileForm);
+    this.getProfileToEdit();
+    this.getDepatmentList();
   }
 
 
@@ -37,12 +39,12 @@ export class ProfileFormComponent implements OnInit {
       
     });
   }
-// \([0-9]{3}\)-\([0-9]{3}\)-[0-9]{4}
+
   saveProfile() {
     const profileToSave = this.profileForm.value;
     if (this.profileForm.valid) {
-      /*this.createdProfile.emit(profileToSave);
-      this.resetForm();*/
+      this.createdProfile.emit(profileToSave);
+      this.clearForm();
     }
     else{
     console.log(this.formControl);
@@ -51,17 +53,28 @@ export class ProfileFormComponent implements OnInit {
     }
   }
 
-  /*getProfileToEdit(){
-    this.ProfileService.getProfileToEdit().subscribe((product:Profile)=>{
+  getProfileToEdit(){
+    this.profileService.getProfileToEdit().subscribe((profile:Profile)=>{
       debugger
       this.profileForm.patchValue(profile);
     },(error)=>{
       alert("Something went wrong");
     })
-  }*/
+  }
 
   get formControl(){
     return this.profileForm.controls;
   }
+
+  getDepatmentList() {
+    this.profileService.getDeptList().subscribe((data) => {
+      this.departmentlist = data;
+    });
+  }
+
+  clearForm(){
+    this.profileForm.reset();
+  }
+
 
 }
