@@ -22,6 +22,10 @@ export class ProfileService {
     return this.http.post<Profile>(`${this.apiCall}/profile/`, profile);
    }
 
+   updateProfile(profile: Profile): Observable<Profile> {
+     return this.http.put<Profile>(`${this.apiCall}/${profile.id}`, profile );
+   }
+
    getProfileList(profile: Profile): Observable<Profile> {
      return this.http.get<Profile>(`${this.apiCall}/profile/`);
    }

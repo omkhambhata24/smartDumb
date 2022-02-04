@@ -1,11 +1,12 @@
 export interface Profile {
+    id: number;
     firstName: string;
-      lastName: string;
-      email: string;
-      phone: string;
-      department: number;
-      gender: boolean;
-      employment: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    department: number;
+    gender: boolean;
+    employment: string;
       
 }
 
