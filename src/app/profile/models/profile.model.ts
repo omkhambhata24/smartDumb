@@ -1,4 +1,4 @@
-export interface Profile {
+export class Profile {
     id: number;
     firstName: string;
     lastName: string;
@@ -7,11 +7,10 @@ export interface Profile {
     department: number;
     gender: boolean;
     employment: string;
-      
 }
 
 
-export interface Department{
-    id: number,
-    name: string
+export class Department{
+    id: number;
+    name: string;
 }

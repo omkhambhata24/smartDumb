@@ -20,6 +20,7 @@ export class ProfileListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   editProfile(profileToEdit: Profile) {
     this.profileService.sendProfiletoEdit(profileToEdit);
   }

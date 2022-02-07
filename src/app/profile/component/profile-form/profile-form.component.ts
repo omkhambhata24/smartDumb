@@ -18,16 +18,13 @@ export class ProfileFormComponent implements OnInit {
 
   departmentlist?: Department[];
 
-  @Output() createdProfile: EventEmitter<Profile> = new EventEmitter<Profile>();
 
   constructor(private formBuilder: FormBuilder, private profileService:ProfileService) { }
 
   ngOnInit(): void {
     this.buildProfileForm();
     console.log(this.profileForm);
-    this.getProfileToEdit();
     this.getDepatmentList();
-    /*this.getProfileList();*/
   }
 
 
@@ -45,31 +42,11 @@ export class ProfileFormComponent implements OnInit {
     });
   }
 
-  saveProfile() {
-    const profileToSave = this.profileForm.value;
-    if (this.profileForm.valid) {
-      this.createdProfile.emit(profileToSave);
-      this.clearForm();
-    }
-    else{
-    console.log(this.formControl);
 
-      console.log("solve Errors")
-    }
-  }
+  saveProfile(){
 
+    
 
-  getProfileToEdit(){
-    this.profileService.getProfileToEdit().subscribe((profile:Profile)=>{
-      debugger
-      this.profileForm.patchValue(profile);
-    },(error)=>{
-      alert("Something went wrong");
-    })
-  }
-
-  get formControl(){
-    return this.profileForm.controls;
   }
 
   getDepatmentList() {
@@ -81,42 +58,5 @@ export class ProfileFormComponent implements OnInit {
   clearForm(){
     this.profileForm.reset();
   }
-
-  createProfile(profile:Profile){
-    this.profileService.saveProfile(profile).subscribe((savedProfile) => {
-      this.isProfileSaveSuccess = true;
-      this.hideMessage();
-     /* this.getProfileList();*/
-    },
-    (error=>{
-      alert("Somethings Went Wrong")
-    }));
-  }
-
-  updateProfile(profile:Profile){
-    this.profileService.updateProfile(profile).subscribe((savedProfile) => {
-      this.isProfileSaveSuccess = true;
-      this.hideMessage();
-     /* this.getProfileList();*/
-    },
-    (error=>{
-      alert("Somethings Went Wrong")
-    }));
-  }
-
-  deleteProfile(id:number){
-    debugger
-    this.profileService.deleteProfile(id).subscribe((deletedProductId:number)=>{
-      console.log("Product Deleted successfully");
-      /*this.getProfileList();*/
-    })
-  }
-
-  hideMessage(){
-    setTimeout(() => {
-      this.isProfileSaveSuccess = false;
-    }, 1000)
-  }
-
 
 }

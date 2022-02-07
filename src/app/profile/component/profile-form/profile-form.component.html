@@ -7,7 +7,7 @@
         <div>
             <input type="text" formControlName="firstName" class="form-control" id="firstName"
                 placeholder="Enter First Name">
-            <div *ngIf="formControl['firstName']?.touched && formControl['firstName'].errors?.['required']"
+            <div *ngIf="profileForm.controls['firstName']?.touched && profileForm.controls['firstName'].errors?.['required']"
                 class="form-text text-danger">This Field is Required.</div>
         </div>
     </div>
@@ -17,7 +17,7 @@
         <div>
             <input type="text" formControlName="lastName" class="form-control" id="lastName"
                 placeholder="Enter Last Name">
-            <div *ngIf="formControl['lastName']?.touched && formControl['lastName'].errors?.['required']"
+            <div *ngIf="profileForm.controls['lastName']?.touched && profileForm.controls['lastName'].errors?.['required']"
                 class="form-text text-danger">This Field is Required.</div>
         </div>
     </div>
@@ -27,7 +27,7 @@
         <div>
             <input type="text" formControlName="email" class="form-control" id="Email"
                 placeholder="someone@something.com">
-            <div *ngIf="formControl['Email']?.touched && formControl['Email'].errors?.['email']"
+            <div *ngIf="profileForm.controls['Email']?.touched && profileForm.controls['Email'].errors?.['email']"
                 class="form-text text-danger">Invalid format.</div>
         </div>
     </div>
@@ -44,9 +44,9 @@
         <label for="phone" class="form-label ">Phone No:</label>
         <div>
             <input type="text" formControlName="phone" class="form-control" id="phone" placeholder="(XXX)-(XXX)-XXXX">
-            <div *ngIf="formControl['phone']?.touched && formControl['phone'].errors?.['required']"
+            <div *ngIf="profileForm.controls['phone']?.touched && profileForm.controls['phone'].errors?.['required']"
                 class="form-text  text-danger">This Field is Required.</div>
-            <div *ngIf="formControl['phone']?.touched && formControl['phone'].errors?.['pattern']"
+            <div *ngIf="profileForm.controls['phone']?.touched && profileForm.controls['phone'].errors?.['pattern']"
                 class="form-text  text-danger">Phone no. should be 10 digits.</div>
 
         </div>

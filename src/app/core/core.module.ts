@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { SidebarComponent } from "./sidebar.component";
-import { CoreRoutingModule } from "./core-routing.module";
+import { SidebarComponent } from "./sidebar/sidebar.component";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
     declarations: [
@@ -10,7 +10,7 @@ import { CoreRoutingModule } from "./core-routing.module";
 
     imports: [
         CommonModule,
-        CoreRoutingModule,
+        RouterModule
     ],
 
     exports: [
