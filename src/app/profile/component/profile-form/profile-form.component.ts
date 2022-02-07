@@ -27,7 +27,7 @@ export class ProfileFormComponent implements OnInit {
     console.log(this.profileForm);
     this.getProfileToEdit();
     this.getDepatmentList();
-   /* this.getProfileList();*/
+    /*this.getProfileList();*/
   }
 
 
@@ -58,14 +58,6 @@ export class ProfileFormComponent implements OnInit {
     }
   }
 
-  /*saveProfile(profile: Profile) {
-    debugger
-    if(profile.id){
-      this.updateProfile(profile)
-    }else{
-      this.createProfile(profile)
-    }
-  }*/
 
   getProfileToEdit(){
     this.profileService.getProfileToEdit().subscribe((profile:Profile)=>{
@@ -94,7 +86,7 @@ export class ProfileFormComponent implements OnInit {
     this.profileService.saveProfile(profile).subscribe((savedProfile) => {
       this.isProfileSaveSuccess = true;
       this.hideMessage();
-      /*this.getProfileList();*/
+     /* this.getProfileList();*/
     },
     (error=>{
       alert("Somethings Went Wrong")

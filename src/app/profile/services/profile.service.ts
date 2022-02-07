@@ -17,9 +17,8 @@ export class ProfileService {
      this.apiCall = environment.baseURL;
    }
 
-
    saveProfile(profile: Profile): Observable<Profile> {
-    return this.http.post<Profile>(`${this.apiCall}/profile/`, profile);
+     return this.http.post<Profile>(`${this.apiCall}/profile/`, profile);
    }
 
    updateProfile(profile: Profile): Observable<Profile> {
