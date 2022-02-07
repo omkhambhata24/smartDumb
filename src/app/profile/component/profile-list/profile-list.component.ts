@@ -9,24 +9,32 @@ import { ProfileService } from '../../services/profile.service';
 })
 export class ProfileListComponent implements OnInit {
 
-  @Input() profileList= {} as Profile[];
-
-  @Output() profileToEdit: EventEmitter<Profile> = new EventEmitter<Profile>();
-  @Output() profileToDelete: EventEmitter<number> = new EventEmitter<number>();
+  ProfileList= {} as Profile[];
 
 
   constructor(private profileService: ProfileService) { }
 
   ngOnInit(): void {
+    this.getProfileList();
   }
 
+  getProfileList() {
+    this.profileService.getProfileList().subscribe((data) => {
+      this.ProfileList = data;
+    }, errors => {
+      alert("Something went wrong!! - emp" + errors);
+    });
+  }
+ 
+  editProfile(){
 
-  editProfile(profileToEdit: Profile) {
-    this.profileService.sendProfiletoEdit(profileToEdit);
   }
 
-  deleteProfile(id:number){
-    this.profileToDelete.emit(id);
+  deleteProfile(){
+
   }
 
+  profileTrack(index: number, profile: Profile ) {
+    return profile.id;
+  }
 }

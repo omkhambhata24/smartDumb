@@ -10,7 +10,7 @@ const routes: Routes = [
     path: '', component: ProfileComponent,
     children: [
       {
-        path: '', component: ProfileListComponent
+        path: '', redirectTo: 'profile', pathMatch: 'full'
       },
       {
         path: 'profile', component: ProfileListComponent

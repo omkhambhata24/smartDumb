@@ -20,5 +20,27 @@
       "id": 5,
       "name": "Data"
     }
+  ],
+  "profile": [
+    {
+      "firstName": "Om",
+      "lastName": "khambhata",
+      "email": "omkhambhata@gmail.com",
+      "phone": "(972)-(517)-8155",
+      "department": "3",
+      "gender": true,
+      "employment": "2022-02-11",
+      "id": 1
+    },
+    {
+      "firstName": "Carl",
+      "lastName": "Johnson",
+      "email": "carljohnson@gtasa.com",
+      "phone": "(987)-(674)-5749",
+      "department": "3",
+      "gender": true,
+      "employment": "2021-10-22",
+      "id": 2
+    }
   ]
-} 
+}

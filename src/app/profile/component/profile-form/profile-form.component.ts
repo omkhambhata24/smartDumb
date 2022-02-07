@@ -1,7 +1,7 @@
 import { error } from '@angular/compiler/src/util';
 import { Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Department } from '../../models/profile.model';
+import { Department, Profile} from '../../models/profile.model';
 import { ProfileService } from '../../services/profile.service';
 import { Router } from '@angular/router';
 
@@ -12,15 +12,11 @@ import { Router } from '@angular/router';
 })
 export class ProfileFormComponent implements OnInit {
 
-  /*
   isEditMode: boolean = false;
-  currentEmpDataId: number;
-  subscriptions: Observable<Employee>[];
-*/
-  
   isProfileSaveSuccess={} as boolean;
   profileForm={} as FormGroup;
   departmentlist?: Department[];
+  currentProfileId: number;
 
 
   constructor(private formBuilder: FormBuilder, private profileService: ProfileService, private route: Router) { }
@@ -39,7 +35,7 @@ export class ProfileFormComponent implements OnInit {
       lastName: ['',Validators.required],
       email: ['',[Validators.email]],
       phone:['',[Validators.pattern(/\([0-9]{3}\)-\([0-9]{3}\)-[0-9]{4}$/),Validators.required]],
-      department: [0],
+      department: [],
       gender: [true,Validators.required],
       employment: ['', Validators.required],
       
@@ -52,15 +48,25 @@ export class ProfileFormComponent implements OnInit {
     console.log(this.profileForm);
     if (this.profileForm.status === 'VALID') {
       this.saveprofileData();
-      this.route.navigate(['/profile/profile-list']);
+      this.route.navigate(['/Profile']);
     } else {
       alert("INVALID DATA");
     }
 
   }
 
-  saveprofileData(){
-    console.log()
+  saveprofileData() {
+    let prof: Profile;
+    if (this.isEditMode) {
+      prof = {...this.profileForm.value, id:this.currentProfileId};
+      console.log("hello");
+    } else {
+      prof = this.profileForm.value;
+    }
+    console.log(prof);
+    this.profileService.saveProfile(prof).subscribe((data) => {
+      console.log("Profile Data");
+    });
   }
 
   getDepatmentList() {

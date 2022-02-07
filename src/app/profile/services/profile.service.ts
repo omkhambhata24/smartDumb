@@ -20,7 +20,8 @@ export class ProfileService {
 
   saveProfile(profile: Profile): Observable<Profile> {
     console.log(profile);
-    return profile.id ? this.editProf(profile) : this.addProf(profile);
+    /*return profile.id ? this.editProf(profile) : this.addProf(profile);*/
+    return this.http.post<Profile>(`${this.apiCall}/profile/`, profile);
   }
 
   private addProf(profile: Profile): Observable<Profile> {
