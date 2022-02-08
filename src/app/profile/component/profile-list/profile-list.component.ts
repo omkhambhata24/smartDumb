@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 })
 export class ProfileListComponent implements OnInit {
 
-  ProfileList= {} as Profile[];
-
+  ProfileList= [] as Profile[];
+  SearchTerm: string;
 
   constructor(private profileService: ProfileService, private route: Router) { }
 
@@ -23,14 +23,13 @@ export class ProfileListComponent implements OnInit {
     this.profileService.getProfileList().subscribe((data) => {
       this.ProfileList = data;
     }, errors => {
-      alert("Something went wrong!! - emp" + errors);
+      alert("!Something went wrong!" + errors);
     });
   }
  
-  editProfile(profile: Profile): void{
-    this.profileService.sendProfiletoEdit(Profile);
-    this.route.navigate([`/profile/edit/${Profile.id}`]);
-
+  editProfile(profile: Profile) {
+    this.profileService.sendProfiletoEdit(profile);
+    this.route.navigate([`/Profile/edit/${profile.id}`]);
   }
 
   deleteProfile(id : number){

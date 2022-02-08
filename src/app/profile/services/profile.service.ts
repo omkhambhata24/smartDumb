@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Department, Profile} from '../models/profile.model';
-import { Observable, Subject } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 
 @Injectable({
@@ -10,7 +10,16 @@ import { Observable, Subject } from 'rxjs';
 })
 export class ProfileService {
 
-  profileToEdit: Subject<Profile> = new Subject<Profile>();
+  profileToEdit: BehaviorSubject<Profile> = new BehaviorSubject<Profile>({
+    "firstName": "",
+    "lastName": "",
+    "email": "",
+    "phone": "",
+    "department": 0,
+    "gender": "",
+    "employment": "",
+    "id": 0,
+  });
 
   apiCall = {} as string;
 
@@ -20,8 +29,7 @@ export class ProfileService {
 
   saveProfile(profile: Profile): Observable<Profile> {
     console.log(profile);
-    /*return profile.id ? this.editProf(profile) : this.addProf(profile);*/
-    return this.http.post<Profile>(`${this.apiCall}/profile/`, profile);
+    return profile.id ? this.editProf(profile) : this.addProf(profile);
   }
 
   private addProf(profile: Profile): Observable<Profile> {
@@ -33,9 +41,9 @@ export class ProfileService {
     return this.http.put<Profile>(`${this.apiCall}/profile/${profile.id}`,profile);
   }
 
-  updateProfile(profile: Profile): Observable<Profile> {
+  /*updateProfile(profile: Profile): Observable<Profile> {
     return this.http.put<Profile>(`${this.apiCall}/${profile.id}`, profile);
-  }
+  }*/
 
   getProfileList(): Observable<Profile[]> {
     return this.http.get<Profile[]>(`${this.apiCall}/profile`);
@@ -53,8 +61,8 @@ export class ProfileService {
     this.profileToEdit.next(profile)
   }
 
-  getProfileToEdit(): Observable<Profile> {
-    return this.profileToEdit.asObservable();
+  getProfileToEdit(): BehaviorSubject<Profile> {
+    return this.profileToEdit;
   }
 
   deleteProfile(id: number): Observable<number> {

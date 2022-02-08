@@ -1,12 +1,6 @@
 <h1 class="text-align-center">Resume Builder</h1>
 <form  [formGroup]="resume" (ngSubmit)="saveDetails()">
 
-    touched:{{resume.controls['name'].touched | json}}<br>
-    untouched:{{resume.controls['name'].untouched | json}}<br>
-    invalid:{{resume.controls['name'].invalid | json}}<br>
-    dirty:{{resume.controls['name'].dirty | json}}<br>
-    pristine:{{resume.controls['name'].pristine | json}}<br>
-    
     <div class="text-align-center pad1r">
         Name: <input type="text" formControlName="Name" placeholder="Enter Name">
         <small class="error" *ngIf="resume.controls['name'].touched && resume.controls['name'].errors?.['required']">

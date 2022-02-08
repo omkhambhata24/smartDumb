@@ -28,19 +28,29 @@
       "email": "omkhambhata@gmail.com",
       "phone": "(972)-(517)-8155",
       "department": "3",
-      "gender": true,
+      "gender": "male",
       "employment": "2022-02-11",
       "id": 1
     },
     {
-      "firstName": "Carl",
-      "lastName": "Johnson",
-      "email": "carljohnson@gtasa.com",
+      "firstName": "Hrishikesh",
+      "lastName": "Patel",
+      "email": "Hrishikesh.p@gmail.com",
       "phone": "(987)-(674)-5749",
       "department": "3",
-      "gender": true,
-      "employment": "2021-10-22",
+      "gender": "male",
+      "employment": "2022-02-01",
       "id": 2
+    },
+    {
+      "firstName": "sid",
+      "lastName": "afvd",
+      "email": "sdfvfvbfbg@gmail.com",
+      "phone": "(987)-(674)-5749",
+      "department": "1",
+      "gender": "female",
+      "employment": "2022-02-01",
+      "id": 4
     }
   ]
 }

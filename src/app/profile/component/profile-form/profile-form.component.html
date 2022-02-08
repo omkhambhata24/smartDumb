@@ -8,7 +8,7 @@
             <input type="text" formControlName="firstName" class="form-control" id="firstName"
                 placeholder="Enter First Name">
             <div *ngIf="profileForm.controls['firstName']?.touched && profileForm.controls['firstName'].errors?.['required']"
-                class="form-text text-danger">This Field is Required.</div>
+                class="form-text text-danger">This field is required.</div>
         </div>
     </div>
 
@@ -18,7 +18,7 @@
             <input type="text" formControlName="lastName" class="form-control" id="lastName"
                 placeholder="Enter Last Name">
             <div *ngIf="profileForm.controls['lastName']?.touched && profileForm.controls['lastName'].errors?.['required']"
-                class="form-text text-danger">This Field is Required.</div>
+                class="form-text text-danger">This field is required.</div>
         </div>
     </div>
 
@@ -45,9 +45,9 @@
         <div>
             <input type="text" formControlName="phone" class="form-control" id="phone" placeholder="(XXX)-(XXX)-XXXX">
             <div *ngIf="profileForm.controls['phone']?.touched && profileForm.controls['phone'].errors?.['required']"
-                class="form-text  text-danger">This Field is Required.</div>
+                class="form-text  text-danger">This field is required.</div>
             <div *ngIf="profileForm.controls['phone']?.touched && profileForm.controls['phone'].errors?.['pattern']"
-                class="form-text  text-danger">Phone no. should be 10 digits.</div>
+                class="form-text  text-danger">phone no. should be 10 digits.</div>
 
         </div>
     </div>
@@ -64,13 +64,13 @@
     <div class="mb-3 d-flex w-25">
         <label for="gender" class="form-label w-25 me-3">Gender :</label>
         <div class="form-check me-2">
-            <input formControlName="gender" [value]="true" class="form-check-input" type="radio" id="1">
+            <input formControlName="gender" value="male" class="form-check-input" type="radio" id="1">
             <label class="form-check-label" for="male">
                 Male
             </label>
         </div>
         <div class="form-check">
-            <input formControlName="gender" [value]="false" class="form-check-input" type="radio" id="2">
+            <input formControlName="gender" value="female" class="form-check-input" type="radio" id="2" >
             <label class="form-check-label" for="female">
                 Female
             </label>
@@ -79,8 +79,11 @@
 
     <div class="d-flex">
         <div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="button" class="btn btn-danger" (click)="clearForm()">Reset</button>
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+            <button type="button" class="btn btn-outline-danger" (click)="clearForm()">Reset</button>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-outline-success" routerLink="/profile">View Profile List</button>
         </div>
     </div>
 </form>

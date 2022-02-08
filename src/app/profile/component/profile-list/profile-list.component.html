@@ -1,40 +1,43 @@
 <div
-  class="input-group                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         w-25">
+  class="padding input-group                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         w-25">
   <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-    aria-describedby="search-addon" />
-  <button type="button" class="btn btn-outline-primary ">search</button>
+    aria-describedby="search-addon"/> 
+  <button type="button" class="btn btn-outline-primary">search</button>
 
-  <button type="button" class="btn btn-success w-1" routerLink="/ProfileForm">Add</button>
+  <button type="button" class="btn btn-outline-success w-1" routerLink="/Profile/add">Add</button>
 </div>
 
 
-<table class="w-100">
+<table class="w-100 margin">
 
   <thead>
-    <tr>
+    <tr class="text-align-center">
       <th scope="col">Sr.No.</th>
       <th scope="col">Name</th>
       <th scope="col">Email-id</th>
       <th scope="col">Date of Employment</th>
       <th scope="col">Department</th>
       <th scope="col">Phone No.</th>
+      <th scope="col">Gender</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let profile of ProfileList; let i=index,trackBy:profileTrack">
+    <tr *ngFor="let profile of ProfileList; let i=index; trackBy:profileTrack" class="text-align-center">
       <th scope="row">{{i+1}}.</th>
       <td>{{profile.firstName + ' ' + profile.lastName}}</td>
       <td>{{profile.email}}</td>
       <td>{{profile.employment}}</td>
       <td>{{profile.department}}</td>
       <td>{{profile.phone}}</td>
+      <td>{{profile.gender}}</td>
       <td>
-        <button class="btn btn-success btn-sm" (click)="editProfile()">Edit</button>
-        <button class="btn btn-danger btn-sm" (click)="deleteProfile()">Delete</button>
+        <button class="btn btn-outline-success btn-sm" (click)="editProfile(profile)">Edit</button>
+        <button class="btn btn-outline-danger btn-sm" (click)="deleteProfile(profile.id)">Delete</button>
       </td>
     </tr>
   </tbody>
 
 </table>
 
+<!--| ProfileFilter:SearchTerm-->

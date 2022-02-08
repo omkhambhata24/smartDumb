@@ -11,7 +11,6 @@ import { CoreModule } from './core/core.module';
 import { HeaderComponent } from './core/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
-import { ProfileComponent } from './profile/profile.component';
 import { ProfileModule } from './profile/profile.module';
 
 
@@ -22,7 +21,7 @@ import { ProfileModule } from './profile/profile.module';
     ChildComponent,
     HeaderComponent,
     ReactiveFormComponent,
-    ProfileComponent
+    
   ],
   imports: [
     BrowserModule,

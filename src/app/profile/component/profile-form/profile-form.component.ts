@@ -3,7 +3,7 @@ import { Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Department, Profile} from '../../models/profile.model';
 import { ProfileService } from '../../services/profile.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-form',
@@ -13,18 +13,23 @@ import { Router } from '@angular/router';
 export class ProfileFormComponent implements OnInit {
 
   isEditMode: boolean = false;
-  isProfileSaveSuccess={} as boolean;
   profileForm={} as FormGroup;
   departmentlist?: Department[];
   currentProfileId: number;
 
 
-  constructor(private formBuilder: FormBuilder, private profileService: ProfileService, private route: Router) { }
+  constructor(private formBuilder: FormBuilder, private profileService: ProfileService, private route: Router, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.buildProfileForm();
-    console.log(this.profileForm);
     this.getDepatmentList();
+    if (this.activeRoute.snapshot.params['id']) {
+      this.isEditMode = true;
+      this.profileService.getProfileToEdit().subscribe(data => {
+        this.currentProfileId = data.id;
+        this.profileForm.patchValue(data);
+      });
+    }
   }
 
 
@@ -35,12 +40,13 @@ export class ProfileFormComponent implements OnInit {
       lastName: ['',Validators.required],
       email: ['',[Validators.email]],
       phone:['',[Validators.pattern(/\([0-9]{3}\)-\([0-9]{3}\)-[0-9]{4}$/),Validators.required]],
-      department: [],
-      gender: [true,Validators.required],
+      department: [''],
+      gender: ['',Validators.required],
       employment: ['', Validators.required],
       
     });
   }
+
 
 
   saveProfile(){
@@ -50,7 +56,7 @@ export class ProfileFormComponent implements OnInit {
       this.saveprofileData();
       this.route.navigate(['/Profile']);
     } else {
-      alert("INVALID DATA");
+      console.log("INVALID DATA");
     }
 
   }
@@ -66,6 +72,7 @@ export class ProfileFormComponent implements OnInit {
     console.log(prof);
     this.profileService.saveProfile(prof).subscribe((data) => {
       console.log("Profile Data");
+      this.getDepatmentList();
     });
   }
 

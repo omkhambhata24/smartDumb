@@ -2,22 +2,24 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProfileFormComponent } from './component/profile-form/profile-form.component';
 import { ProfileListComponent } from './component/profile-list/profile-list.component';
-import { ProfileComponent } from './profile.component';
 
 
 const routes: Routes = [
   {
-    path: '', component: ProfileComponent,
+    path: '',
     children: [
       {
         path: '', redirectTo: 'profile', pathMatch: 'full'
       },
       {
-        path: 'profile', component: ProfileListComponent
+        path: 'add', component: ProfileFormComponent
       },
       {
-        path: 'profileForm', component: ProfileFormComponent
-      }
+        path: 'edit/:id', component: ProfileFormComponent
+      },
+      {
+        path: 'profile', component: ProfileListComponent
+      },
     ]
   },
 ];

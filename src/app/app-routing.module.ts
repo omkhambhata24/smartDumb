@@ -16,13 +16,11 @@ const routes: Routes = [
     path: 'form',
     loadChildren: () => import('./reactive-form/reactive-form.module').then(m => m.ReactiveFormModule)
   },
-  { path: 'ProfileForm', component: ProfileFormComponent },
-  { path: 'Profile', component: ProfileListComponent }
-
-  /*{
-   path: 'profile',
+  
+  {
+   path: 'Profile',
    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
- }*/
+ }
 
 ];
 

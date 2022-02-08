@@ -22,3 +22,8 @@
 .main-content{
     flex-grow:1 ;
 }
+
+.bg-colour {
+    background-color: #f9f1f0;
+    /*background-color: #fadcd9;*/
+}

@@ -5,7 +5,7 @@ export class Profile {
     email: string;
     phone: string;
     department: number;
-    gender: boolean;
+    gender: string;
     employment: string;
 }
 
