@@ -43,14 +43,34 @@
       "id": 2
     },
     {
-      "firstName": "sid",
-      "lastName": "afvd",
-      "email": "sdfvfvbfbg@gmail.com",
+      "firstName": "dummy",
+      "lastName": "file",
+      "email": "dummy@yahoo.in",
       "phone": "(987)-(674)-5749",
-      "department": "1",
+      "department": "2",
       "gender": "female",
       "employment": "2022-02-01",
       "id": 4
+    },
+    {
+      "firstName": "Quinton",
+      "lastName": "De Kock",
+      "email": "quinton.1234@gmail.com",
+      "phone": "(158)-(876)-1095",
+      "department": "1",
+      "gender": "male",
+      "employment": "2021-11-26",
+      "id": 5
+    },
+    {
+      "firstName": "dummy",
+      "lastName": "component",
+      "email": "component@outlook.com",
+      "phone": "(164)-(109)-3759",
+      "department": "5",
+      "gender": "female",
+      "employment": "2021-08-05",
+      "id": 6
     }
   ]
 }
