@@ -7,6 +7,8 @@ import { ProfileFormComponent } from './component/profile-form/profile-form.comp
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 /*import { PhoneMaskDirective } from './component/profile-form/phone-mask.directive';*/
 import { ProfileListComponent } from './component/profile-list/profile-list.component';
+import { DeptPipe } from './pipes/dept.pipe';
+import { SearchPipe } from './pipes/search.pipe';
 
 
 
@@ -15,6 +17,8 @@ import { ProfileListComponent } from './component/profile-list/profile-list.comp
   declarations: [
     ProfileFormComponent,
     ProfileListComponent,
+    DeptPipe,
+    SearchPipe,
    /*PhoneMaskDirective */
   ],
   imports: [

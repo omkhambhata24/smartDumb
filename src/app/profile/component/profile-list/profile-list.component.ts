@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Profile } from '../../models/profile.model';
+import { Department, Profile } from '../../models/profile.model';
 import { ProfileService } from '../../services/profile.service';
 import { Router } from '@angular/router';
 
@@ -11,12 +11,19 @@ import { Router } from '@angular/router';
 export class ProfileListComponent implements OnInit {
 
   ProfileList= [] as Profile[];
-  SearchTerm: string;
+  depts: Department[]
 
   constructor(private profileService: ProfileService, private route: Router) { }
 
   ngOnInit(): void {
     this.getProfileList();
+    this.getdepartment();
+  }
+
+  getdepartment() {
+    this.profileService.getDeptList().subscribe((data) => {
+      this.depts = data;
+    });
   }
 
   getProfileList() {
