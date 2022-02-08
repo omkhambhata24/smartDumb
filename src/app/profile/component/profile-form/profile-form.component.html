@@ -79,7 +79,7 @@
 
     <div class="d-flex">
         <div>
-            <button type="submit" class="btn btn-outline-primary">Submit</button>
+            <button [disabled]="profileForm.invalid" type="submit" class="btn btn-outline-primary">Submit</button>
             <button type="button" class="btn btn-outline-danger" (click)="clearForm()">Reset</button>
         </div>
         <div>

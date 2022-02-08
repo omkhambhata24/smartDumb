@@ -51,12 +51,11 @@ export class ProfileFormComponent implements OnInit {
 
   saveProfile(){
 
-    console.log(this.profileForm);
+    console.log(this.profileForm
+      );
     if (this.profileForm.status === 'VALID') {
       this.saveprofileData();
       this.route.navigate(['/Profile']);
-    } else {
-      console.log("INVALID DATA");
     }
 
   }

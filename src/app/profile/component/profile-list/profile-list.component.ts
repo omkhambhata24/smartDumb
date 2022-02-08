@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class ProfileListComponent implements OnInit {
 
   ProfileList= [] as Profile[];
-  depts: Department[]
+  depts: Department[];
+  searchString: string;
 
   constructor(private profileService: ProfileService, private route: Router) { }
 

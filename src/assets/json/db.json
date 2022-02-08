@@ -44,26 +44,6 @@
     },
     {
       "firstName": "dummy",
-      "lastName": "file",
-      "email": "dummy@yahoo.in",
-      "phone": "(987)-(674)-5749",
-      "department": "2",
-      "gender": "female",
-      "employment": "2022-02-01",
-      "id": 4
-    },
-    {
-      "firstName": "Quinton",
-      "lastName": "De Kock",
-      "email": "quinton.1234@gmail.com",
-      "phone": "(158)-(876)-1095",
-      "department": "1",
-      "gender": "male",
-      "employment": "2021-11-26",
-      "id": 5
-    },
-    {
-      "firstName": "dummy",
       "lastName": "component",
       "email": "component@outlook.com",
       "phone": "(164)-(109)-3759",
@@ -71,6 +51,26 @@
       "gender": "female",
       "employment": "2021-08-05",
       "id": 6
+    },
+    {
+      "firstName": "dumb",
+      "lastName": "module",
+      "email": "dumb@abcd.com",
+      "phone": "(123)-(789)-4560",
+      "department": "4",
+      "gender": "female",
+      "employment": "2022-01-11",
+      "id": 7
+    },
+    {
+      "firstName": "Jason",
+      "lastName": "Roy",
+      "email": "omkhambhata@gmail.com",
+      "phone": "(121)-(122)-4567",
+      "department": "2",
+      "gender": "male",
+      "employment": "2022-02-11",
+      "id": 8
     }
   ]
 }
