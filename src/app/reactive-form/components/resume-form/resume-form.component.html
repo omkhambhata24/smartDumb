@@ -1,40 +1,79 @@
-<h1 class="text-align-center">Resume Builder</h1>
-<form  [formGroup]="resume" (ngSubmit)="saveDetails()">
 
-    <div class="text-align-center pad1r">
-        Name: <input type="text" formControlName="Name" placeholder="Enter Name">
-        <small class="error" *ngIf="resume.controls['name'].touched && resume.controls['name'].errors?.['required']">
-            This field is required
-        </small>
+<form *ngIf="resume" [formGroup]="resume" (ngSubmit)="saveDetails()"
+    class="d-flex justify-content-center align-items-center">
+    <div class="mb-3 d-flex w-25">
+        <h1>Resume Builder</h1>
+        <label for="Name" class="form-label"> Name : </label>
+        <div>
+            <input type="text" formControlName="Name" class="form-control" id="Name"
+                placeholder="Enter Name">
+            <div *ngIf="resume.controls['Name']?.touched && resume.controls['Name'].errors?.['required']"
+                class="form-text text-danger">This field is required.</div>
+        </div>
     </div>
 
-    <div class="text-align-center pad1r">
-        Skills: <input type="text" formControlName="Skills" placeholder="Enter new skills">
+    <div class="mb-3 d-flex w-25">
+        <label for="DescriptionKs" class="form-label">Profile :</label>
+        <div>
+            <input type="text" formControlName="Description" class="form-control" id="Description"
+                placeholder="Profile Description">
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex w-25">
+        <label for="Skills" class="form-label ">Tech-Skills :</label>
+        <div class="flex-dis">
+            <input type="text" formControlName="Skills" class="form-control" id="Skills">
+            <button type="button" class="btn btn-outline-primary btn-sm margin-left" (click)="addSkills()">Add</button>    
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex w-25">
+        <label for="Experience" class="form-label ">Experience :</label>
+        <div class="flex-dis">
+            <input type="text" formControlName="Experience" class="form-control" id="Experience">
+            <button type="button" class="btn btn-outline-primary btn-sm margin-left" (click)="addExperience()">Add</button> 
+
+            <div *ngIf="resume.controls['Experience']?.touched && resume.controls['Experience'].errors?.['required']"
+                class="form-text text-danger">This field is required.</div>   
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex w-25">
+        <label for="Education" class="form-label ">Education :</label>
+        <div class="flex-dis">
+            <input type="text" formControlName="Education" class="form-control" id="Education">
+            <button type="button" class="btn btn-outline-primary btn-sm margin-left" (click)="addEducation()">Add</button>    
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex w-25">
+        <label for="Email" class="form-label">Email Id:</label>
+        <div>
+            <input type="text" formControlName="email" class="form-control" id="Email"
+                placeholder="someone@something.com">
+            <div *ngIf="resume.controls['Email']?.touched && resume.controls['Email'].errors?.['email']"
+                class="form-text text-danger">Invalid format.</div>
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex w-25">
+        <label for="phone" class="form-label ">Phone No:</label>
+        <div>
+            <input type="text" formControlName="phone" class="form-control" id="phone" placeholder="XXX-XXX-XXXX">
+            <div *ngIf="resume.controls['phone']?.touched && resume.controls['phone'].errors?.['required']"
+                class="form-text  text-danger">This field is required.</div>
+            <div *ngIf="resume.controls['phone']?.touched && resume.controls['phone'].errors?.['pattern']"
+                class="form-text  text-danger">phone no. should be 10 digits.</div>
+
+        </div>
+    </div>
     
-        <button type="button" class="btn" (click)="addSkills()" style="margin-right: 5px;">Add Skills</button>
-
-    </div>    
-
-    <div class="text-align-center pad1r">
-        Experience: <input formControlName="Experience" placeholder="Experience Details">
+    <div class="d-flex">
+        <div>
+            <button [disabled]="resume.invalid" type="submit" class="btn btn-outline-primary">Submit</button>
+        </div>
     </div>
-
-    <div class="text-align-center pad1r">
-        Education: <input formControlName="Education" placeholder="Education History">
-    </div>
-
-    <div class="text-align-center pad1r">
-        Email: <input formControlName="Email" placeholder="Enter E-mail id">
-    </div>
-
-    <div class="text-align-center pad1r">
-        Mobile: <input formControlName="Mobile" placeholder="Enter Phone Number">
-    </div>
-
-    <div class="text-align-center pad1r">
-        <button class="border">Submit</button>
-    </div>    
-        	   
-
-    
 </form>
+
+

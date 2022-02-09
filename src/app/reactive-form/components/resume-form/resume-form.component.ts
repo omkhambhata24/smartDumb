@@ -17,6 +17,7 @@ export class ResumeFormComponent implements OnInit {
     this.resume = this.fb.group({
 
     Name: ['',[Validators.required, Validators.minLength(4), Validators.maxLength(9)]],
+    Description: [''],
     Skills: this.fb.array([
       this.dynamicField()
     ]),
@@ -29,14 +30,10 @@ export class ResumeFormComponent implements OnInit {
       this.dynamicField()
     ]),
 
-    Email: ['', [Validators.email, Validators.required]],
+    Email: ['', [Validators.email]],
     Mobile: ['', Validators.required],
 
   });
-
-
-
-  
 }
 
   constructor(private fb: FormBuilder) { }
