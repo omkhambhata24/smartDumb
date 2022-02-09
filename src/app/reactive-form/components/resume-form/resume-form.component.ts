@@ -16,24 +16,19 @@ export class ResumeFormComponent implements OnInit {
   buildForm(): void {
     this.resume = this.fb.group({
 
-    Name: ['',[Validators.required, Validators.minLength(4), Validators.maxLength(9)]],
-    Description: [''],
-    Skills: this.fb.array([
-      this.skillsField() 
-    ]),
+      Name: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(9)]],
+      Description: [''],
+      Skills: this.fb.array([]),
+      
+      Experience: this.fb.array([]),
 
-    Experience: this.fb.array([
-      this.experienceField()
-    ]),
-
-    Education: this.fb.array([
-      this.educationField()
-    ]),
-
-    Email: ['', Validators.email],
-    Mobile: ['', Validators.required],
-
-   });
+      Education: this.fb.array([]),
+      
+      Email: ['', Validators.email],
+      Mobile: ['', Validators.required],
+      
+    });
+    
   }
 
   getSkillsArray() {
@@ -41,7 +36,7 @@ export class ResumeFormComponent implements OnInit {
   }
 
   getExperienceArray() {
-    return this.resume.controls['Experiences'] as FormArray;
+    return this.resume.controls['Experience'] as FormArray;
   }
 
   getEducationArray() {
@@ -52,64 +47,85 @@ export class ResumeFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildForm();
+    this.addSkills();
+    this.addExperience();
+    this.addEducation();
+    console.log(this.resume);
   }
 
 
   skillsField(): FormGroup {
     return this.fb.group({
-      Skills: '',
+      Skills: [''],
     })
   }
 
   experienceField(): FormGroup {
     return this.fb.group({
-      Experience: '',
+      Experience: [''],
     })
   }
 
   educationField(): FormGroup {
     return this.fb.group({
-      Education: '',
+      Education: [''],
     })
   }
 
+  getSkillsFormGroup(index: number): FormGroup {
+    return this.getSkillsArray().controls[index] as FormGroup;
+  }
+
   addSkills() {
-    this.Skills = this.resume.get('Skills') as FormArray;
-    this.Skills.push(this.skillsField())
+    this.getSkillsArray().push(
+      this.fb.control('',[])
+    )
   }
 
   addEducation() {
-    this.Education = this.resume.get('Education') as FormArray;
-    this.Education.push(this.educationField())
+    this.getEducationArray().push(
+      this.fb.group({
+        University: ["ABC",[]],
+        GPA: [9.0,[]]
+      })
+    )
   }
 
   addExperience() {
-    this.Experience = this.resume.get('Experience') as FormArray;
-    this.Experience.push(this.experienceField())
+    this.getExperienceArray().push(
+      this.fb.group({
+        Company: ["",[]],
+        JobRole: ["",[]],
+        JobDesc: ["",[]],
+        JoinYear: [2022,[]],
+        LeaveYear: [2022,[]]
+      })
+    )
+    
   }
 
   saveDetails() {
     console.log(this.resume.value)
   }
 
-  deleteSkills(index:number){
-    if(this.Skills.length !=1){
+  deleteSkills(index: number) {
+    if (this.Skills.length != 1) {
       this.Skills = this.resume.get('Skills') as FormArray;
       this.Skills.removeAt(index)
     }
     console.log(this.Skills.length)
   }
 
-  deleteExperience(index:number){
-    if(this.Experience.length !=1){
+  deleteExperience(index: number) {
+    if (this.Experience.length != 1) {
       this.Experience = this.resume.get('Experience') as FormArray;
       this.Experience.removeAt(index)
     }
     console.log(this.Experience.length)
   }
 
-  deleteEducation(index:number){
-    if(this.Education.length !=1){
+  deleteEducation(index: number) {
+    if (this.Education.length != 1) {
       this.Education = this.resume.get('Education') as FormArray;
       this.Education.removeAt(index)
     }

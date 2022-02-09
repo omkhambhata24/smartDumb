@@ -22,8 +22,8 @@
 
     <div class="mb-3 d-flex w-25">
         <label for="Skills" class="form-label ">Tech-Skills :</label>
-        <div *ngFor="let Skills of this.getSkillsArray().controls; let i = index">
-            <div [formGroupName]="i" class="flex-div">
+        <div formArrayName="Skills" *ngFor="let Skills of this.getSkillsArray().controls; let i = index">
+            <div [formGroup]="this.getSkillsFormGroup(i)" class="flex-div">
                 <input type="text" formControlName="Skills" class="form-control" id="Skills" placeholder="Enter Skills">
                 <button class="btn btn-outline-danger" (click)="deleteSkills(i)">
                     delete
@@ -33,12 +33,12 @@
         <button type="button" class="btn btn-outline-primary btn-sm w-25" (click)="addSkills()">Add</button>    
     </div>
 
-    <div class="mb-3 d-flex w-25">
+    <!-- <div class="mb-3 d-flex w-25">
         <label for="Experience" class="form-label ">Experiences :</label>
-        <div *ngFor="let Experience of this.getExperienceArray().controls; let i = index">
-            <div [formGroupName]="i" class="flex-div">
+        <div *ngFor="let Experience of this.getExperienceArray().controls; let j = index">
+            <div [formGroupName]="j" class="flex-div">
                 <input type="text" formControlName="Experience" class="form-control" id="Experience" placeholder="Experience Description">
-                <button class="btn btn-outline-danger" (click)="deleteExperience(i)">
+                <button class="btn btn-outline-danger" (click)="deleteExperience(j)">
                     delete
                 </button>
             </div>
@@ -49,21 +49,21 @@
     
     <div class="mb-3 d-flex w-25">
         <label for="Education" class="form-label ">Education :</label>
-        <div *ngFor="let Education of this.getEducationArray().controls; let i = index">
-            <div [formGroupName]="i" class="flex-div">
+        <div *ngFor="let Education of this.getEducationArray().controls; let k = index">
+            <div [formGroupName]="k" class="flex-div">
                 <input type="text" formControlName="Education" class="form-control" id="Education" placeholder="Education history">
-                <button class="btn btn-outline-danger" (click)="deleteEducation(i)">
+                <button class="btn btn-outline-danger" (click)="deleteEducation(k)">
                     delete
                 </button>
             </div>
         </div>
         <button type="button" class="btn btn-outline-primary btn-sm w-25" (click)="addEducation()">Add</button>    
-    </div>
+    </div> -->
 
     <div class="mb-3 d-flex w-25">
         <label for="Email" class="form-label">Email Id:</label>
         <div>
-            <input type="text" formControlName="email" class="form-control" id="Email"
+            <input type="text" formControlName="Email" class="form-control" id="Email"
                 placeholder="someone@something.com">
             <div *ngIf="resume.controls['Email']?.touched && resume.controls['Email'].errors?.['email']"
                 class="form-text text-danger">Invalid format.</div>
@@ -82,7 +82,7 @@
     
     <div class="d-flex">
         <div>
-            <button [disabled]="resume.invalid" type="submit" class="btn btn-outline-primary">Submit</button>
+            <button [disabled]="resume.invalid" type="submit" class="btn btn-outline-success">Submit</button>
         </div>
     </div>
 </form>
