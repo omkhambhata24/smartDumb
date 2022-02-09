@@ -22,10 +22,10 @@
 
     <div class="mb-3 d-flex w-25">
         <label for="Skills" class="form-label ">Tech-Skills :</label>
-        <div formArrayName="Skills" *ngFor="let Skills of this.getSkillsArray().controls; let i = index">
-            <div [formGroup]="this.getSkillsFormGroup(i)" class="flex-div">
-                <input type="text" formControlName="Skills" class="form-control" id="Skills" placeholder="Enter Skills">
-                <button class="btn btn-outline-danger" (click)="deleteSkills(i)">
+        <div formArrayName="Skills" *ngFor="let Skills of this.getFormGroupArray('Skills').controls; let i = index">
+            <div class="flex-div">
+                <input type="text" [formControlName]="i" class="form-control" id="Skills" placeholder="Enter Skills">
+                <button class="btn btn-outline-danger"> <!--(click)="deleteSkills(i)"-->
                     delete
                 </button>
             </div>
@@ -33,15 +33,34 @@
         <button type="button" class="btn btn-outline-primary btn-sm w-25" (click)="addSkills()">Add</button>    
     </div>
 
-    <!-- <div class="mb-3 d-flex w-25">
+    <div class="mb-3 d-flex w-25">
         <label for="Experience" class="form-label ">Experiences :</label>
-        <div *ngFor="let Experience of this.getExperienceArray().controls; let j = index">
-            <div [formGroupName]="j" class="flex-div">
-                <input type="text" formControlName="Experience" class="form-control" id="Experience" placeholder="Experience Description">
-                <button class="btn btn-outline-danger" (click)="deleteExperience(j)">
-                    delete
-                </button>
-            </div>
+        <div *ngFor="let Experience of this.getFormGroupArray('Experience').controls; let i = index">
+            <div [formGroup]="this.getAsFormGroup(Experience)">
+                    <div>
+                        <label for="company">Company : </label>
+                        <input class="inp-field" type="text" formControlName="company" id="company">
+                    </div>
+                    <div>
+                        <label for="JobRole">Job Role: </label>
+                        <input class="inp-field" type="text" formControlName="JobRole" id="JobRole">
+                    </div>
+                    <div>
+                        <label for="JobDesc">Job Description: </label>
+                        <input class="inp-field" type="text" formControlName="JobDesc" id="JobDesc">
+                    </div>
+                    <div>
+                        <label for="JoinYear">Start Year: </label>
+                        <input class="inp-field" type="number" formControlName="JoinYear" id="JoinYear">
+                    </div>
+                    <div>
+                        <label for="LeaveYear">End Year: </label>
+                        <input class="inp-field" type="number" formControlName="LeaveYear" id="LeaveYear">
+                    </div>
+                </div>
+                <div>
+                    <button class="btn btn-outline-danger" type="button"> <!-- (click)="deleteExperience(i)"-->Delete</button>
+                </div>
         </div>
         <button type="button" class="btn btn-outline-primary btn-sm w-25" (click)="addExperience()">Add</button>    
     </div>
@@ -49,16 +68,27 @@
     
     <div class="mb-3 d-flex w-25">
         <label for="Education" class="form-label ">Education :</label>
-        <div *ngFor="let Education of this.getEducationArray().controls; let k = index">
-            <div [formGroupName]="k" class="flex-div">
-                <input type="text" formControlName="Education" class="form-control" id="Education" placeholder="Education history">
-                <button class="btn btn-outline-danger" (click)="deleteEducation(k)">
-                    delete
-                </button>
+        <div *ngFor="let Education of this.getFormGroupArray('Education').controls; let i = index">
+            <div [formGroup]="this.getAsFormGroup(Education)">
+                    <div class="input-div">
+                        <label for="University">University Name : </label>
+                        <input class="inp-field" type="text" formControlName="University" id="University">
+                    </div>
+                    <div class="input-div">
+                        <label for="Degree">Degree : </label>
+                        <input class="inp-field" type="text" formControlName="Degree" id="Degree">
+                    </div>
+                    <div class="input-div">
+                        <label for="GPA">Grade Points : </label>
+                        <input class="inp-field" type="number" formControlName="GPA" id="GPA">
+                    </div>
+            </div>
+            <div>
+                    <button class="btn btn-outline-danger" type="button"  (click)="deleteEducation(i)">Delete</button>
             </div>
         </div>
         <button type="button" class="btn btn-outline-primary btn-sm w-25" (click)="addEducation()">Add</button>    
-    </div> -->
+    </div> 
 
     <div class="mb-3 d-flex w-25">
         <label for="Email" class="form-label">Email Id:</label>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ResumeService } from '../services/resume.service'
 
 @Component({
   selector: 'app-resume-form',
@@ -12,6 +14,7 @@ export class ResumeFormComponent implements OnInit {
   Skills: FormArray;
   Experience: FormArray;
   Education: FormArray;
+  resumeService: any;
 
   buildForm(): void {
     this.resume = this.fb.group({
@@ -43,7 +46,7 @@ export class ResumeFormComponent implements OnInit {
     return this.resume.controls['Education'] as FormArray;
   }
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private route: Router, private resumeservice: ResumeService) { }
 
   ngOnInit(): void {
     this.buildForm();
@@ -72,27 +75,33 @@ export class ResumeFormComponent implements OnInit {
     })
   }
 
+  getAsFormGroup(ab: AbstractControl): FormGroup {
+    return ab as FormGroup;
+  }
+  
+
   getSkillsFormGroup(index: number): FormGroup {
     return this.getSkillsArray().controls[index] as FormGroup;
   }
 
   addSkills() {
-    this.getSkillsArray().push(
-      this.fb.control('',[])
-    )
+    this.getFormGroupArray('Skills').push(
+      this.fb.control('', [Validators.required])
+    );
   }
 
   addEducation() {
-    this.getEducationArray().push(
+    this.getFormGroupArray('Education').push(
       this.fb.group({
         University: ["ABC",[]],
+        Degree: ["",[]],
         GPA: [9.0,[]]
       })
     )
   }
 
   addExperience() {
-    this.getExperienceArray().push(
+    this.getFormGroupArray('Experience').push(
       this.fb.group({
         Company: ["",[]],
         JobRole: ["",[]],
@@ -104,11 +113,23 @@ export class ResumeFormComponent implements OnInit {
     
   }
 
-  saveDetails() {
-    console.log(this.resume.value)
+  getFormGroupArray(formArrayName: string): FormArray {
+    return this.resume.controls[formArrayName] as FormArray;
   }
 
-  deleteSkills(index: number) {
+  saveDetails(): void {
+    
+      
+      /*this.resumeService.deleteResumeDetails(1).subscribe(id => {
+        this.resumeService.saveResumeDetails(this.resume.value).subscribe(data => {
+         
+          this.route.navigate(['/resume-builder/view']);
+        })
+      })
+    }*/
+  }
+
+  /*deleteSkills(index: number) {
     if (this.Skills.length != 1) {
       this.Skills = this.resume.get('Skills') as FormArray;
       this.Skills.removeAt(index)
@@ -123,12 +144,11 @@ export class ResumeFormComponent implements OnInit {
     }
     console.log(this.Experience.length)
   }
-
+*/
   deleteEducation(index: number) {
-    if (this.Education.length != 1) {
-      this.Education = this.resume.get('Education') as FormArray;
-      this.Education.removeAt(index)
-    }
-    console.log(this.Education.length)
+    /*if (this.Education.length != 1)*/ 
+      this.getFormGroupArray('Education').removeAt(index);
+    
+  /*console.log(this.Education.length)*/
   }
 }
