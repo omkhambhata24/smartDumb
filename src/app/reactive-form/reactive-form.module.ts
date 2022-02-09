@@ -16,7 +16,7 @@ import { ResumeViewComponent } from './components/resume-view/resume-view.compon
     CommonModule,
     ReactiveFormsRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class ReactiveFormModule { }

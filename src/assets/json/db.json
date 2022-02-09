@@ -21,6 +21,8 @@
       "name": "Data"
     }
   ],
+  
+  
   "profile": [
     {
       "firstName": "Om",
@@ -72,5 +74,10 @@
       "employment": "2022-02-11",
       "id": 8
     }
+  ],
+
+  
+  "resume": [
+
   ]
 }

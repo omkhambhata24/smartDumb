@@ -27,7 +27,7 @@ import { ProfileModule } from './profile/profile.module';
     PipesModule,
     CoreModule,
     ReactiveFormsModule,
-    ProfileModule
+    ProfileModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

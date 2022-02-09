@@ -8,10 +8,10 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ResumeFormComponent implements OnInit {
 
-  resume = {} as FormGroup;
-  Skills = {} as FormArray;
-  Experience = {} as FormArray;
-  Education = {} as FormArray;
+  resume: FormGroup;
+  Skills: FormArray;
+  Experience: FormArray;
+  Education: FormArray;
 
   buildForm(): void {
     this.resume = this.fb.group({
@@ -19,22 +19,34 @@ export class ResumeFormComponent implements OnInit {
     Name: ['',[Validators.required, Validators.minLength(4), Validators.maxLength(9)]],
     Description: [''],
     Skills: this.fb.array([
-      this.dynamicField()
+      this.skillsField() 
     ]),
 
     Experience: this.fb.array([
-      this.dynamicField()
+      this.experienceField()
     ]),
 
     Education: this.fb.array([
-      this.dynamicField()
+      this.educationField()
     ]),
 
-    Email: ['', [Validators.email]],
+    Email: ['', Validators.email],
     Mobile: ['', Validators.required],
 
-  });
-}
+   });
+  }
+
+  getSkillsArray() {
+    return this.resume.controls['Skills'] as FormArray;
+  }
+
+  getExperienceArray() {
+    return this.resume.controls['Experiences'] as FormArray;
+  }
+
+  getEducationArray() {
+    return this.resume.controls['Education'] as FormArray;
+  }
 
   constructor(private fb: FormBuilder) { }
 
@@ -42,27 +54,38 @@ export class ResumeFormComponent implements OnInit {
     this.buildForm();
   }
 
-  dynamicField(): FormGroup {
+
+  skillsField(): FormGroup {
     return this.fb.group({
-      Skills: [''],
-      Education: [''],
-      Experience:['']
+      Skills: '',
+    })
+  }
+
+  experienceField(): FormGroup {
+    return this.fb.group({
+      Experience: '',
+    })
+  }
+
+  educationField(): FormGroup {
+    return this.fb.group({
+      Education: '',
     })
   }
 
   addSkills() {
-    this.Skills = this.resume.get('skills') as FormArray;
-    this.Skills.push(this.dynamicField())
+    this.Skills = this.resume.get('Skills') as FormArray;
+    this.Skills.push(this.skillsField())
   }
 
   addEducation() {
     this.Education = this.resume.get('Education') as FormArray;
-    this.Education.push(this.dynamicField())
+    this.Education.push(this.educationField())
   }
 
   addExperience() {
     this.Experience = this.resume.get('Experience') as FormArray;
-    this.Experience.push(this.dynamicField())
+    this.Experience.push(this.experienceField())
   }
 
   saveDetails() {
