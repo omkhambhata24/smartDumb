@@ -10,7 +10,6 @@ import { PipesModule } from './pipes/pipes.module';
 import { CoreModule } from './core/core.module';
 import { HeaderComponent } from './core/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ProfileModule } from './profile/profile.module';
 
 
@@ -19,9 +18,7 @@ import { ProfileModule } from './profile/profile.module';
     AppComponent,
     ParentComponent,
     ChildComponent,
-    HeaderComponent,
-    ReactiveFormComponent,
-    
+    HeaderComponent, 
   ],
   imports: [
     BrowserModule,

@@ -1,25 +1,2 @@
-h1 {
-    color:red;
-}
 
-.text-align-center {
-    text-align: center;
-}
-
-.justify-content-center {
-    justify-content: center;
-}
-
-.pad1r {
-    padding: 1rem;
-}
-
-.border {
-    border: 1px solid;
-    border-radius: 2px;
-}
-
-.error{
-    color: rgb(255, 0, 0);
-}
 

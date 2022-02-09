@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Ng2SearchPipeModule } from 'ng2-search-filter'
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileFormComponent } from './component/profile-form/profile-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,7 +26,6 @@ import { SearchPipe } from './pipes/search.pipe';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    Ng2SearchPipeModule,
   ],
   exports: [
     ProfileFormComponent
