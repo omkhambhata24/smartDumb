@@ -1,4 +1,5 @@
 export class Resume {
+    Id: number;
     Name: string;
     Description: string;
     Skills: string[];
@@ -23,6 +24,7 @@ export class Experience {
 
 export class Education {
     University: string;
+    Degree: string;
     GPA: number;
 
 }

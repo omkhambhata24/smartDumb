@@ -15,15 +15,15 @@ export class ResumeService {
     this.apiLink = environment.baseURL;
   }
 
-  getResumeDetails(id: number): Observable<Resume> {
-    return this.http.get<Resume>(`${this.apiLink}/resumes/${id}`);
+  getResume(id: number): Observable<Resume> {
+    return this.http.get<Resume>(`${this.apiLink}/resume/${id}`);
   }
 
-  saveResumeDetails(resume: Resume): Observable<Resume> {
-    return this.http.post<Resume>(`${this.apiLink}/resumes`, resume);
+  saveResume(resume: Resume): Observable<Resume> {
+    return this.http.post<Resume>(`${this.apiLink}/resume`, resume);
   }
 
-  deleteResumeDetails(id: number): Observable<number> {
-    return this.http.delete<number>(`${this.apiLink}/resumes/${id}`);
+  deleteResume(id: number): Observable<number> {
+    return this.http.delete<number>(`${this.apiLink}/resume/${id}`);
   }
 }

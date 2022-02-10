@@ -1,16 +1,17 @@
-<div class="resume-cont">
+<div class="resume-cont" *ngIf="this.resumeData">
+    <!--{{ this.resumeData | json }}-->
     <table>
         <tr style="border-bottom: 1px solid #d8d8d8;">
             <td style="width: 80%;">
-                <h3>JONATHAN DOE</h3>
+                <h3>{{ this.resumeData.Name }}</h3>
                 <p>
                     <em>WEB DESIGNER,DIRECTOR</em>
                 </p>
             </td>
             <td>
                 <button type="button">Download PDF</button><br>
-                <a href="mailto:name@yourdomain.com" style="color:red">name@yourdomain.com</a>
-                <p>(313)-867-5309</p>
+                <a href="mailto:name@yourdomain.com" style="color:red">{{ this.resumeData.Email }}</a>
+                <p>{{ this.resumeData.Mobile }}</p>
             </td>
         </tr>
     </table>
@@ -50,100 +51,64 @@
 
                     <tr>
                         <td>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero quos ducimus recusandae dolorum enim qui!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero quos ducimus recusandae
+                            dolorum enim qui!
                         </td>
                         <td>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero quos ducimus recusandae dolorum enim qui!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero quos ducimus recusandae
+                            dolorum enim qui!
                         </td>
                         <td>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero quos ducimus recusandae dolorum enim qui!
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero quos ducimus recusandae
+                            dolorum enim qui!
                         </td>
                     </tr>
                 </table>
             </td>
         </tr>
 
-        <tr style="border-bottom: 1px solid #d8d8d8;">
-            <td style="width: 20%; padding: 20px 0;"><em>Technical</em></td>
-            <td style="padding: 20px 0;">
-                <table style="width: 100%;">
-                    <tr style="border-bottom: 1px solid #d8d8d8;">
-                        <td style="width: 33.33%;">
-                            XHTML
-                        </td>
-                        <td style="width: 33.33%;">
-                            JQuery
-                        </td>
-                        <td>
-                            OS X
-                        </td>
-                    </tr>
-
-                    <tr style="border-bottom: 1px solid #d8d8d8;">
-                        <td>
-                            CSS
-                        </td>
-                        <td>
-                            PHP
-                        </td>
-                        <td>
-                            Windows XP/Vista
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            JavaScript
-                        </td>
-                        <td>
-                            PHP
-                        </td>
-                        <td>
-                            Windows XP/Vista
-                        </td>
-                    </tr>
-                </table>
+        <tr class="border-bottom">
+            <td class="padding" style="width: 20%;">
+                <em>Technical</em>
+            </td>
+            <td class="padding">
+                <div class="d-flex flex-wrap w100">
+                    <div class="skills border-bottom" *ngFor="let skills of this.resumeData.Skills">
+                        {{ skills }}
+                    </div>
+                </div>
             </td>
         </tr>
+
 
         <tr style="border-bottom: 1px solid #d8d8d8;">
             <td style="width: 20%; padding: 20px 0;"><em>Experience</em></td>
             <td style="padding: 20px 0;">
                 <table>
-                    <tr style="border-bottom: 1px solid #d8d8d8;">
+                    <tr style="border-bottom: 1px solid #d8d8d8;" *ngFor="let experience of this.resumeData.Experience">
                         <td style="width: 85%;">
-                            <strong>Facebook</strong>
-                            <div>Senior Interface Designer</div>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum nisi dolorem.</p>
+                            <strong>{{ experience.Company }}</strong>
+                            <div>{{ experience.JobRole}}</div>
+                            <p>{{ experience.JobDesc}}</p>
                         </td>
                         <td>
-                            2005-2007
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td style="width: 85%; padding-top: 20px;">
-                            <strong>Apple Inc.</strong>
-                            <div>Senior Interface Designer</div>
-                            <p style="margin-bottom: 0;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum nisi dolorem.</p>
-                        </td>
-                        <td style="padding-top: 20px;">
-                            2005-2007
+                            {{ experience.JoinYear }}-{{ experience.LeaveYear}}
                         </td>
                     </tr>
                 </table>
             </td>
         </tr>
 
-        <tr style="border-bottom: 1px solid #d8d8d8;">
+        <tr style="border-bottom: 1px solid #d8d8d8;" *ngFor="let education of this.resumeData.Education">
             <td style="width: 20%; padding: 20px 0;">
                 <em>Education</em>
             </td>
             <td style="padding: 20px 0;">
                 <table>
                     <tr>
-                        <strong>Indiana University</strong>
+                        <strong>{{ education.University}}</strong>
                         <div style="padding-top: 5px">
-                            Dual Major-4.0 GPA
+                            {{ education.Degree }}-{{ education.GPA}}GPA
                         </div>
                     </tr>
                 </table>
@@ -152,7 +117,7 @@
     </table>
 
     <footer style="text-align: center; line-height: 35px;">
-        Jonathan Doe - <a href="mailto:name@yourdomain.com" style="color: #ff3835;">name@yourdomain.com</a> -
-        (313)-871-5309
+        {{ this.resumeData.Name }} - <a href="mailto:name@yourdomain.com" style="color: #ff3835;">{{
+            this.resumeData.Email}}</a> -
+        {{ this.resumeData.Mobile}}
     </footer>
-

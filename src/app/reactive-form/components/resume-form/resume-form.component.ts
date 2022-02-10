@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ResumeService } from '../services/resume.service'
+import { ResumeService } from '../services/resume.service';
 
 @Component({
   selector: 'app-resume-form',
@@ -56,25 +56,6 @@ export class ResumeFormComponent implements OnInit {
     console.log(this.resume);
   }
 
-
-  skillsField(): FormGroup {
-    return this.fb.group({
-      Skills: [''],
-    })
-  }
-
-  experienceField(): FormGroup {
-    return this.fb.group({
-      Experience: [''],
-    })
-  }
-
-  educationField(): FormGroup {
-    return this.fb.group({
-      Education: [''],
-    })
-  }
-
   getAsFormGroup(ab: AbstractControl): FormGroup {
     return ab as FormGroup;
   }
@@ -93,8 +74,8 @@ export class ResumeFormComponent implements OnInit {
   addEducation() {
     this.getFormGroupArray('Education').push(
       this.fb.group({
-        University: ["ABC",[]],
-        Degree: ["",[]],
+        University: ["GTU",[]],
+        Degree: ["Bachelors",[]],
         GPA: [9.0,[]]
       })
     )
@@ -118,37 +99,29 @@ export class ResumeFormComponent implements OnInit {
   }
 
   saveDetails(): void {
-    
-      
-      /*this.resumeService.deleteResumeDetails(1).subscribe(id => {
-        this.resumeService.saveResumeDetails(this.resume.value).subscribe(data => {
-         
-          this.route.navigate(['/resume-builder/view']);
-        })
+    this.resumeservice.deleteResume(1).subscribe(id => {
+      this.resumeservice.saveResume(this.resume.value).subscribe((data) => {
+        this.route.navigate(['/form/resume-view']);
+         })
       })
-    }*/
-  }
-
-  /*deleteSkills(index: number) {
-    if (this.Skills.length != 1) {
-      this.Skills = this.resume.get('Skills') as FormArray;
-      this.Skills.removeAt(index)
     }
-    console.log(this.Skills.length)
+  
+
+  deleteSkills(index: number) {
+    if (this.getFormGroupArray('Skills').length != 1){
+      this.getFormGroupArray('Skills').removeAt(index);
+    }
   }
 
   deleteExperience(index: number) {
-    if (this.Experience.length != 1) {
-      this.Experience = this.resume.get('Experience') as FormArray;
-      this.Experience.removeAt(index)
+    if (this.getFormGroupArray('Experience').length != 1){
+      this.getFormGroupArray('Experience').removeAt(index);
     }
-    console.log(this.Experience.length)
   }
-*/
+
   deleteEducation(index: number) {
-    /*if (this.Education.length != 1)*/ 
+    if (this.getFormGroupArray('Education').length != 1){
       this.getFormGroupArray('Education').removeAt(index);
-    
-  /*console.log(this.Education.length)*/
+    }
   }
 }

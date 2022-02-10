@@ -21,8 +21,6 @@
       "name": "Data"
     }
   ],
-  
-  
   "profile": [
     {
       "firstName": "Om",
@@ -75,9 +73,35 @@
       "id": 8
     }
   ],
-
-  
   "resume": [
-
+    {
+      "Name": "Om ",
+      "Description": "lorem ipsum",
+      "Skills": [
+        "javascript",
+        "HTML",
+        "CSS",
+        "Python"
+      ],
+      "Experience": [
+        {
+          "Company": "1Rivet",
+          "JobRole": "Front-End Intern",
+          "JobDesc": "lorem ipsum",
+          "JoinYear": 2022,
+          "LeaveYear": 2022
+        }
+      ],
+      "Education": [
+        {
+          "University": "SCET",
+          "Degree": "Bachelor of Engineering",
+          "GPA": 8
+        }
+      ],
+      "Email": "omkhambhata@gmail.com",
+      "Mobile": "9725178155",
+      "id": 1
+    }
   ]
 }

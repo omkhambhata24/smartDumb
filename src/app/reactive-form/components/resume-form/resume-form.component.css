@@ -17,3 +17,11 @@
 .align-items-center {
     align-items: center;
 }
+
+.justify-content {
+    justify-content: space-between;
+}
+
+h1 {
+    color:royalblue;
+}

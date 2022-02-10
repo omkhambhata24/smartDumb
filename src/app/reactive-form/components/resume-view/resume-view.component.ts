@@ -9,17 +9,17 @@ import { ResumeService } from '../services/resume.service';
 })
 export class ResumeViewComponent implements OnInit {
 
-  resume: Resume;
+  resumeData: Resume;
 
   constructor(private resumeService: ResumeService) { }
 
   ngOnInit(): void {
-    this.getResume();
+    this.getResumeData();
   }
 
-  getResume(): void {
-    this.resumeService.getResumeDetails(1).subscribe((data) => {
-      this.resume = data;
+  getResumeData(): void {
+    this.resumeService.getResume(1).subscribe((data) => {
+      this.resumeData = data;
       
     });
   }

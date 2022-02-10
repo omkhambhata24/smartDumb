@@ -6,8 +6,10 @@ import { ResumeViewComponent } from './components/resume-view/resume-view.compon
 
 const routes: Routes = [
   {
-    path: '', component: ResumeFormComponent
-    /*path: '', component: ResumeViewComponent*/
+    path: '', component: ResumeFormComponent,
+  },
+  {  
+    path: 'resume-view', component: ResumeViewComponent
   }
 ];  
   
