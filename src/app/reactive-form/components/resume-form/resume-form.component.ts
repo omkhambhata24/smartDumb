@@ -84,11 +84,11 @@ export class ResumeFormComponent implements OnInit {
   addExperience() {
     this.getFormGroupArray('Experience').push(
       this.fb.group({
-        Company: ["",[]],
-        JobRole: ["",[]],
-        JobDesc: ["",[]],
-        JoinYear: [2022,[]],
-        LeaveYear: [2022,[]]
+        Company: ["",[Validators.required]],
+        JobRole: ["",[Validators.required]],
+        JobDesc: ["",[Validators.required]],
+        JoinYear: [2022,[Validators.required]],
+        LeaveYear: [2022,[Validators.required]]
       })
     )
     
