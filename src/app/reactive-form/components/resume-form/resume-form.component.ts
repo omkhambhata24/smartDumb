@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ResumeService } from '../services/resume.service';
+import { ResumeService } from '../../services/resume.service';
 
 @Component({
   selector: 'app-resume-form',

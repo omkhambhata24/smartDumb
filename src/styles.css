@@ -3,3 +3,45 @@ html,body{
     height: 100%;
     width: 100%;
 }
+
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-grow-1 {
+    flex-grow: 1;
+}
+
+table {
+    border-collapse: collapse; 
+}
+
+table tr {
+    border-top:1px solid #dee2e6;
+}
+
+table thead tr{
+    border-top: 0;
+}
+
+
+table tbody tr:last-child { 
+    border-bottom: 0;
+}
+
+table td,
+table th {
+    padding: 0.6rem;
+}
+
+.table-border {
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+}
+
+
+
