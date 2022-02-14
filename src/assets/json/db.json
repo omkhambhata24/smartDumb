@@ -145,15 +145,70 @@
   ],
   "User": [
     {
-      "name": "om K khambhata",
-      "city": "Valsad",
-      "Email": "omkhambhata@gmail.com",
-      "mobile": "972-517-8155",
-      "department": "1",
+      "name": "Carl Johnson",
+      "city": "Surat",
+      "Email": "carljohnson@gtasa.com",
+      "mobile": "182-734-6255",
+      "department": "4",
       "gender": "male",
       "employment": "2022-02-09",
       "hired": "",
       "id": 1
+    },
+    {
+      "name": "Jason Roy",
+      "city": "Ahmedabad",
+      "Email": "Jason.Roy@gmail.com",
+      "mobile": "159-754-7732",
+      "department": "5",
+      "gender": "male",
+      "employment": "2021-12-05",
+      "hired": "",
+      "id": 2
+    },
+    {
+      "name": "Zxcvb Qpowejk",
+      "city": "Daman",
+      "Email": "asdf@gmail.com",
+      "mobile": "123-456-7850",
+      "department": "2",
+      "gender": "female",
+      "employment": "2022-02-01",
+      "hired": "",
+      "id": 3
+    },
+    {
+      "name": "dummy data2",
+      "city": "Navsari",
+      "Email": "abcd@yahoo.in",
+      "mobile": "123-789-4560",
+      "department": "3",
+      "gender": "female",
+      "employment": "2020-02-20",
+      "hired": "",
+      "id": 4
+    },
+    {
+      "name": "Hrishikesh Patel",
+      "city": "Valsad",
+      "Email": "Hrishikesh.p@gmail.com",
+      "mobile": "987-674-5749",
+      "department": "1",
+      "gender": "male",
+      "employment": "2022-02-14",
+      "hired": "",
+      "id": 5
+    },
+    {
+      "name": "test1",
+      "city": "vapi",
+      "Email": "test1@gmail.com",
+      "mobile": "123-456-6789",
+      "department": "1",
+      "gender": "female",
+      "employment": "2022-02-03",
+      "hired": "",
+      "id": 6
     }
   ]
 }

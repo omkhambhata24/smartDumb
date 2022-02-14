@@ -7,6 +7,7 @@ import { UserListComponent } from './component/user-list/user-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DeptPipe } from './pipes/dept.pipe';
+import { SortPipe } from './pipes/sort.pipe';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { DeptPipe } from './pipes/dept.pipe';
     UserFormComponent,
     UserListComponent,
     DeptPipe,
+    SortPipe,
     
   ],
   imports: [

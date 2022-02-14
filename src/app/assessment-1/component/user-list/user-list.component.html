@@ -1,9 +1,11 @@
+<!-- Create button an search bar on top of user list-->
 <div class="d-flex space-between padding">
     <button type="button" class="btn btn-primary border-radius" routerLink="/User/add">+ Create</button>
 
-    <input type="search" class="form-control border-radius w-25" placeholder="Search By Name">
-    <input type="search" class="form-control border-radius w-25" placeholder="Search By Department">
-    <input type="search" class="form-control border-radius w-25" placeholder="Search By City">
+    <input type="search" class="form-control border-radius w-25" placeholder="Search By Name" [(ngModel)]=searchStr>
+    <input type="search" class="form-control border-radius w-25" placeholder="Search By Department"
+        [(ngModel)]=searchStr1>
+    <input type="search" class="form-control border-radius w-25" placeholder="Search By City" [(ngModel)]=searchStr2>
 
 
 </div>
@@ -11,8 +13,9 @@
 <div class="table-bd margin">
     <table class="w-100">
 
+        <!-- Title of list-->
         <thead>
-            <tr class="text-align-center">
+            <tr class="text-align-center th-color">
                 <th scope="col">Sr.No.</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email-id</th>
@@ -25,7 +28,8 @@
 
         <!-- ngFor used to enter data with index i-->
         <tbody>
-            <tr *ngFor="let user of UserList; let i=index; trackBy:userTrack" class="text-align-center">
+            <tr *ngFor="let user of UserList | sort: this.searchStr; let i=index; trackBy:userTrack"
+                class="text-align-center td-color">
                 <td scope="row">{{i+1}}.</td>
                 <td>{{user.name}}</td>
                 <td>{{user.Email}}</td>
@@ -35,6 +39,7 @@
                 <td>
                     <button class="btn btn-secondary btn-sm margin" (click)="editUser(user)">Edit</button>
                     <button class="btn btn-danger btn-sm margin" (click)="deleteUser(user.id)">Delete</button>
+                    <button class="btn btn-info btn-sm margin" (click)="detailsUser">Details</button>
                 </td>
             </tr>
         </tbody>
@@ -43,11 +48,28 @@
 
 </div>
 
+
+<!-- Start of Pagination section-->
+<div class="d-flex justify-content-center p-3">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="/User/users">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="/User/users">1</a></li>
+            <li class="page-item"><a class="page-link" href="">2</a></li>
+            <li class="page-item"><a class="page-link" href="">3</a></li>
+            <li class="page-item"><a class="page-link" href="">Next</a></li>
+        </ul>
+    </nav>
+</div>
+
+
+<!-- Add Address section-->
 <div class="table-bd margin">
     <h2> Add Address: </h2>
-    <div class="mb-3 d-flex f-col w-25 p-3">
-        <input type="text" formControlName="name" class="form-control" id="name" placeholder="Enter Address">
-        <button class="btn btn-secondary btn-sm margin">Add</button>
+    <div class="mb-3 d-flex f-col p-3">
+        <input type="text" formControlName="name" class="form-control w-25" id="name" placeholder="Enter Address">
+        <button class="btn btn-secondary btn-sm margin" (click)="addAddress">Add</button>
+        <button class="btn btn-danger btn-sm margin" (click)="deleteAddress">delete</button>
     </div>
-    
+
 </div>

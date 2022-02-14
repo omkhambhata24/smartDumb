@@ -21,3 +21,15 @@
 .table-bd {
     border: 1px solid black;
 }
+
+.th-color {
+    background-color: white;
+}
+
+.td-color{
+    background-color: #dbd6d6;
+}
+
+table tr {
+    border-top:1px solid black;
+}

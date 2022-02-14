@@ -47,6 +47,8 @@ export class UserFormComponent implements OnInit {
     });
 }  
 
+
+/* Methods*/
 saveUser(){
 
   console.log(this.userForm
