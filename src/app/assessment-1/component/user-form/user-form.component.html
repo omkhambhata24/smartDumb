@@ -1,0 +1,98 @@
+<form *ngIf="userForm" [formGroup]="userForm" (ngSubmit)="saveUser()"
+    class="d-flex f-col justify-content-center align-items-center">
+
+    <h1> Add User </h1>
+    <div class="mb-3 d-flex f-col w-25">
+        <label for="name" class="form-label">Name:</label>
+        <div>
+            <input type="text" formControlName="name" class="form-control" id="name"
+                placeholder="Enter Name:">
+            <div *ngIf="userForm.controls['name']?.touched && userForm.controls['name'].errors?.['required']"
+                class="form-text text-danger">This field is required.</div>
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex f-col f-col w-25">
+        <label for="Email" class="form-label">Email Id:</label>
+        <div>
+            <input type="text" formControlName="email" class="form-control" id="Email"
+                placeholder="someone@something.com">
+            <div *ngIf="userForm.controls['Email']?.touched && userForm.controls['Email'].errors?.['email']"
+                class="form-text text-danger">Invalid format.</div>
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex f-col w-25">
+        <label for="mobile" class="form-label ">mobile No:</label>
+        <div>
+            <input type="text" formControlName="mobile" class="form-control" id="mobile" placeholder="(XXX)-(XXX)-XXXX">
+            <div *ngIf="userForm.controls['mobile']?.touched && userForm.controls['mobile'].errors?.['required']"
+                class="form-text  text-danger">This field is required.</div>
+            <div *ngIf="userForm.controls['mobile']?.touched && userForm.controls['mobile'].errors?.['pattern']"
+                class="form-text  text-danger">mobile no. should be 10 digits.</div>
+
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex f-col w-25">
+        <label for="city" class="form-label ">city:</label>
+        <div>
+            <input type="text" formControlName="city" class="form-control" id="city"
+                placeholder="Enter Last Name">
+            <div *ngIf="userForm.controls['city']?.touched && userForm.controls['city'].errors?.['required']"
+                class="form-text text-danger">This field is required.</div>
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex f-col w-25">
+        <label for="gender" class="form-label w-25 me-3">Gender :</label>
+        <div class="d-flex f-col">
+            <input formControlName="gender" value="male" class="form-check-input" type="radio" id="1">
+            <label class="form-check-label" for="male">
+                Male
+            </label>
+        </div>
+        <div class="d-flex f-col">
+            <input formControlName="gender" value="female" class="form-check-input" type="radio" id="2" >
+            <label class="form-check-label" for="female">
+                Female
+            </label>
+        </div>
+        <div class="d-flex f-col">
+            <input formControlName="gender" value="other" class="form-check-input" type="radio" id="3" >
+            <label class="form-check-label" for="other">
+               Others
+            </label>
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex f-col w-25">
+        <label for="department" class="form-label">Department:</label>
+        <div>
+            <select class="form-select" formControlName="department">
+                <option [value]="0">Select Department</option>
+                <option *ngFor="let department of this.userdepartment" [value]="department.id"> {{department.name}}</option>
+            </select>
+        </div>
+
+        <label for="employment" class="form-label">Date of Employment:</label>
+        <div>
+            <input type="date" formControlName="employment" class="form-control" id="employment"
+                placeholder="DD-MM-YYYY">
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex f-col w-25">
+        <input type="checkbox">
+            <label class="form-check-label">
+               Permanenet Employee
+            </label>
+    </div>
+
+    <div class="d-flex space-between">
+            <button [disabled]="userForm.invalid" type="submit" class="btn btn-outline-primary">Add</button>
+            <button type="button" class="btn btn-outline-danger" (click)="clearForm()">Clear</button>
+    </div>
+</form>
+
+

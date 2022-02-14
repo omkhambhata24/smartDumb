@@ -10,6 +10,7 @@ import { PipesModule } from './pipes/pipes.module';
 import { CoreModule } from './core/core.module';
 import { HeaderComponent } from './core/header/header.component';
 import { ProfileModule } from './profile/profile.module';
+import { Assessment1Module } from './assessment-1/assessment-1.module';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { ProfileModule } from './profile/profile.module';
     CoreModule,
     ReactiveFormsModule,
     ProfileModule,
+    Assessment1Module,
   ],
   providers: [],
   bootstrap: [AppComponent]
