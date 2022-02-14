@@ -1,41 +1,53 @@
 <div class="d-flex space-between padding">
     <button type="button" class="btn btn-primary border-radius" routerLink="/User/add">+ Create</button>
 
-    <input type="search" class="form-control border-radius w-25" placeholder="Search By Name" >
-    <input type="search" class="form-control border-radius w-25" placeholder="Search By Department" >
-    <input type="search" class="form-control border-radius w-25" placeholder="Search By City" >
-  
-    
-  </div>
-  
-  <div class="table-bd margin">
+    <input type="search" class="form-control border-radius w-25" placeholder="Search By Name">
+    <input type="search" class="form-control border-radius w-25" placeholder="Search By Department">
+    <input type="search" class="form-control border-radius w-25" placeholder="Search By City">
+
+
+</div>
+
+<div class="table-bd margin">
     <table class="w-100">
-  
-      <thead>
-        <tr class="text-align-center">
-          <th scope="col">Sr.No.</th>
-          <th scope="col">Name</th>
-          <th scope="col">Email-id</th>
-          <th scope="col">Mobile</th>
-          <th scope="col">City</th>
-          <th scope="col">Department</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of UserList; let i=index; trackBy:userTrack"
-          class="text-align-center">
-          <td scope="row">{{i+1}}.</td>
-          <td>{{user.name}}</td>
-          <td>{{user.Email}}</td>
-          <td>{{user.mobile}}</td>
-          <td>{{user.city}}</td>
-          <td>{{user.department}}</td>
-          <td>
-            <button class="btn btn-secondary btn-sm" (click)="editUser(user)">Edit</button>
-            <button class="btn btn-danger btn-sm" (click)="deleteUser(user.id)">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-  
+
+        <thead>
+            <tr class="text-align-center">
+                <th scope="col">Sr.No.</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email-id</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">City</th>
+                <th scope="col">Department</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+
+        <!-- ngFor used to enter data with index i-->
+        <tbody>
+            <tr *ngFor="let user of UserList; let i=index; trackBy:userTrack" class="text-align-center">
+                <td scope="row">{{i+1}}.</td>
+                <td>{{user.name}}</td>
+                <td>{{user.Email}}</td>
+                <td>{{user.mobile}}</td>
+                <td>{{user.city}}</td>
+                <td>{{user.department | dept: depts}}</td>
+                <td>
+                    <button class="btn btn-secondary btn-sm margin" (click)="editUser(user)">Edit</button>
+                    <button class="btn btn-danger btn-sm margin" (click)="deleteUser(user.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+
     </table>
+
+</div>
+
+<div class="table-bd margin">
+    <h2> Add Address: </h2>
+    <div class="mb-3 d-flex f-col w-25 p-3">
+        <input type="text" formControlName="name" class="form-control" id="name" placeholder="Enter Address">
+        <button class="btn btn-secondary btn-sm margin">Add</button>
+    </div>
+    
+</div>

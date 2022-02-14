@@ -38,7 +38,7 @@ export class UserFormComponent implements OnInit {
       name: ['',Validators.required],
       city: ['',Validators.required],
       Email: ['',[Validators.email]],
-      mobile:['',[Validators.pattern(/\([0-9]{3}\)-\([0-9]{3}\)-[0-9]{4}$/),Validators.required]],
+      mobile:['',[Validators.pattern(/[0-9]{3}-[0-9]{3}-[0-9]{4}$/),Validators.required]],
       department: [''],
       gender: ['',Validators.required],
       employment: ['', Validators.required],

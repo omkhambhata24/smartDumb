@@ -121,8 +121,39 @@
       "id": 1
     }
   ],
-
-  "userdepartment" : [
-
+  "userdepartment": [
+    {
+      "id": 1,
+      "name": "Developer"
+    },
+    {
+      "id": 2,
+      "name": "Accountant"
+    },
+    {
+      "id": 3,
+      "name": "HR"
+    },
+    {
+      "id": 4,
+      "name": "Senior Engineer"
+    },
+    {
+      "id": 5,
+      "name": "Analyst"
+    }
+  ],
+  "User": [
+    {
+      "name": "om K khambhata",
+      "city": "Valsad",
+      "Email": "omkhambhata@gmail.com",
+      "mobile": "972-517-8155",
+      "department": "1",
+      "gender": "male",
+      "employment": "2022-02-09",
+      "hired": "",
+      "id": 1
+    }
   ]
 }

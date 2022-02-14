@@ -1,6 +1,5 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserFormComponent } from './assessment-1/component/user-form/user-form.component';
 
 const routes: Routes = [
   {
@@ -21,13 +20,10 @@ const routes: Routes = [
    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
  },
 
- /*{
+ {
   path: 'User',
   loadChildren: () => import('./assessment-1/assessment-1.module').then(m => m.Assessment1Module)
- }*/
-
- { path: 'User', component: UserFormComponent}
-
+ }
 
 ];
 

@@ -52,7 +52,7 @@ export class UserService {
   }
 
   getDeptList(): Observable<UserDept[]> {
-    return this.http.get<UserDept[]>(`${this.apiCall}/departmentlist`);
+    return this.http.get<UserDept[]>(`${this.apiCall}/userdepartment`);
   }
 
   sendusertoEdit(user: User): void {
