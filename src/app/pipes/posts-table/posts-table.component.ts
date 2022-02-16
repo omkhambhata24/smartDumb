@@ -5,7 +5,7 @@ import { posts } from '../Data';
 @Component({
   selector: 'app-posts-table',
   templateUrl: './posts-table.component.html',
-  styleUrls: ['./posts-table.component.css']
+  styleUrls: ['./posts-table.component.scss']
 })
 export class PostsTableComponent implements OnInit {
 

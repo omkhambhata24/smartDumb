@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-profile-list',
   templateUrl: './profile-list.component.html',
-  styleUrls: ['./profile-list.component.css']
+  styleUrls: ['./profile-list.component.scss']
 })
 export class ProfileListComponent implements OnInit {
 
