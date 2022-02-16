@@ -209,6 +209,17 @@
       "employment": "2022-02-03",
       "hired": "",
       "id": 6
+    },
+    {
+      "name": "om K khambhata",
+      "city": "Valsad",
+      "Email": "omkhambhata@gmail.com",
+      "mobile": "972-571-7815",
+      "department": "4",
+      "gender": "male",
+      "employment": "2022-02-17",
+      "hired": "",
+      "id": 7
     }
   ]
 }
