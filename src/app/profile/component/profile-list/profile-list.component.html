@@ -1,7 +1,7 @@
-<h2>Profile</h2>
+<h2 class="th-font-weight">Profile</h2>
 
-<div class="d-flex space-between padding">
-  <input type="search" class="form-control border-radius w-25" placeholder="Search For a Profile" [(ngModel)]=searchString>
+<div class="d-flex justify-content-between padding">
+  <input type="search" class="form-control border-radius w-25 " placeholder="Search For a Profile" [(ngModel)]=searchString>
 
   <button type="button" class="btn btn-primary border-radius" routerLink="/Profile/add">+ Add New Profile</button>
 </div>
@@ -10,32 +10,34 @@
   <table class="table-border w-100">
 
     <thead>
-      <tr class="text-align-center">
-        <th scope="col"> </th>
-        <th scope="col">Sr.No.</th>
-        <th scope="col">Name</th>
-        <th scope="col">Email-id</th>
-        <th scope="col">Date of Employment</th>
-        <th scope="col">Department</th>
-        <th scope="col">Phone No.</th>
-        <th scope="col">Gender</th>
-        <th scope="col">Action</th>
+      <tr class="text-align-center th-color">
+        <th class="th-font-weight" scope="col"> </th>
+        <th class="th-font-weight" scope="col">#</th>
+        <th class="th-font-weight" scope="col">Name</th>
+        <th class="th-font-weight" scope="col">Email-id</th>
+        <th class="th-font-weight" scope="col">Date of Employment</th>
+        <th class="th-font-weight" scope="col">Department</th>
+        <th class="th-font-weight" scope="col">Phone No.</th>
+        <th class="th-font-weight" scope="col">Gender</th>
+        <th class="th-font-weight" scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let profile of ProfileList | search: this.searchString; let i=index; trackBy:profileTrack"
         class="text-align-center">
-        <td></td>
-        <td scope="row">{{i+1}}.</td>
-        <td>{{profile.firstName + ' ' + profile.lastName}}</td>
-        <td>{{profile.email}}</td>
-        <td>{{profile.employment}}</td>
-        <td>{{profile.department | dept: depts}}</td>
-        <td>{{profile.phone}}</td>
-        <td>{{profile.gender}}</td>
+        <td class="text-color">
+          <input type="checkbox">
+        </td>
+        <td class="text-color" scope="row">{{i+1}}.</td>
+        <td class="text-color">{{profile.firstName + ' ' + profile.lastName}}</td>
+        <td class="text-color">{{profile.email}}</td>
+        <td class="text-color">{{profile.employment}}</td>
+        <td class="text-color">{{profile.department | dept: depts}}</td>
+        <td class="text-color">{{profile.phone}}</td>
+        <td class="text-color">{{profile.gender}}</td>
         <td>
-          <span class="icon-pencil2" (click)="editProfile(profile)"></span>
-          <span class="icon-trash-can" (click)="deleteProfile(profile.id)"></span>
+          <span class="icon-pencil2 margin-icon" (click)="editProfile(profile)"></span>
+          <span class="icon-trash-can margin-icon" (click)="deleteProfile(profile.id)"></span>
         </td>
       </tr>
     </tbody>
