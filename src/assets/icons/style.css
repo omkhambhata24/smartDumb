@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'app';
+  src:  url('fonts/app.eot?ayrwv8');
+  src:  url('fonts/app.eot?ayrwv8#iefix') format('embedded-opentype'),
+    url('fonts/app.ttf?ayrwv8') format('truetype'),
+    url('fonts/app.woff?ayrwv8') format('woff'),
+    url('fonts/app.svg?ayrwv8#app') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'app' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-trash-can:before {
+  content: "\e900";
+}
+.icon-ic_fluent_branch_compare_regular_icon:before {
+  content: "\e904";
+}
+.icon-menu_dots_icon:before {
+  content: "\e903";
+}
+.icon-insert_chart:before {
+  content: "\e901";
+}
+.icon-pencil2:before {
+  content: "\e906";
+}
+.icon-profile:before {
+  content: "\e923";
+}
+.icon-calendar:before {
+  content: "\e953";
+}
+.icon-user-tie:before {
+  content: "\e976";
+}
+.icon-exit:before {
+  content: "\ea14";
+}

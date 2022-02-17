@@ -1,10 +1,10 @@
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
 :host {
     height: 100%;
 }
 
 p {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     font-weight: 300;
     line-height: 1.7em;
@@ -60,9 +60,10 @@ a:focus {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #7386D5;
-    color: #f9f1f0;
+    background: white;
+    color: #000000;
     transition: all 0.3s;
+    border-right: 1px solid #dee2e6;
 }
 
 #sidebar.active {
@@ -71,16 +72,18 @@ a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: white;
+    color: #3551b2;
+    border-bottom: 1px solid #dee2e6;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
+    border-bottom: 1px solid #dee2e6;
 }
 
 #sidebar ul p {
-    color: #f9f1f0;
+    color: #7babf3;
     padding: 10px;
 }
 
@@ -91,15 +94,15 @@ a:focus {
 }
 
 #sidebar ul li a:hover {
-    color: #7386D5;
-    background: #f9f1f0;
+    color: #2f55e4;
+    background: #eaedfc;
     border-radius: 8px;
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
+    background: #7babf3;
 }
 
 a[data-toggle="collapse"] {
@@ -117,7 +120,7 @@ a[data-toggle="collapse"] {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    background: #7babf3;
 }
 
 ul.CTAs {

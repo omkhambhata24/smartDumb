@@ -3,6 +3,10 @@
 }
 
 .margin {
+    margin: 0 1.25rem;
+}
+
+.margin1 {
     margin: 0 0.5rem;
 }
 
@@ -18,7 +22,7 @@
     justify-content: space-between;
 }
 
-.table-bd {
+.table-bd{
     border: 1px solid black;
     border-radius: 12px;
 }
@@ -29,8 +33,4 @@
 
 .td-color{
     background-color: #dbd6d6;
-}
-
-table tr {
-    border-top:1px solid black;
 }

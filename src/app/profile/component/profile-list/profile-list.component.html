@@ -1,14 +1,17 @@
+<h2>Profile</h2>
+
 <div class="d-flex space-between padding">
   <input type="search" class="form-control border-radius w-25" placeholder="Search For a Profile" [(ngModel)]=searchString>
 
-  <button type="button" class="btn btn-outline-primary border-radius" routerLink="/Profile/add">+ Add New Profile</button>
+  <button type="button" class="btn btn-primary border-radius" routerLink="/Profile/add">+ Add New Profile</button>
 </div>
 
-<div class="table-border margin">
-  <table class="w-100">
+<div class="margin">
+  <table class="table-border w-100">
 
     <thead>
       <tr class="text-align-center">
+        <th scope="col"> </th>
         <th scope="col">Sr.No.</th>
         <th scope="col">Name</th>
         <th scope="col">Email-id</th>
@@ -22,6 +25,7 @@
     <tbody>
       <tr *ngFor="let profile of ProfileList | search: this.searchString; let i=index; trackBy:profileTrack"
         class="text-align-center">
+        <td></td>
         <td scope="row">{{i+1}}.</td>
         <td>{{profile.firstName + ' ' + profile.lastName}}</td>
         <td>{{profile.email}}</td>
@@ -30,24 +34,11 @@
         <td>{{profile.phone}}</td>
         <td>{{profile.gender}}</td>
         <td>
-          <button class="btn btn-outline-success btn-sm" (click)="editProfile(profile)">Edit</button>
-          <button class="btn btn-outline-danger btn-sm" (click)="deleteProfile(profile.id)">Delete</button>
+          <span class="icon-pencil2" (click)="editProfile(profile)"></span>
+          <span class="icon-trash-can" (click)="deleteProfile(profile.id)"></span>
         </td>
       </tr>
     </tbody>
 
   </table>
-</div>
-
-<!-- Start of Pagination section-->
-<div class="d-flex justify-content-center p-3">
-  <nav aria-label="Page navigation example">
-      <ul class="pagination">
-          <li class="page-item"><a class="page-link" href="">Previous</a></li>
-          <li class="page-item"><a class="page-link" href="">1</a></li>
-          <li class="page-item"><a class="page-link" href="">2</a></li>
-          <li class="page-item"><a class="page-link" href="">3</a></li>
-          <li class="page-item"><a class="page-link" href="">Next</a></li>
-      </ul>
-  </nav>
 </div>
