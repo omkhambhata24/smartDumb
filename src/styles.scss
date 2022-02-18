@@ -167,20 +167,14 @@ a {
 ----------------------------------------------------- */
 
 .wrapper {
-    display: flex;
     width: 100%;
     height: 100%;
     align-items: stretch;
+    flex-shrink: 0;
 }
-
-.space-between {
-    justify-content: space-between;
-    flex-direction: row;
-}
-
-
 
 #checkmark ~ #sidebar {
+    flex: 0 0 300px;
     #sidebar.active {
         margin-left: -200px;
     }
@@ -203,7 +197,7 @@ a {
             cursor: pointer;
 
             width: 21px;
-            height: 21px;
+            // height: 21px;
 
             .line {
                 transition: all 0.4s;
@@ -258,7 +252,7 @@ a {
 }
 
 #sidebar ul.components {
-    padding: 20px 0;
+    padding: 16px 8px;
     border-bottom: 1px solid #dee2e6;
 }
 
@@ -267,18 +261,18 @@ a {
     padding: 10px;
 }
 
-#sidebar ul li a, #sidebar footer a {
+#sidebar ul .nav-item .nav-link, #sidebar footer .nav-link{
     padding: 10px;
     display: block;
 }
 
-#sidebar ul li a:hover {
+#sidebar ul .nav-item .nav-link:hover {
     color: #2f55e4;
     background: #eaedfc;
     border-radius: 8px;
 }
 
-#sidebar ul li.active > a,
+#sidebar ul .nav-item.active > .nav-link,
 a[aria-expanded="true"] {
     color: #fff;
     background: #7babf3;
@@ -296,7 +290,7 @@ a[data-toggle="collapse"] {
     transform: translateY(-50%);
 }
 
-ul ul a {
+ul ul .nav-link {
     font-size: 0.9em !important;
     padding-left: 30px !important;
     background: #7babf3;
@@ -306,7 +300,7 @@ ul.CTAs {
     padding: 20px;
 }
 
-ul.CTAs a {
+ul.CTAs .nav-link {
     text-align: center;
     font-size: 0.9em !important;
     display: block;
@@ -314,13 +308,13 @@ ul.CTAs a {
     margin-bottom: 5px;
 }
 
-a.download {
+.nav-link.download {
     background: #fff;
     color: #7386d5;
 }
 
-a.article,
-a.article:hover {
+.nav-link.article,
+.nav-link.article:hover {
     background: #6d7fcc !important;
     color: #fff !important;
 }
@@ -358,7 +352,15 @@ a.article:hover {
 
   // END: Sidebar Styles
 ////////////////////////////////////////////////////////////////////////
+.bg-colour {
+    background-color: #f7f8fa;
+}
 
+.main-content{
+    flex-grow:1 ;
+    padding: 1rem;
+    overflow: hidden;
+}
 
 %border-radius {
     border-radius: 8px;

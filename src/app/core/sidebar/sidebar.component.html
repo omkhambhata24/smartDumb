@@ -1,59 +1,72 @@
-<div class="wrapper">
-  <input type="checkbox" id="checkmark">
-  <nav id="sidebar">
-    <div class="d-flex align-items-center sidebar-header">
-      <label for="checkmark" class="checkmark-label">
-        <div class="line line-1"></div>
-        <div class="line line-2"></div>
-        <div class="line line-3"></div>
-      </label>
-      <span><h3>Angular Modules</h3></span>
+<input type="checkbox" id="checkmark">
+<nav id="sidebar">
+  <div class="d-flex align-items-center sidebar-header">
+    <label for="checkmark" class="checkmark-label nav-line-padding">
+      <div class="line line-1"></div>
+      <div class="line line-2"></div>
+      <div class="line line-3"></div>
+    </label>
+    <span class="nav-line-padding header-size">
+      Angular Modules
+    </span>
+  </div>
+
+  <div class="d-flex align-items-center nav-item-padding">
+    <div class="d-flex flex-shrink-0 profile-img">
+      <figure>
+        <img src="../../../assets/Images/sidebar-icon.jpg" alt="MR.Robot">
+      </figure>
     </div>
 
+    <div class="d-flex flex-column flex-shrink-0 nav-item-padding">
+      <span>Mr.ROBOT</span>
+      <span class="user-email">mr.robot@1rivet.com</span>
+    </div>
 
-    <ul class="list-unstyled components item-size">
+  </div>
 
-      <li>
-        <a routerLink="/pipes" routerLinkActive="active">
-          <span class="icon-profile"></span>
-          Directives and Pipes
-        </a>
 
-      </li>
+  <ul class="list-unstyled components item-size">
 
-      <li>
-        <a routerLink="/Parent-child" routerLinkActive="active">
-          <span class="icon-ic_fluent_branch_compare_regular_icon"></span>
-          Parent-child relation
-        </a>
-      </li>
-      <li>
-        <a routerLink="form" routerLinkActive="active">
-          <span class="icon-calendar"></span>
-          Reactive Forms
-        </a>
-      </li>
-      <li>
-        <a routerLink="/Profile" routerLinkActive="active">
-          <span class="icon-user-tie"></span>
-          Profiles
-        </a>
-      </li>
-
-      <li>
-        <a routerLink="/User" routerLinkActive="active">
-          <span class="icon-insert_chart"></span>
-          Assessment-1
-        </a>
-      </li>
-    </ul>
-
-    <footer class="item-size">
-      <a routerLink="#" routerLinkActive="active">
-        <span class="icon-exit"></span>
-        LOGOUT
+    <li class="nav-item">
+      <a routerLink="/pipes" class="nav-link" routerLinkActive="active">
+        <span class="icon-profile nav-item-padding icon-size"></span>
+        Directives and Pipes
       </a>
-    </footer>
 
-  </nav>
-</div>
+    </li>
+
+    <li class="nav-item">
+      <a routerLink="/Parent-child" class="nav-link" routerLinkActive="active">
+        <span class="icon-ic_fluent_branch_compare_regular_icon nav-item-padding icon-size"></span>
+        Parent-child relation
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="form" class="nav-link" routerLinkActive="active">
+        <span class="icon-calendar nav-item-padding icon-size"></span>
+        Reactive Forms
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/Profile" class="nav-link" routerLinkActive="active">
+        <span class="icon-user-tie nav-item-padding icon-size"></span>
+        Profiles
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a routerLink="/User" class="nav-link" routerLinkActive="active">
+        <span class="icon-insert_chart nav-item-padding icon-size"></span>
+        Assessment-1
+      </a>
+    </li>
+  </ul>
+
+  <footer class="item-size nav-item-padding">
+    <a routerLink="#" class="nav-link" routerLinkActive="active">
+      <span class="icon-exit nav-item-padding icon-size"></span>
+      LOGOUT
+    </a>
+  </footer>
+</nav>
