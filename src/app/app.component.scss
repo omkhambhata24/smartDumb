@@ -18,16 +18,17 @@
     width: 100%;
 }
 
-.sidebar{
-    flex: 0 0 240px;
-    width: 320px;
-}
-
 .main-content{
     flex-grow:1 ;
     padding: 1rem;
+    overflow: hidden;
 }
 
 .bg-colour {
     background-color: #f7f8fa;
 }
+
+.overflow {
+    overflow: hidden;
+}
+

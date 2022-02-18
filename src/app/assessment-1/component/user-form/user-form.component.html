@@ -71,7 +71,7 @@
         
         <div>
             <label for="department" class="form-label">Department:</label>
-            <select class="form-select" formControlName="department">
+            <select class="form-select-1" formControlName="department">
                 <!--<option [value]="0">Select Department</option>-->
                 <option *ngFor="let dept of this.userdepartment" [value]="dept.id"> {{dept.name}}
                 </option>
@@ -81,7 +81,7 @@
         
         <div>
             <label for="employment" class="form-label">Hire Date:</label>
-            <input type="date" formControlName="employment" class="form-control" id="employment"
+            <input type="date" formControlName="employment" class="form-control-1" id="employment"
                 placeholder="DD-MM-YYYY">
         </div>
     </div>
