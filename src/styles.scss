@@ -95,11 +95,11 @@ a {
         &between {
             justify-content: space-between;
         }
-    
+
         &center {
             justify-content: center;
         }
-    
+
         &evenly {
             justify-content: space-evenly;
         }
@@ -162,35 +162,202 @@ a {
 // END: Common Styles
 ////////////////////////////////////////////////////////////////////////
 
-.width-txtbox {
-    width: 350px;
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: stretch;
+}
+
+.space-between {
+    justify-content: space-between;
+    flex-direction: row;
 }
 
 
 
+#checkmark ~ #sidebar {
+    #sidebar.active {
+        margin-left: -250px;
+    }
+    #sidebar {
+        min-width: 300px;
+        max-width: 300px;
+        background: white;
+        color: #000000;
+        transition: all 0.3s;
+        border-right: 1px solid #dee2e6;
+    }
+    .sidebar-header {
+        padding: 20px 7px;
+        background: white;
+        color: #3551b2;
+        border-bottom: 1px solid #dee2e6;
+
+        .checkmark-label {
+            background-color: #fff;
+            cursor: pointer;
+
+            width: 21px;
+            height: 21px;
+
+            .line {
+                transition: all 0.4s;
+                margin: 3px 1px;
+                width: 18px;
+                height: 3px;
+                background-color: $danger-color;
+                @extend %border-radius;
+
+                &-2 {
+                    transition: all 0.4s;
+                    transform: scaleX(0);
+                }
+
+                &-1 {
+                    transform: translateY(6px) rotate(135deg);
+                }
+
+                &-3 {
+                    transform: translateY(-6px) rotate(45deg);
+                }
+            }
+        }
+    }
+}
+
+#checkmark:checked ~ #sidebar {
+    // flex: 0 0 50px;
+    .sidebar-header {
+        .checkmark-label {
+            .line {
+                &-2 {
+                    transition: all 0.4s;
+                    transform: scaleX(1);
+                }
+
+                &-1 {
+                    transform: translateY(0px) rotate(0deg);
+                }
+
+                &-3 {
+                    transform: translateY(0px) rotate(0deg);
+                }
+            }
+        }
+    }
+
+    .nav-link-text,
+    .title-text {
+        transform: translateX(100%);
+    }
+
+}
+
+#checkmark {
+    display: none;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#sidebar ul p {
+    color: #7babf3;
+    padding: 10px;
+}
+
+#sidebar ul li a, #sidebar footer a {
+    padding: 10px;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #2f55e4;
+    background: #eaedfc;
+    border-radius: 8px;
+}
+
+#sidebar ul li.active > a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #7babf3;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #7babf3;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.download {
+    background: #fff;
+    color: #7386d5;
+}
+
+a.article,
+a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+.width-txtbox {
+    width: 350px;
+}
+
+// END: Sidebar Styles
+////////////////////////////////////////////////////////////////////////
 
 %border-radius {
     border-radius: 8px;
 }
 
 table {
-    border-spacing: 0; 
+    border-spacing: 0;
     background-color: white;
 }
 
-table thead tr{
+table thead tr {
     border-top: 0;
 }
 
-
-table tbody tr:last-child td { 
+table tbody tr:last-child td {
     border-bottom: none;
 }
 
 table td,
 table th {
     padding: 0.6rem;
-    border-bottom:1px solid #f0f1f3;
+    border-bottom: 1px solid #f0f1f3;
 }
 
 .table-border {
@@ -208,31 +375,31 @@ table th {
     cursor: pointer;
     transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
 
-    
     &-primary {
         background-color: $primary-color;
         &:hover {
             background-color: rgba($primary-color, 0.9);
         }
     }
-    
+
     &-danger {
         background-color: $danger-color;
         &:hover {
             background-color: rgba($danger-color, 0.9);
         }
     }
-    
+
     &-success {
         background-color: $success-color;
-    
+
         &:hover {
             background-color: rgba($success-color, 0.9);
         }
     }
 }
 
-.form-control, .form-select {
+.form-control,
+.form-select {
     font-family: "Poppins", sans-serif;
     font-size: 0.75rem;
     border: 1px solid $border-color;

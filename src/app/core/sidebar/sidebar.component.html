@@ -1,12 +1,17 @@
 <div class="wrapper">
-
+  <input type="checkbox" id="checkmark">
   <nav id="sidebar">
-    <div class="sidebar-header">
-      <h3>Angular Modules</h3>
+    <div class="d-flex align-items-center sidebar-header">
+      <label for="checkmark" class="checkmark-label">
+        <div class="line line-1"></div>
+        <div class="line line-2"></div>
+        <div class="line line-3"></div>
+      </label>
+      <span><h3>Angular Modules</h3></span>
     </div>
 
 
-    <ul class="list-unstyled components">
+    <ul class="list-unstyled components item-size">
 
       <li>
         <a routerLink="/pipes" routerLinkActive="active">
@@ -28,11 +33,6 @@
           Reactive Forms
         </a>
       </li>
-      <!--<li>
-        <a routerLink="/Order" routerLinkActive="active">
-          Orders
-        </a>
-      </li>-->
       <li>
         <a routerLink="/Profile" routerLinkActive="active">
           <span class="icon-user-tie"></span>
@@ -46,14 +46,14 @@
           Assessment-1
         </a>
       </li>
-
-      <li>
-        <a routerLink="#" routerLinkActive="active">
-          <span class="icon-exit"></span>
-          LOGOUT
-        </a>
-      </li>
     </ul>
+
+    <footer class="item-size">
+      <a routerLink="#" routerLinkActive="active">
+        <span class="icon-exit"></span>
+        LOGOUT
+      </a>
+    </footer>
 
   </nav>
 </div>
