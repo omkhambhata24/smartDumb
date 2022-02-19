@@ -222,6 +222,12 @@ a {
             }
         }
     }
+    .nav-link-text,
+    .title-text {
+        transition: all ease-in-out 0.4s;
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 #checkmark:checked ~ #sidebar {
@@ -243,6 +249,12 @@ a {
                 }
             }
         }
+    }
+    .nav-link-text,
+    .title-text {
+        transition: all ease-in-out 0.4s;
+        opacity: 0;
+        transform: translateX(100%);
     }
 
 }
