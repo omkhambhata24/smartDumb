@@ -1,5 +1,5 @@
 <input type="checkbox" id="checkmark">
-<nav id="sidebar">
+<nav id="sidebar" class="d-flex flex-column">
   <div class="d-flex align-items-center sidebar-header">
     <label for="checkmark" class="checkmark-label nav-line-padding">
       <div class="line line-1"></div>
@@ -26,47 +26,54 @@
   </div>
 
 
-  <ul class="list-unstyled components item-size">
+  <ul class="list-unstyled flex-grow-1 components item-size">
+    <section class="border-bottom section-padding">
 
-    <li class="nav-item">
-      <a routerLink="/pipes" class="nav-link" routerLinkActive="active">
-        <span class="icon-profile nav-item-padding icon-size"></span>
-        <span class="nav-link-text">Directives-Pipes</span>
-      </a>
+      <li class="nav-item">
+        <a routerLink="/pipes" class="nav-link" routerLinkActive="active">
+          <span class="icon-profile nav-item-padding icon-size"></span>
+          <span class="nav-link-text">Directives-Pipes</span>
+        </a>
 
-    </li>
+      </li>
 
-    <li class="nav-item">
-      <a routerLink="/Parent-child" class="nav-link" routerLinkActive="active">
-        <span class="icon-ic_fluent_branch_compare_regular_icon nav-item-padding icon-size"></span>
-        <span class="nav-link-text">Parent-child Relation</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="form" class="nav-link" routerLinkActive="active">
-        <span class="icon-calendar nav-item-padding icon-size "></span>
-        <span class="nav-link-text">Reactive Forms</span>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="/Profile" class="nav-link" routerLinkActive="active">
-        <span class="icon-user-tie nav-item-padding icon-size"></span>
-        <span class="nav-link-text">Profiles</span>
-      </a>
-    </li>
+      <li class="nav-item">
+        <a routerLink="/Parent-child" class="nav-link" routerLinkActive="active">
+          <span class="icon-ic_fluent_branch_compare_regular_icon nav-item-padding icon-size"></span>
+          <span class="nav-link-text">Parent-child Relation</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="form" class="nav-link" routerLinkActive="active">
+          <span class="icon-calendar nav-item-padding icon-size "></span>
+          <span class="nav-link-text">Reactive Forms</span>
+        </a>
+      </li>
+    </section>
 
-    <li class="nav-item">
-      <a routerLink="/User" class="nav-link" routerLinkActive="active">
-        <span class="icon-insert_chart nav-item-padding icon-size"></span>
-        <span class="nav-link-text">Assessment-1</span>
-      </a>
-    </li>
+
+    <section class="border-bottom section-padding">
+      <li class="nav-item">
+        <a routerLink="/Profile" class="nav-link" routerLinkActive="active">
+          <span class="icon-user-tie nav-item-padding icon-size"></span>
+          <span class="nav-link-text">Profiles</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a routerLink="/User" class="nav-link" routerLinkActive="active">
+          <span class="icon-insert_chart nav-item-padding icon-size"></span>
+          <span class="nav-link-text">Assessment-1</span>
+        </a>
+      </li>
+    </section>
   </ul>
+
 
   <footer class="item-size nav-item-padding">
     <a routerLink="#" class="nav-link" routerLinkActive="active">
       <span class="icon-exit nav-item-padding icon-size"></span>
-      <span class="nav-link-text">LOGOUT</span> 
+      <span class="nav-link-text">LOGOUT</span>
     </a>
   </footer>
 </nav>
