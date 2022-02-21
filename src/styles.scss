@@ -174,7 +174,10 @@ a {
 }
 
 #checkmark ~ #sidebar {
-    flex: 0 0 300px;
+    // flex: 0 0 300px;
+    width: 300px;
+    transition: all 0.3s;
+
     #sidebar.active {
         margin-left: -200px;
     }
@@ -225,13 +228,15 @@ a {
     .nav-link-text,
     .title-text {
         transition: all ease-in-out 0.4s;
+        white-space: nowrap;
         opacity: 1;
         transform: translateX(0);
     }
 }
 
 #checkmark:checked ~ #sidebar {
-    flex: 0 0 50px;
+    // flex: 0 0 70px;
+    width: 80px;
     .sidebar-header {
         .checkmark-label {
             .line {
@@ -253,6 +258,7 @@ a {
     .nav-link-text,
     .title-text {
         transition: all ease-in-out 0.4s;
+        display: none;
         opacity: 0;
         transform: translateX(100%);
     }
@@ -369,7 +375,6 @@ ul.CTAs .nav-link {
 }
 
 .main-content{
-    flex-grow:1 ;
     padding: 1rem;
     overflow: hidden;
 }
