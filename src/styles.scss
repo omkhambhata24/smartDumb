@@ -8,6 +8,11 @@ $primary-color: #2f55e4;
 $danger-color: #e95755;
 $success-color: #20b261;
 $border-color: #f7f8fa;
+$border-radius: 8px;
+
+%border-radius {
+    border-radius: 8px;
+}
 
 ////////////////////////////////////////////////////////////////////////
 // START: Common Styles
@@ -158,6 +163,10 @@ a {
             overflow-y: hidden;
         }
     }
+}
+
+.btn-margin{
+    margin: 0 0.4rem;
 }
 // END: Common Styles
 ////////////////////////////////////////////////////////////////////////
@@ -341,6 +350,10 @@ ul.CTAs .nav-link {
     width: 350px;
 }
 
+.max-sidebar-height {
+    max-height: 100%;
+}
+
 // END: Sidebar Styles
 ////////////////////////////////////////////////////////////////////////
 
@@ -368,7 +381,7 @@ ul.CTAs .nav-link {
     border: 6px solid #ffffff;
   }
 
-  // END: Sidebar Styles
+  // END: Scrollbar Styles
 ////////////////////////////////////////////////////////////////////////
 .bg-colour {
     background-color: #f7f8fa;
@@ -379,8 +392,8 @@ ul.CTAs .nav-link {
     overflow: hidden;
 }
 
-%border-radius {
-    border-radius: 8px;
+.address-margin {
+    margin: 1.25rem;
 }
 
 table {
@@ -400,6 +413,10 @@ table td,
 table th {
     padding: 0.6rem;
     border-bottom: 1px solid #f0f1f3;
+}
+
+.max-table-height{
+    max-height: 100%;
 }
 
 .table-border {
@@ -443,7 +460,7 @@ table th {
 .form-control,
 .form-select {
     font-family: "Poppins", sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.825rem;
     border: 1px solid $border-color;
     @extend %border-radius;
     padding: 0 0.5rem;
@@ -466,6 +483,19 @@ table th {
     width: 165px;
 }
 
+.form-control-2,
+.form-select-2 {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.825rem;
+    border: 1px solid $border-color;
+    @extend %border-radius;
+    padding: 0 0.5rem;
+    height: 40px;
+    outline: none;
+    display: block;
+    width: 300px;
+}
+
 .form-label {
     font-family: "Poppins", sans-serif;
     font-size: 1rem;
@@ -475,6 +505,11 @@ table th {
     display: block;
 }
 
+.th-font-size,
+.td-font-size {
+    font-size: 16px;
+}
+
 .text-danger {
     color: $danger-color;
 }
@@ -482,4 +517,170 @@ table th {
 .section-padding {
     padding: 1rem 0;
 }
+
+////////  MEDIA QUERIES  ////////////
+
+// Extra large devices (large desktops, 1200px and up)
+@media (max-width: 1200px) {
+
+   
+}
+
+// Large devices (desktops, 992px and up)
+@media (max-width: 992px) { 
+
+    
+}
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 768px) {
+
+    .form-control,
+    .form-select {
+    font-size: 0.825rem;
+    width: 250px;
+    }
+
+    .form-control-1,
+    .form-select-1 {
+    
+    font-size: 0.75rem;
+    width: 120px;
+    }
+
+    .form-control-2,
+    .form-select-2 {
+    font-size: 0.825rem;
+    width: 115px;
+    }
+
+    .btn {
+        height: 40px;
+        padding: 0 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .th-font-size,
+    .td-font-size {
+        font-size: 14px;
+    }
+
+    #checkmark ~ #sidebar {
+        width: 240px;
+        
+        .nav-link-text { 
+            font-size: 0.875rem;
+        }
+
+        .title-text{
+            font-size: 1.125rem;
+        }
+    } 
+    
+    #checkmark:checked ~ #sidebar {
+        width: 65px;
+
+        .sidebar-header {
+            padding: 20px 3px;
+        }    
+    }  
+    
+    #sidebar ul.components {
+        padding: 8px 0;
+    }
+
+    #sidebar ul .nav-item .nav-link, #sidebar footer .nav-link{
+        padding: 8px;
+    }
+
+    .section-padding {
+        padding: 0;
+    }
+
+    .btn-margin{
+        margin: 0 0.3rem;
+    }
+
+ }
+
+
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) { 
+
+    .form-control,
+    .form-select {
+    font-size: 0.75rem;
+    height: 33px;
+    width: 200px;
+    }
+
+    .form-control-1,
+    .form-select-1 {
+    
+    font-size: 0.75rem;
+    height: 32px;
+    width: 100px;
+    }
+
+    .form-control-2,
+    .form-select-2 {
+    font-size: 0.75rem;
+    height: 32px;
+    width: 85px;
+    }
+
+
+    .btn {
+        height: 30px;
+        padding: 0 0.75rem;
+        font-size: 0.7rem;
+    }
+
+    .th-font-size,
+    .td-font-size {
+        font-size: 13.5px;
+    }
+
+    #checkmark ~ #sidebar {
+        width: 210px;
+        
+        .nav-link-text { 
+            font-size: 0.825rem;
+        }
+
+        .title-text{
+            font-size: 1rem;
+        }
+    } 
+    
+    #checkmark:checked ~ #sidebar {
+        width: 60px;
+
+        .sidebar-header {
+            padding: 20px 3px;
+        }    
+    }  
+    
+    #sidebar ul.components {
+        padding: 8px 0;
+    }
+
+    #sidebar ul .nav-item .nav-link, #sidebar footer .nav-link{
+        padding: 8px;
+    }
+
+    .section-padding {
+        padding: 0;
+    }
+
+    .btn-margin{
+        margin: 0 0.25rem;
+    }
+
+}
+
+
+
+
 

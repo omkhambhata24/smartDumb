@@ -1,16 +1,16 @@
 <h2 class="th-font-weight margin1">Profile</h2>
 
 <div class="d-flex justify-content-between padding">
-  <input type="search" class="form-control w-25 " placeholder="Search For a Profile" [(ngModel)]=searchString>
+  <input type="search" class="form-control" placeholder="Search For a Profile" [(ngModel)]=searchString>
 
   <button type="button" class="btn btn-primary" routerLink="/Profile/add">+ Add Profile</button>
 </div>
 
-<div class="margin d-flex overflow-auto">
+<div class="margin d-flex overflow-auto max-table-height">
   <table class="table-border w-100 ">
 
     <thead>
-      <tr class="text-align-center th-color">
+      <tr class="text-align-center th-color th-font-size">
         <th class="th-font-weight" scope="col"> </th>
         <th class="th-font-weight" scope="col">#</th>
         <th class="th-font-weight" scope="col">Name</th>
@@ -25,16 +25,16 @@
     <tbody>
       <tr *ngFor="let profile of ProfileList | search: this.searchString; let i=index; trackBy:profileTrack"
         class="text-align-center">
-        <td class="text-color">
+        <td class="text-color td-font-size">
           <input type="checkbox">
         </td>
-        <td class="text-color" scope="row">{{i+1}}.</td>
-        <td class="text-color">{{profile.firstName + ' ' + profile.lastName}}</td>
-        <td class="text-color">{{profile.email}}</td>
-        <td class="text-color">{{profile.employment}}</td>
-        <td class="text-color">{{profile.department | dept: depts}}</td>
-        <td class="text-color">{{profile.phone}}</td>
-        <td class="text-color">{{profile.gender}}</td>
+        <td class="text-color td-font-size" scope="row">{{i+1}}.</td>
+        <td class="text-color td-font-size">{{profile.firstName + ' ' + profile.lastName}}</td>
+        <td class="text-color td-font-size">{{profile.email}}</td>
+        <td class="text-color td-font-size">{{profile.employment}}</td>
+        <td class="text-color td-font-size">{{profile.department | dept: depts}}</td>
+        <td class="text-color td-font-size">{{profile.phone}}</td>
+        <td class="text-color td-font-size">{{profile.gender}}</td>
         <td>
           <span class="icon-pencil2 margin-icon" (click)="editProfile(profile)"></span>
           <span class="icon-trash-can margin-icon" (click)="deleteProfile(profile.id)"></span>

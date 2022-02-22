@@ -2,20 +2,20 @@
 <div class="d-flex space-between padding">
     <button type="button" class="btn btn-primary border-radius" routerLink="/User/add">+ Create</button>
 
-    <input type="search" class="form-control border-radius w-25" placeholder="Search By Name" [(ngModel)]=searchStr>
-    <input type="search" class="form-control border-radius w-25" placeholder="Search By Department"
+    <input type="search" class="form-control-2 border-radius w-25" placeholder="Search By Name" [(ngModel)]=searchStr>
+    <input type="search" class="form-control-2 border-radius w-25" placeholder="Search By Department"
         [(ngModel)]=searchStr1>
-    <input type="search" class="form-control border-radius w-25" placeholder="Search By City" [(ngModel)]=searchStr2>
+    <input type="search" class="form-control-2 border-radius w-25" placeholder="Search By City" [(ngModel)]=searchStr2>
 
 
 </div>
 
-<div class="table-bd margin overflow-auto">
+<div class="table-bd margin overflow-auto max-table-height">
     <table class="w-100">
 
         <!-- Title of list-->
         <thead>
-            <tr class="text-align-center th-color">
+            <tr class="text-align-center th-color th-font-size">
                 <th scope="col">Sr.No.</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email-id</th>
@@ -29,7 +29,7 @@
         <!-- ngFor used to enter data with index i-->
         <tbody>
             <tr *ngFor="let user of UserList | sort: this.searchStr; let i=index; trackBy:userTrack"
-                class="text-align-center td-color">
+                class="text-align-center td-color td-font-size">
                 <td scope="row">{{i+1}}.</td>
                 <td>{{user.name}}</td>
                 <td>{{user.Email}}</td>
@@ -64,7 +64,7 @@
 
 
 <!-- Add Address section-->
-<div class="table-bd margin">
+<div class="table-bd address-margin">
     <h2 class="p-3"> Add Address: </h2>
     <div class="mb-3 d-flex f-col p-3">
         <input type="text" formControlName="name" class="form-control w-25" id="name" placeholder="Enter Address">

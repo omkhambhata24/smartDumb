@@ -29,9 +29,6 @@ a:focus {
     border: none;
 }
 
-.item-size {
-    font-size: 1rem;
-}
 
 .icon-size {
     font-size: 1.5rem;
@@ -75,22 +72,53 @@ a:focus {
     MEDIAQUERIES
 ----------------------------------------------------- */
 
-// @media (max-width: 768px) {
-//     #sidebar {
-//         margin-left: - 300px;
-//     }
-//     #sidebar.active {
-//         margin-left: 0;
-//     }
-//     #sidebarCollapse span {
-//         display: none;
-//     }
-// }
-
 #sidebar {
     height: 100%;
 }
 
 .border-bottom{
     border-bottom: 1px solid #dee2e6;
+}
+
+// Medium devices (tablets, 768px and up)
+@media (max-width: 768px) {
+
+    .profile-img{
+     width: 45px;
+     height: 45px;
+    }
+ 
+    .nav-line-padding {
+     padding: 0.25rem 1rem;
+    }
+ 
+ }
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) { 
+
+   .profile-img{
+    width: 38px;
+    height: 38px;
+   }
+
+   .nav-line-padding {
+    padding: 0.25rem 1rem;
+    }
+
+    .nav-item-padding {
+        padding: 0.7rem;
+    }
+
+    .icon-size {
+    font-size: 1.25rem;
+    }
+
+    .header-size {
+        font-size: 1rem;
+    }
+
+    .user-email {
+        font-size: 0.6rem
+    }
 }
