@@ -1,8 +1,8 @@
-<div class="d-flex wrapper h-100 overflow">
+<div class="d-flex wrapper h-100 overflow-hidden">
     <div class="d-flex flex-column border-end">
         <app-sidebar class="flex-grow-1 overflow-hidden"></app-sidebar>
     </div>
-    <div class="main-content flex-grow-1 bg-colour">
-        <router-outlet></router-outlet>
+    <div class="main-content flex-grow-1 bg-colour overflow-auto">
+        <router-outlet class="flex-grow-1"></router-outlet>
     </div>
 </div>
