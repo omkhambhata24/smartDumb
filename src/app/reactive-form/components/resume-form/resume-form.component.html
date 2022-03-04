@@ -22,13 +22,13 @@
         <label for="Skills" class="form-label "><b>Tech-Skills :</b></label>
         <div formArrayName="Skills" *ngFor="let Skills of this.getFormGroupArray('Skills').controls; let i = index">
             <div class="flex-dis">
-                <input type="text" [formControlName]="i" class="form-control" id="Skills" placeholder="Enter Skills">
-                <button class="btn btn-outline-danger" (click)="deleteSkills(i)">
+                <input type="text" [formControlName]="i" class="form-control-2" id="Skills" placeholder="Enter Skills">
+                <button class="btn btn-danger" (click)="deleteSkills(i)">
                     delete
                 </button>
             </div>
         </div>
-        <button type="button" class="btn btn-outline-primary btn-sm w-25" (click)="addSkills()">Add</button>
+        <button type="button" class="btn btn-primary btn-sm w-25" (click)="addSkills()">Add</button>
     </div>
 
     <div class="mb-3 d-flex w-25">
@@ -72,10 +72,10 @@
                 </div>
             </div>
             <div>
-                <button class="btn btn-outline-danger w-25" type="button" (click)="deleteExperience(i)">Delete</button>
+                <button class="btn btn-danger w-25" type="button" (click)="deleteExperience(i)">Delete</button>
             </div>
         </div>
-        <button type="button" class="btn btn-outline-primary btn-sm w-25" (click)="addExperience()">Add</button>
+        <button type="button" class="btn btn-primary btn-sm w-25" (click)="addExperience()">Add</button>
     </div>
 
 
@@ -97,10 +97,10 @@
                 </div>
             </div>
             <div>
-                <button class="btn btn-outline-danger w-25" type="button" (click)="deleteEducation(i)">Delete</button>
+                <button class="btn btn-danger w-25" type="button" (click)="deleteEducation(i)">Delete</button>
             </div>
         </div>
-        <button type="button" class="btn btn-outline-primary w-25" (click)="addEducation()">Add</button>
+        <button type="button" class="btn btn-primary w-25" (click)="addEducation()">Add</button>
     </div>
 
     <div class="mb-3 d-flex w-25">
@@ -125,7 +125,7 @@
 
     <div class="d-flex">
         <div>
-            <button type="submit" class="btn btn-outline-success">Submit</button>
+            <button type="submit" class="btn btn-success">Submit</button>
         </div>
     </div>
 </form>
