@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileListComponent } from './component/profile-list/profile-list.component';
 import { DeptPipe } from './pipes/dept.pipe';
 import { SearchPipe } from './pipes/search.pipe';
+import { DragDropModule } from '@angular/cdk/drag-drop'
+
 
 
 
@@ -26,6 +28,7 @@ import { SearchPipe } from './pipes/search.pipe';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    DragDropModule,
   ],
   exports: [
     ProfileFormComponent

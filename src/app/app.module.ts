@@ -11,6 +11,8 @@ import { CoreModule } from './core/core.module';
 import { HeaderComponent } from './core/header/header.component';
 import { ProfileModule } from './profile/profile.module';
 import { Assessment1Module } from './assessment-1/assessment-1.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ArtistsComponent } from './artists/artists.component';
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { Assessment1Module } from './assessment-1/assessment-1.module';
     AppComponent,
     ParentComponent,
     ChildComponent,
-    HeaderComponent, 
+    HeaderComponent,
+    ArtistsComponent, 
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { Assessment1Module } from './assessment-1/assessment-1.module';
     ReactiveFormsModule,
     ProfileModule,
     Assessment1Module,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

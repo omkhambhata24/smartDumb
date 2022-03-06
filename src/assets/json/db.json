@@ -43,16 +43,6 @@
       "id": 2
     },
     {
-      "firstName": "dummy",
-      "lastName": "component",
-      "email": "component@outlook.com",
-      "phone": "(164)-(109)-3759",
-      "department": "5",
-      "gender": "female",
-      "employment": "2021-08-05",
-      "id": 6
-    },
-    {
       "firstName": "dumb",
       "lastName": "module",
       "email": "dumb@abcd.com",
@@ -91,30 +81,23 @@
       "gender": "male",
       "employment": "2022-02-19",
       "id": 10
-    },
-    {
-      "firstName": "test3",
-      "lastName": "dummy",
-      "email": "test3@gmail.com",
-      "phone": "(198)-(567)-7011",
-      "department": "1",
-      "gender": "female",
-      "employment": "2022-02-11",
-      "id": 11
     }
   ],
   "resume": [
     {
-      "Name": "",
-      "Description": "",
+      "Name": "Om Ritesh Khambhata",
+      "Description": "lorem ipsum",
       "Skills": [
-        ""
+        "Js",
+        "Angular",
+        "Bootstrap",
+        "HTML"
       ],
       "Experience": [
         {
-          "Company": "",
-          "JobRole": "",
-          "JobDesc": "",
+          "Company": "1Rivet",
+          "JobRole": "Intern",
+          "JobDesc": "Front-End Developer",
           "JoinYear": 2022,
           "LeaveYear": 2022
         }
@@ -126,8 +109,8 @@
           "GPA": 9
         }
       ],
-      "Email": "",
-      "Mobile": "",
+      "Email": "khambhataom@gmail.com",
+      "Mobile": "9725178155",
       "id": 1
     }
   ],
@@ -159,7 +142,7 @@
       "city": "Surat",
       "Email": "carljohnson@gtasa.com",
       "mobile": "182-734-6255",
-      "department": "4",
+      "department": "2",
       "gender": "male",
       "employment": "2022-02-09",
       "hired": "",
@@ -221,15 +204,15 @@
       "id": 6
     },
     {
-      "name": "om K khambhata",
-      "city": "Valsad",
-      "Email": "omkhambhata@gmail.com",
-      "mobile": "972-571-7815",
-      "department": "4",
+      "name": "Om Ritesh Khambhata",
+      "city": "valsad",
+      "Email": "khambhataom@gmail.com",
+      "mobile": "123-456-7890",
+      "department": "5",
       "gender": "male",
-      "employment": "2022-02-17",
+      "employment": "2022-03-26",
       "hired": "",
-      "id": 7
+      "id": 8
     }
   ]
 }

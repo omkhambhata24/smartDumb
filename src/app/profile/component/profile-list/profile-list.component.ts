@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Department, Profile } from '../../models/profile.model';
 import { ProfileService } from '../../services/profile.service';
 import { Router } from '@angular/router';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-profile-list',
@@ -53,4 +54,5 @@ export class ProfileListComponent implements OnInit {
   profileTrack(index: number, profile: Profile ) {
     return profile.id;
   }
+
 }
