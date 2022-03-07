@@ -47,7 +47,7 @@
       "lastName": "module",
       "email": "dumb@abcd.com",
       "phone": "(123)-(789)-4560",
-      "department": "4",
+      "department": "2",
       "gender": "female",
       "employment": "2022-01-11",
       "id": 7
@@ -77,7 +77,7 @@
       "lastName": "khambhata",
       "email": "omkhambhata@gmail.com",
       "phone": "(123)-(456)-7890",
-      "department": "2",
+      "department": "1",
       "gender": "male",
       "employment": "2022-03-17",
       "id": 11

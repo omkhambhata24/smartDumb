@@ -60,7 +60,7 @@ export class ProfileListComponent implements OnInit {
 
   componentRef: ComponentRef<ProfileFormComponent>;
 
-  displayOverlay() {
+  displayOverlay(id?: number) {
     console.log("Overlay!!!");
 
     const overlayRef = this.overlay.create({
@@ -79,14 +79,17 @@ export class ProfileListComponent implements OnInit {
       this.getProfileList();
     });
 
+    this.componentRef.instance.currentProfileId = id;
+
     this.componentRef.instance.close.subscribe(() => {
       overlayRef.detach();
     });
   }
 
   editProfile(profile: Profile) {
-    this.displayOverlay();
-    this.componentRef.instance.currentProfileId = profile.id;
+    this.profileService.sendProfiletoEdit(profile);
+    this.displayOverlay(profile.id);
+    
   }
   
 
