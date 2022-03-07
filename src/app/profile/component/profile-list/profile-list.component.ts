@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, ComponentRef } from '@angular/core';
 import { Department, Profile } from '../../models/profile.model';
 import { ProfileService } from '../../services/profile.service';
 import { Router } from '@angular/router';
@@ -58,6 +58,7 @@ export class ProfileListComponent implements OnInit {
     return profile.id;
   }
 
+  componentRef: ComponentRef<ProfileFormComponent>;
 
   displayOverlay() {
     console.log("Overlay!!!");
@@ -72,13 +73,13 @@ export class ProfileListComponent implements OnInit {
     });
 
     const component = new ComponentPortal(ProfileFormComponent);
-    const componentRef = overlayRef.attach(component);
+    this.componentRef = overlayRef.attach(component);
 
-    componentRef.instance.onsubmit.subscribe(() => {
+    this.componentRef.instance.submit.subscribe(() => {
       this.getProfileList();
     });
 
-    componentRef.instance.close.subscribe(() => {
+    this.componentRef.instance.close.subscribe(() => {
       overlayRef.detach();
     });
   }

@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProfileFormComponent implements OnInit {
 
-  @Output() onsubmit : EventEmitter<Event>;
+  @Output() submit : EventEmitter<Event>;
   @Output() close : EventEmitter<Event>;
 
   isEditMode: boolean = false;
@@ -23,7 +23,7 @@ export class ProfileFormComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private profileService: ProfileService, private route: Router, private activeRoute: ActivatedRoute) 
   { 
-    this.onsubmit = new EventEmitter<Event>();
+    this.submit = new EventEmitter<Event>();
     this.close = new EventEmitter<Event>();
   }
 
@@ -58,8 +58,7 @@ export class ProfileFormComponent implements OnInit {
 
   saveProfile(){
 
-    console.log(this.profileForm
-      );
+    console.log(this.profileForm);
     if (this.profileForm.status === 'VALID') {
       this.saveprofileData();
       this.route.navigate(['/Profile']);
@@ -93,7 +92,11 @@ export class ProfileFormComponent implements OnInit {
   }
 
   onclose() {
-    this.close.emit;
+    this.close.emit();
   }
 
+  onsubmit() {
+    this.saveprofileData();
+    this.close.emit();
+  }
 }
