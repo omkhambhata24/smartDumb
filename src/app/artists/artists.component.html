@@ -1,3 +1,3 @@
-<div cdkDropList (cdkDropListDropped)="drop($event)">
-<div *ngFor="let artist of artists" class="drag-container d-flex justify-content-center align-items-center" cdkDrag>{{artist}}</div>
-</div>
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let movie of artists" cdkDrag>{{movie}}</div>
+  </div>

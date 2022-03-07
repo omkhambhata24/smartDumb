@@ -12,13 +12,20 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProfileFormComponent implements OnInit {
 
+  @Output() onsubmit : EventEmitter<Event>;
+  @Output() close : EventEmitter<Event>;
+
   isEditMode: boolean = false;
   profileForm={} as FormGroup;
   departmentlist?: Department[];
   currentProfileId: number;
 
 
-  constructor(private formBuilder: FormBuilder, private profileService: ProfileService, private route: Router, private activeRoute: ActivatedRoute) { }
+  constructor(private formBuilder: FormBuilder, private profileService: ProfileService, private route: Router, private activeRoute: ActivatedRoute) 
+  { 
+    this.onsubmit = new EventEmitter<Event>();
+    this.close = new EventEmitter<Event>();
+  }
 
   ngOnInit(): void {
     this.buildProfileForm();
@@ -83,6 +90,10 @@ export class ProfileFormComponent implements OnInit {
 
   clearForm(){
     this.profileForm.reset();
+  }
+
+  onclose() {
+    this.close.emit;
   }
 
 }

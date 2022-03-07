@@ -2,7 +2,10 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Department, Profile } from '../../models/profile.model';
 import { ProfileService } from '../../services/profile.service';
 import { Router } from '@angular/router';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { ProfileFormComponent } from '../profile-form/profile-form.component';
+import { ComponentPortal } from '@angular/cdk/portal';
+import { Overlay } from '@angular/cdk/overlay';
+
 
 @Component({
   selector: 'app-profile-list',
@@ -15,7 +18,7 @@ export class ProfileListComponent implements OnInit {
   depts: Department[];
   searchString: string;
 
-  constructor(private profileService: ProfileService, private route: Router) { }
+  constructor(private profileService: ProfileService, private route: Router, private overlay:Overlay) { }
 
   ngOnInit(): void {
     this.getProfileList();
@@ -53,6 +56,31 @@ export class ProfileListComponent implements OnInit {
 
   profileTrack(index: number, profile: Profile ) {
     return profile.id;
+  }
+
+
+  displayOverlay() {
+    console.log("Overlay!!!");
+
+    const overlayRef = this.overlay.create({
+      hasBackdrop: true,
+      positionStrategy: this.overlay
+        .position()
+        .global()
+        .centerHorizontally()
+        .right(),
+    });
+
+    const component = new ComponentPortal(ProfileFormComponent);
+    const componentRef = overlayRef.attach(component);
+
+    componentRef.instance.onsubmit.subscribe(() => {
+      this.getProfileList();
+    });
+
+    componentRef.instance.close.subscribe(() => {
+      overlayRef.detach();
+    });
   }
 
 }

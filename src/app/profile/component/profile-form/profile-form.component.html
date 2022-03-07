@@ -81,7 +81,7 @@
 
     <div class="d-flex f-col">
         <div class="d-flex width-txtbox justify-content-center"> 
-            <button type="submit" class="btn btn-primary btn-margin" routerLink="/profile"> Profile List</button>
+            <button type="submit" class="btn btn-primary btn-margin" (click)="onclose()">Cancel</button>
             <button type="button" class="btn btn-danger btn-margin" (click)="clearForm()">Reset</button>
             <button [disabled]="profileForm.invalid" type="submit" class="btn btn-success btn-margin">Submit</button>
             

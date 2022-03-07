@@ -23,6 +23,9 @@ const routes: Routes = [
  {
   path: 'User',
   loadChildren: () => import('./assessment-1/assessment-1.module').then(m => m.Assessment1Module)
+ },
+ {
+   path: 'artist', loadChildren: () => import('./artists/artists.module').then(m => m.ArtistsModule)
  }
 
 ];

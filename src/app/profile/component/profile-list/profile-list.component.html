@@ -3,7 +3,9 @@
 <div class="d-flex justify-content-between padding">
   <input type="search" class="form-control" placeholder="Search For a Profile" [(ngModel)]=searchString>
 
-  <button type="button" class="btn btn-primary" routerLink="/Profile/add">+ Add Profile</button>
+  <button type="button" (click)="displayOverlay()" class="btn btn-primary">+ Add Profile</button>
+
+  <!-- routerLink="/Profile/add" -->
 </div>
 
 <div class="margin d-flex overflow-auto max-table-height">

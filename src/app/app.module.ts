@@ -13,6 +13,7 @@ import { ProfileModule } from './profile/profile.module';
 import { Assessment1Module } from './assessment-1/assessment-1.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ArtistsComponent } from './artists/artists.component';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { ArtistsComponent } from './artists/artists.component';
     ProfileModule,
     Assessment1Module,
     BrowserAnimationsModule,
+    OverlayModule
   ],
   providers: [],
   bootstrap: [AppComponent]
