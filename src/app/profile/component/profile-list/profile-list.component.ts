@@ -39,10 +39,10 @@ export class ProfileListComponent implements OnInit {
     });
   }
  
-  editProfile(profile: Profile) {
-    this.profileService.sendProfiletoEdit(profile);
-    this.route.navigate([`/Profile/edit/${profile.id}`]);
-  }
+  // editProfile(profile: Profile) {
+  //   this.profileService.sendProfiletoEdit(profile);
+  //   this.route.navigate([`/Profile/edit/${profile.id}`]);
+  // }
 
   deleteProfile(id : number){
     this.profileService.deleteProfile(id).subscribe((data) => {
@@ -83,5 +83,11 @@ export class ProfileListComponent implements OnInit {
       overlayRef.detach();
     });
   }
+
+  editProfile(profile: Profile) {
+    this.displayOverlay();
+    this.componentRef.instance.currentProfileId = profile.id;
+  }
+  
 
 }

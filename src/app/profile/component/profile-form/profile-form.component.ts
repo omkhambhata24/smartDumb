@@ -18,7 +18,7 @@ export class ProfileFormComponent implements OnInit {
   isEditMode: boolean = false;
   profileForm={} as FormGroup;
   departmentlist?: Department[];
-  currentProfileId: number;
+  currentProfileId?: number;
 
 
   constructor(private formBuilder: FormBuilder, private profileService: ProfileService, private route: Router, private activeRoute: ActivatedRoute) 
@@ -30,7 +30,7 @@ export class ProfileFormComponent implements OnInit {
   ngOnInit(): void {
     this.buildProfileForm();
     this.getDepatmentList();
-    if (this.activeRoute.snapshot.params['id']) {
+    if (this.currentProfileId) {
       this.isEditMode = true;
       this.profileService.getProfileToEdit().subscribe(data => {
         this.currentProfileId = data.id;
@@ -97,6 +97,6 @@ export class ProfileFormComponent implements OnInit {
 
   onsubmit() {
     this.saveprofileData();
-    this.close.emit();
+    this.onclose();
   }
 }
