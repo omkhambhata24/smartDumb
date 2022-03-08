@@ -1,0 +1,8 @@
+<div class="confirmation-popup d-flex flex-column">
+    {{ this.msg }}
+
+    <div class="d-flex justify-content-between">
+        <button *ngFor="let button of this.buttons" class="btn" [ngClass]="button.type"
+            (click)="onButtonClick(button.value)">{{ button.name }}</button>
+    </div>
+</div>

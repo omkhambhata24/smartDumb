@@ -68,8 +68,9 @@ export class ProfileListComponent implements OnInit {
       positionStrategy: this.overlay
         .position()
         .global()
-        .centerHorizontally()
-        .right(),
+        .centerVertically()
+        .right()
+        .height('100%'),
     });
 
     const component = new ComponentPortal(ProfileFormComponent);

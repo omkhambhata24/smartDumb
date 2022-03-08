@@ -14,6 +14,7 @@ import { Assessment1Module } from './assessment-1/assessment-1.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ArtistsComponent } from './artists/artists.component';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { DeletePopupComponent } from './shared/delete-popup/delete-popup.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     ChildComponent,
     HeaderComponent,
     ArtistsComponent,
+    DeletePopupComponent,
   ],
   imports: [
     BrowserModule,
