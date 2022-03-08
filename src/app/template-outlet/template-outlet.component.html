@@ -1,1 +1,24 @@
-<p>template-outlet works!</p>
+<h1>ngTemplateOutlet Example</h1>
+ 
+<label for="mode">Display Mode:</label>
+<select [(ngModel)]="mode">
+  <option *ngFor="let item of modeOptions" [ngValue]="item.mode">{{item.mode}}</option>
+</select>
+ 
+<ng-template let-items #cardTemplate>
+  <div *ngFor="let item of items">
+    <h1>{{item.header}}</h1>
+    <p>{{item.content}}</p>
+  </div>
+</ng-template>
+ 
+<ng-template let-items #listTemplate>  
+  <ul>
+    <li *ngFor="let item of items">
+      <strong>{{item.header}} </strong> ( {{item.content}} )
+    </li>
+  </ul>
+</ng-template>
+ 
+<app-item-view [itemTemplate]="template" [items]="items">
+</app-item-view>

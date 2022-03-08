@@ -26,7 +26,11 @@ const routes: Routes = [
  },
  {
    path: 'artist', loadChildren: () => import('./artists/artists.module').then(m => m.ArtistsModule)
- }
+ },
+ {
+  path: 'template', loadChildren: () => import('./template-outlet/template-outlet.module').then(m => m.TemplateOutletModule)
+}
+
 
 ];
 
