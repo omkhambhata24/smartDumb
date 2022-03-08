@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ArtistsComponent } from './artists/artists.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { DeletePopupComponent } from './shared/delete-popup/delete-popup.component';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { DeletePopupComponent } from './shared/delete-popup/delete-popup.compone
     ProfileModule,
     Assessment1Module,
     BrowserAnimationsModule,
-    OverlayModule
+    OverlayModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

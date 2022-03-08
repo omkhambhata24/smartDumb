@@ -4,14 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileFormComponent } from './component/profile-form/profile-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-/*import { PhoneMaskDirective } from './component/profile-form/phone-mask.directive';*/
 import { ProfileListComponent } from './component/profile-list/profile-list.component';
 import { DeptPipe } from './pipes/dept.pipe';
 import { SearchPipe } from './pipes/search.pipe';
 import { DragDropModule } from '@angular/cdk/drag-drop'
-// import { SharedModule } from '../shared/shared.module';
-
-
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -21,7 +18,6 @@ import { DragDropModule } from '@angular/cdk/drag-drop'
     ProfileListComponent,
     DeptPipe,
     SearchPipe,
-   /*PhoneMaskDirective */
   ],
   imports: [
     CommonModule,
@@ -30,7 +26,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop'
     ReactiveFormsModule,
     HttpClientModule,
     DragDropModule,
-  
+    SharedModule,
   ],
   exports: [
     ProfileFormComponent

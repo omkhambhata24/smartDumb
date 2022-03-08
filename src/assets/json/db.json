@@ -23,16 +23,6 @@
   ],
   "profile": [
     {
-      "firstName": "Hrishikesh",
-      "lastName": "Patel",
-      "email": "Hrishikesh.p@gmail.com",
-      "phone": "(987)-(674)-5749",
-      "department": "3",
-      "gender": "male",
-      "employment": "2022-02-01",
-      "id": 2
-    },
-    {
       "firstName": "dumb",
       "lastName": "module",
       "email": "dumb@abcd.com",

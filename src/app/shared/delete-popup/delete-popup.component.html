@@ -1,8 +1,10 @@
-<div class="confirmation-popup d-flex flex-column">
-    {{ this.msg }}
+<div class="delete-popup">
+    <div class="d-flex flex-column">
+        <h3>{{ this.msg }}</h3>
 
-    <div class="d-flex justify-content-between">
-        <button *ngFor="let button of this.buttons" class="btn" [ngClass]="button.type"
-            (click)="onButtonClick(button.value)">{{ button.name }}</button>
+        <div class="d-flex justify-content-between">
+            <button *ngFor="let button of this.buttons" class="btn" [ngClass]="button.type"
+                (click)="onButtonClick(button.value)">{{ button.name }}</button>
+        </div>
     </div>
 </div>

@@ -46,17 +46,17 @@ export class ProfileListComponent implements OnInit {
   //   this.route.navigate([`/Profile/edit/${profile.id}`]);
   // }
 
-  // deleteProfile(id : number){
-  //   this.profileService.deleteProfile(id).subscribe((data) => {
-  //     console.log("Deleted successfully: ", data);
-  //     this.getProfileList();
-  //   }, errors => {
-  //     alert("Wrong" + errors);
-  //   });
+  deleteProfile(id : number){
+    this.profileService.deleteProfile(id).subscribe((data) => {
+      console.log("Deleted successfully: ", data);
+      this.getProfileList();
+    }, errors => {
+      alert("Wrong" + errors);
+    });
 
-  // }
+  }
 
-  profileTrack(index: number, profile: Profile ) {
+  profileTrack(index: number, profile: Profile ): number {
     return profile.id;
   }
 
@@ -113,7 +113,7 @@ export class ProfileListComponent implements OnInit {
     this.DeletePopupComponentRef.instance.msg = "Are you sure you want to delete ID: " + id + "?";
 
     this.DeletePopupComponentRef.instance.buttons = [
-      new Button('Cancel', 'secondary', 'cancel'),
+      new Button('Cancel', 'primary', 'cancel'),
       new Button('Delete', 'danger', 'delete'),
     ]
 
