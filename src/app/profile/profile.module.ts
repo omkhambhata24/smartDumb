@@ -9,6 +9,7 @@ import { ProfileListComponent } from './component/profile-list/profile-list.comp
 import { DeptPipe } from './pipes/dept.pipe';
 import { SearchPipe } from './pipes/search.pipe';
 import { DragDropModule } from '@angular/cdk/drag-drop'
+// import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -29,6 +30,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop'
     ReactiveFormsModule,
     HttpClientModule,
     DragDropModule,
+  
   ],
   exports: [
     ProfileFormComponent

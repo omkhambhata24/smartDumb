@@ -4,7 +4,9 @@ import { ProfileService } from '../../services/profile.service';
 import { Router } from '@angular/router';
 import { ProfileFormComponent } from '../profile-form/profile-form.component';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { Overlay } from '@angular/cdk/overlay';
+import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
+import { DeletePopupComponent } from 'src/app/shared/delete-popup/delete-popup.component';
+import { Button } from 'src/app/shared/model/button.model';
 
 
 @Component({
@@ -44,15 +46,15 @@ export class ProfileListComponent implements OnInit {
   //   this.route.navigate([`/Profile/edit/${profile.id}`]);
   // }
 
-  deleteProfile(id : number){
-    this.profileService.deleteProfile(id).subscribe((data) => {
-      console.log("Deleted successfully: ", data);
-      this.getProfileList();
-    }, errors => {
-      alert("Wrong" + errors);
-    });
+  // deleteProfile(id : number){
+  //   this.profileService.deleteProfile(id).subscribe((data) => {
+  //     console.log("Deleted successfully: ", data);
+  //     this.getProfileList();
+  //   }, errors => {
+  //     alert("Wrong" + errors);
+  //   });
 
-  }
+  // }
 
   profileTrack(index: number, profile: Profile ) {
     return profile.id;
@@ -91,6 +93,40 @@ export class ProfileListComponent implements OnInit {
     this.profileService.sendProfiletoEdit(profile);
     this.displayOverlay(profile.id);
     
+  }
+
+  confirmationPopupRef: OverlayRef;
+  DeletePopupComponentRef: ComponentRef<DeletePopupComponent>;
+
+  displayDeletePopup(id: number): void {
+    let formOverlayConfig: OverlayConfig = {
+      hasBackdrop: true,
+      positionStrategy: this.overlay.position().global().centerHorizontally().centerVertically()
+    };
+
+    this.confirmationPopupRef = this.overlay.create(formOverlayConfig);
+
+    const formComponent = new ComponentPortal(DeletePopupComponent);
+
+    this.DeletePopupComponentRef = this.confirmationPopupRef.attach(formComponent);
+
+    this.DeletePopupComponentRef.instance.msg = "Are you sure you want to delete ID: " + id + "?";
+
+    this.DeletePopupComponentRef.instance.buttons = [
+      new Button('Cancel', 'secondary', 'cancel'),
+      new Button('Delete', 'danger', 'delete'),
+    ]
+
+    this.closeDeletePopup(id);
+  }
+
+  closeDeletePopup(id: number): void {
+    this.DeletePopupComponentRef.instance.buttonClick.subscribe((val) => {
+      if (val === 'delete') {
+        this.deleteProfile(id);
+      }
+      this.confirmationPopupRef.detach();
+    });
   }
   
 

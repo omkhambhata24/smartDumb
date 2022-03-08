@@ -39,7 +39,7 @@
         <td class="text-color td-font-size">{{profile.gender}}</td>
         <td>
           <span class="icon-pencil2 margin-icon" (click)="editProfile(profile)"></span>
-          <span class="icon-trash-can margin-icon" (click)="deleteProfile(profile.id)"></span>
+          <span class="icon-trash-can margin-icon" (click)="displayDeletePopup(profile.id)"></span>
         </td>
       </tr>
     </tbody>

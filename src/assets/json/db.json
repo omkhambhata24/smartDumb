@@ -23,16 +23,6 @@
   ],
   "profile": [
     {
-      "firstName": "Carl",
-      "lastName": "Johnson",
-      "email": "carljohnson@gtasa.com",
-      "phone": "(888)-(776)-6666",
-      "department": "3",
-      "gender": "male",
-      "employment": "2022-02-24",
-      "id": 1
-    },
-    {
       "firstName": "Hrishikesh",
       "lastName": "Patel",
       "email": "Hrishikesh.p@gmail.com",
