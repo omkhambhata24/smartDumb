@@ -1,9 +1,9 @@
 <form *ngIf="userForm" [formGroup]="userForm" (ngSubmit)="saveUser()"
-    class="d-flex f-col justify-content-center align-items-center overflow-auto">
+    class="d-flex flex-column justify-content-center align-items-center overflow-auto">
 
     <!-- Data Fields of forms-->
     <h1> Add User </h1>
-    <div class="mb-3 d-flex f-col w-25">
+    <div class="mb-3 d-flex flex-column w-25">
         <label for="name" class="form-label">Name: <span class="ast">*</span></label>
         <div>
             <input type="text" formControlName="name" class="form-control" id="name" placeholder="Enter Name:">
@@ -12,7 +12,7 @@
         </div>
     </div>
 
-    <div class="mb-3 d-flex f-col f-col w-25">
+    <div class="mb-3 d-flex flex-column flex-column w-25">
         <label for="Email" class="form-label">Email Id: <span class="ast">*</span></label>
         <div>
             <input type="text" formControlName="Email" class="form-control" id="Email"
@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <div class="mb-3 d-flex f-col w-25">
+    <div class="mb-3 d-flex flex-column w-25">
         <label for="mobile" class="form-label ">mobile No: <span class="ast">*</span></label>
         <div>
             <input type="text" formControlName="mobile" class="form-control" id="mobile" placeholder="XXX-XXX-XXXX">
@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <div class="mb-3 d-flex f-col w-25">
+    <div class="mb-3 d-flex flex-column w-25">
         <label for="city" class="form-label ">city:</label>
         <div>
             <input type="text" formControlName="city" class="form-control" id="city" placeholder="Enter City">
@@ -43,7 +43,7 @@
         </div>
     </div>
 
-    <div class="mb-3 d-flex f-col">
+    <div class="mb-3 d-flex flex-column">
         <div class="d-flex width-txtbox justify-content-center">
         <label for="gender" class="form-label">Gender :</label>
             <div>
