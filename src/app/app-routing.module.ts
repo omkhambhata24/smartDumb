@@ -25,11 +25,17 @@ const routes: Routes = [
   loadChildren: () => import('./assessment-1/assessment-1.module').then(m => m.Assessment1Module)
  },
  {
-   path: 'artist', loadChildren: () => import('./artists/artists.module').then(m => m.ArtistsModule)
+   path: 'artist', 
+   loadChildren: () => import('./artists/artists.module').then(m => m.ArtistsModule)
  },
  {
-  path: 'template', loadChildren: () => import('./template-outlet/template-outlet.module').then(m => m.TemplateOutletModule)
-}
+  path: 'template',
+   loadChildren: () => import('./template-outlet/template-outlet.module').then(m => m.TemplateOutletModule)
+ },
+ {
+  path: 'mvp',
+   loadChildren: () => import('./mvp/mvp.module').then(m => m.MVPModule)
+ },
 
 
 ];

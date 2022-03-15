@@ -16,6 +16,7 @@ import { ArtistsComponent } from './artists/artists.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { DeletePopupComponent } from './shared/delete-popup/delete-popup.component';
 import { SharedModule } from './shared/shared.module';
+import { MVPModule } from './mvp/mvp.module';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     OverlayModule,
     SharedModule,
+    MVPModule
   ],
   providers: [],
   bootstrap: [AppComponent]
