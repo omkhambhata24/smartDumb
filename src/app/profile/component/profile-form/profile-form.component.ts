@@ -1,7 +1,7 @@
 import { error } from '@angular/compiler/src/util';
 import { Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Department, Profile} from '../../models/profile.model';
+import { Department, Profile} from '../../../shared/model/profile.model';
 import { ProfileService } from '../../services/profile.service';
 import { ActivatedRoute, Router } from '@angular/router';
 

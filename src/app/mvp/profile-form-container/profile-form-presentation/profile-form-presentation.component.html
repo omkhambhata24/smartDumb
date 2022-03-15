@@ -1,1 +1,90 @@
-<p>profile-form-presentation works!</p>
+<form *ngIf="profileForm" [formGroup]="profileForm" (ngSubmit)="saveProfile()"
+    class="d-flex f-col align-items-center form-wrapper">
+    <h1> Profile Form </h1>
+    <div class="mb-3 d-flex f-col">
+        <label for="firstName" class="form-label">First Name:</label>
+        <div>
+            <input type="text" formControlName="firstName" class="form-control" id="firstName"
+                placeholder="Enter First Name">
+            <div *ngIf="profileForm.controls['firstName']?.touched && profileForm.controls['firstName'].errors?.['required']"
+                class="form-text text-danger">This field is required.</div>
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex f-col">
+        <label for="lastName" class="form-label ">Last Name:</label>
+        <div>
+            <input type="text" formControlName="lastName" class="form-control" id="lastName"
+                placeholder="Enter Last Name">
+            <div *ngIf="profileForm.controls['lastName']?.touched && profileForm.controls['lastName'].errors?.['required']"
+                class="form-text text-danger">This field is required.</div>
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex f-col">
+        <label for="Email" class="form-label">Email Id:</label>
+        <div>
+            <input type="text" formControlName="email" class="form-control" id="Email"
+                placeholder="someone@something.com">
+            <div *ngIf="profileForm.controls['Email']?.touched && profileForm.controls['Email'].errors?.['email']"
+                class="form-text text-danger">Invalid format.</div>
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex f-col">
+        <label for="employment" class="form-label">Employment:</label>
+        <div>
+            <input type="date" formControlName="employment" class="form-control" id="employment"
+                placeholder="DD-MM-YYYY">
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex f-col">
+        <label for="phone" class="form-label ">Phone No:</label>
+        <div>
+            <input type="text" formControlName="phone" class="form-control" id="phone" placeholder="(XXX)-(XXX)-XXXX">
+            <div *ngIf="profileForm.controls['phone']?.touched && profileForm.controls['phone'].errors?.['required']"
+                class="form-text  text-danger">This field is required.</div>
+            <div *ngIf="profileForm.controls['phone']?.touched && profileForm.controls['phone'].errors?.['pattern']"
+                class="form-text  text-danger">phone no. should be 10 digits.</div>
+
+        </div>
+    </div>
+    <div class="mb-3 d-flex f-col">
+        <label for="department" class="form-label">Department:</label>
+        <div>
+            <select class="form-select" formControlName="department">
+                <option [value]="0">Select Department</option>
+                <option *ngFor="let department of this.departmentlist" [value]="department.id"> {{department.name}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="mb-3 d-flex f-col">
+        <div class="d-flex width-txtbox justify-content-center">
+        <label for="gender" class="form-label">Gender :</label>
+            <div>
+                <input formControlName="gender" value="male" class="form-check-input" type="radio" id="1">
+                <label class="form-check-label" for="male">
+                    Male
+                </label>
+            </div>
+            <div>
+                <input formControlName="gender" value="female" class="form-check-input" type="radio" id="2">
+                <label class="form-check-label" for="female">
+                    Female
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex f-col">
+        <div class="d-flex width-txtbox justify-content-center"> 
+            <button type="submit" class="btn btn-primary btn-margin" (click)="onclose()">Cancel</button>
+            <button type="button" class="btn btn-danger btn-margin" (click)="clearForm()">Reset</button>
+            <button [disabled]="profileForm.invalid" type="submit" (click)="onsubmit()" class="btn btn-success btn-margin">Submit</button>
+            
+        </div>
+    </div>
+</form>
+

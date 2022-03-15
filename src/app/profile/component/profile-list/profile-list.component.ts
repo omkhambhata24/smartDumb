@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter, ComponentRef } from '@angular/core';
-import { Department, Profile } from '../../models/profile.model';
+import { Department, Profile } from '../../../shared/model/profile.model';
 import { ProfileService } from '../../services/profile.service';
 import { Router } from '@angular/router';
 import { ProfileFormComponent } from '../profile-form/profile-form.component';

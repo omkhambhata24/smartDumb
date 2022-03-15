@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Profile } from '../models/profile.model';
+import { Profile } from '../../shared/model/profile.model';
 
 @Pipe({
   name: 'search'
