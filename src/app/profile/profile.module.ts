@@ -5,10 +5,10 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileFormComponent } from './component/profile-form/profile-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileListComponent } from './component/profile-list/profile-list.component';
-import { DeptPipe } from './pipes/dept.pipe';
-import { SearchPipe } from './pipes/search.pipe';
 import { DragDropModule } from '@angular/cdk/drag-drop'
 import { SharedModule } from '../shared/shared.module';
+import { DeptPipe } from '../shared/pipes/dept.pipe';
+import { SearchPipe } from '../shared/pipes/search.pipe';
 
 
 
@@ -17,7 +17,7 @@ import { SharedModule } from '../shared/shared.module';
     ProfileFormComponent,
     ProfileListComponent,
     DeptPipe,
-    SearchPipe,
+    SearchPipe
   ],
   imports: [
     CommonModule,

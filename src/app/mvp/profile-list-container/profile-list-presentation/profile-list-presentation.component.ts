@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Profile } from 'src/app/shared/model/profile.model';
 
 @Component({
   selector: 'app-profile-list-presentation',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileListPresentationComponent implements OnInit {
 
+  ProfileList= [] as Profile[];
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  profileTrack(index: number, profile: Profile ): number {
+    return profile.id;
   }
 
 }
