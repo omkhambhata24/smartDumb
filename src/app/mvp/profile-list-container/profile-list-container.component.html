@@ -1,1 +1,8 @@
-<app-profile-list-presentation></app-profile-list-presentation>
+<div class="container-fluid p-4">
+    <div>
+        <app-profile-list-presentation
+            [profileList]="ProfileList$ | async"
+        ></app-profile-list-presentation>
+    </div>
+  </div>
+
