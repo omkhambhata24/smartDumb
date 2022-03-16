@@ -25,6 +25,7 @@ export class ProfileListContainerComponent implements OnInit {
   delete(id: number) {
     this.profileService.deleteProfile(id).subscribe((res: any) => {
       console.log(res);
+      this.ProfileList$ = this.profileService.getProfileList();
     });
   }
 

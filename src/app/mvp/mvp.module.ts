@@ -7,7 +7,8 @@ import { ProfileFormContainerComponent } from './profile-form-container/profile-
 import { ProfileListContainerComponent } from './profile-list-container/profile-list-container.component';
 import { ProfileFormPresentationComponent } from './profile-form-container/profile-form-presentation/profile-form-presentation.component';
 import { ProfileListPresentationComponent } from './profile-list-container/profile-list-presentation/profile-list-presentation.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProfilesService } from './services/profiles.service';
 
 
 @NgModule({
@@ -21,7 +22,11 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     MVPRoutingModule,
+    FormsModule,
     ReactiveFormsModule
+  ],
+  providers: [
+    ProfilesService
   ]
 })
 export class MVPModule { }

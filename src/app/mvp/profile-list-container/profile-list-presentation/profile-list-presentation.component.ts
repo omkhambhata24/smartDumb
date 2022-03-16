@@ -1,15 +1,13 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Profile } from 'src/app/shared/model/profile.model';
-import { ProfileFormPresenterService } from '../../profile-form-container/profile-form-presenter/profile-form-presenter.service';
-import { ProfilesService } from '../../services/profiles.service';
 import { ProfileListPresenterService } from '../profile-list-presenter/profile-list-presenter.service';
 
 @Component({
   selector: 'app-profile-list-presentation',
   templateUrl: './profile-list-presentation.component.html',
   styleUrls: ['./profile-list-presentation.component.scss'],
-  viewProviders: [ProfileFormPresenterService],
+  viewProviders: [ProfileListPresenterService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProfileListPresentationComponent implements OnInit {
@@ -38,6 +36,9 @@ export class ProfileListPresentationComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProfileList();
+    this.profileListPresenter.delete$.subscribe((id: number) => {
+      this.delete.emit(id);
+    })
   }
 
   getProfileList() {
@@ -57,5 +58,7 @@ export class ProfileListPresentationComponent implements OnInit {
     this.profileListPresenter.onDelete(id);
   }
 
-
+  onEdit(id: number) {
+    this.router.navigateByUrl(`mvp/edit/${id}`);
+  }
 }

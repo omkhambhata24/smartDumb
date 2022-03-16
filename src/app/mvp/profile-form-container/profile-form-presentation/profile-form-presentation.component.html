@@ -1,6 +1,8 @@
-<form *ngIf="profileForm" [formGroup]="profileForm" (ngSubmit)="saveProfile()"
-    class="d-flex flex-column align-items-center form-wrapper">
-    <h1> Profile Form </h1>
+<form *ngIf="profileForm" [formGroup]="profileForm" 
+    class="d-flex flex-column align-items-center form-wrapper"> 
+    <!-- (ngSubmit)="saveProfile()" -->
+    <h1> Profile Form</h1>
+    <h2>{{formTitle}}</h2>
     <div class="mb-3 d-flex flex-column">
         <label for="firstName" class="form-label">First Name:</label>
         <div>
@@ -50,7 +52,7 @@
 
         </div>
     </div>
-    <div class="mb-3 d-flex flex-column">
+    <!-- <div class="mb-3 d-flex flex-column">
         <label for="department" class="form-label">Department:</label>
         <div>
             <select class="form-select" formControlName="department">
@@ -58,7 +60,7 @@
                 <option *ngFor="let department of this.departmentlist" [value]="department.id"> {{department.name}}</option>
             </select>
         </div>
-    </div>
+    </div> -->
 
     <div class="mb-3 d-flex flex-column">
         <div class="d-flex width-txtbox justify-content-center">

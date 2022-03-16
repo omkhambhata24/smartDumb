@@ -27,7 +27,7 @@
       "lastName": "module",
       "email": "dumb@abcd.com",
       "phone": "(123)-(789)-4560",
-      "department": "2",
+      "department": "1",
       "gender": "female",
       "employment": "2022-01-11",
       "id": 7
@@ -57,50 +57,10 @@
       "lastName": "khambhata",
       "email": "omkhambhata@gmail.com",
       "phone": "(123)-(456)-7890",
-      "department": "1",
-      "gender": "male",
-      "employment": "2022-03-17",
-      "id": 11
-    },
-    {
-      "firstName": "om",
-      "lastName": "khambhata",
-      "email": "omkhambhata@gmail.com",
-      "phone": "(123)-(456)-7850",
-      "department": "1",
-      "gender": "male",
-      "employment": "2022-03-09",
-      "id": 12
-    },
-    {
-      "firstName": "test1",
-      "lastName": "test",
-      "email": "test1@gmail.com",
-      "phone": "(156)-(911)-7004",
-      "department": "5",
-      "gender": "female",
-      "employment": "2022-03-17",
-      "id": 13
-    },
-    {
-      "firstName": "dummy",
-      "lastName": "data2",
-      "email": "abcd@yahoo.in",
-      "phone": "(112)-(840)-5043",
       "department": "4",
-      "gender": "female",
-      "employment": "2022-03-27",
-      "id": 14
-    },
-    {
-      "firstName": "dummy",
-      "lastName": "data9",
-      "email": "abcd45@yahoo.in",
-      "phone": "(996)-(156)-1490",
-      "department": "1",
-      "gender": "female",
-      "employment": "2022-04-03",
-      "id": 15
+      "gender": "male",
+      "employment": "2022-03-20",
+      "id": 11
     }
   ],
   "resume": [
