@@ -36,6 +36,10 @@ const routes: Routes = [
   path: 'mvp',
    loadChildren: () => import('./mvp/mvp.module').then(m => m.MVPModule)
  },
+ {
+  path: 'form-list',
+   loadChildren: () => import('./form-list/form-list.module').then(m => m.FormListModule)
+ },
 
 
 ];

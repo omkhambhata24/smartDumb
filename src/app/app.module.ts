@@ -17,6 +17,8 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { DeletePopupComponent } from './shared/delete-popup/delete-popup.component';
 import { SharedModule } from './shared/shared.module';
 import { MVPModule } from './mvp/mvp.module';
+import { FormListModule } from './form-list/form-list.module';
+
 
 
 @NgModule({
@@ -27,6 +29,7 @@ import { MVPModule } from './mvp/mvp.module';
     HeaderComponent,
     ArtistsComponent,
     DeletePopupComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { MVPModule } from './mvp/mvp.module';
     BrowserAnimationsModule,
     OverlayModule,
     SharedModule,
-    MVPModule
+    MVPModule,
+    FormListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

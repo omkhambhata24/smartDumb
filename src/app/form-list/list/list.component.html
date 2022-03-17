@@ -1,0 +1,41 @@
+<h2 class="th-font-weight margin1">Profile</h2>
+
+<div class="d-flex justify-content-between padding">
+  <input type="search" class="form-control" placeholder="Search For a Profile">
+
+  <button type="button" class="btn btn-primary">+ Add Profile</button>
+
+  <!-- routerLink="/Profile/add" -->
+</div>
+
+<div class="margin d-flex overflow-auto max-table-height">
+  <table class="table-border w-100 ">
+
+    <thead>
+      <tr class="text-align-center th-color th-font-size">
+        <th class="th-font-weight" scope="col"> </th>
+        <th class="th-font-weight" scope="col">#</th>
+        <th class="th-font-weight" scope="col">Name</th>
+        <th class="th-font-weight" scope="col">Email-id</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let profile of ProfileList; let i=index; trackBy:profileTrack"
+        class="text-align-center">
+        <td class="text-color td-font-size">
+          <input type="checkbox">
+        </td>
+        <td class="text-color td-font-size" scope="row">{{i+1}}.</td>
+        <td class="text-color td-font-size">{{profile.firstName + ' ' + profile.lastName}}</td>
+        <td class="text-color td-font-size">{{profile.email}}</td>
+        <td>
+          <span class="icon-pencil2 margin-icon"></span>
+          <!-- (click)="editProfile(profile)" -->
+          <span class="icon-trash-can margin-icon"></span>
+          <!-- (click)="displayDeletePopup(profile.id)" -->
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
