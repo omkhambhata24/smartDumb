@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormListComponent } from './form-list.component';
 import { ListComponent } from './list/list.component';
 import { FormComponent } from './form/form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormListRoutingModule } from './form-list-routing.module';
 
 
 
@@ -15,7 +16,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
+    FormListRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class FormListModule { }
