@@ -43,4 +43,8 @@ export class ListComponent implements OnInit {
   sendDetailsToEdit(id: number, oldData: Details) {
     this.detatilsService.sendDetailsToEdit(oldData);
   }
+
+  onDelete(id : number) : Details[]{
+    return this.DetailsList.splice(this.DetailsList.findIndex((val) => id == val.id), 1);
+  }
 }

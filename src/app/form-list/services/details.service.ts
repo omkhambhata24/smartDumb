@@ -39,8 +39,4 @@ export class DetailsService {
   sendDetailsToEdit(oldData: Details): void {
     this._editDetails.next(oldData);
   }
-
-  // deleteDetails(id: number): void {
-  //   this._details.splice(id, 1);
-  // }
 }
