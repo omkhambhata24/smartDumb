@@ -27,7 +27,6 @@ export class FormComponent implements OnInit {
 
   buildProfileForm() {
     this.DetailsForm = this.formBuilder.group({
-
       firstName: ['',Validators.required],
       lastName: ['',Validators.required],
       email: ['',[Validators.email]],

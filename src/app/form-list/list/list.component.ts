@@ -45,6 +45,6 @@ export class ListComponent implements OnInit {
   }
 
   onDelete(id : number) : Details[]{
-    return this.DetailsList.splice(this.DetailsList.findIndex((val) => id == val.id), 1);
+    return this.DetailsList.splice(id, 1);
   }
 }
