@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { TemplateOutletRoutingModule } from './template-outlet-routing.module';
 import { ItemViewComponent } from './item-view/item-view.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TemplateOutletComponent } from './template-outlet.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -15,8 +15,7 @@ import { TemplateOutletComponent } from './template-outlet.component';
   imports: [
     CommonModule,
     TemplateOutletRoutingModule,
-    FormsModule,
-    ReactiveFormsModule
+    SharedModule
   ],
 })
 export class TemplateOutletModule { }

@@ -33,10 +33,10 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    
     PipesModule,
     CoreModule,
-    ReactiveFormsModule,
+    
     ProfileModule,
     Assessment1Module,
     BrowserAnimationsModule,

@@ -4,10 +4,10 @@ import { CommonModule } from '@angular/common';
 import { Assessment1RoutingModule } from './assessment-1-routing.module';
 import { UserFormComponent } from './component/user-form/user-form.component';
 import { UserListComponent } from './component/user-list/user-list.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DeptPipe } from './pipes/dept.pipe';
 import { SortPipe } from './pipes/sort.pipe';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -21,9 +21,8 @@ import { SortPipe } from './pipes/sort.pipe';
   imports: [
     CommonModule,
     Assessment1RoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
    
   ],
   exports: [
