@@ -3,8 +3,8 @@ import { ComponentPortal } from '@angular/cdk/portal';
 import { ChangeDetectionStrategy, Component, ComponentRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { take } from 'rxjs/internal/operators/take';
-import { Profile } from 'src/app/shared/model/profile.model';
-import { ProfileFilterPresentationComponent } from '../profile-filter-presentation/profile-filter-presentation.component';
+import { Department, Profile } from 'src/app/shared/model/profile.model';
+import { ProfileFilterPresentationComponent } from './profile-filter-presentation/profile-filter-presentation.component';
 import { ProfileListPresenterService } from '../profile-list-presenter/profile-list-presenter.service';
 
 @Component({
@@ -32,6 +32,7 @@ export class ProfileListPresentationComponent implements OnInit {
   @Output() public cancel: EventEmitter<number>;
 
   private _profileList!: Profile[];
+  depts: Department[];
 
   constructor(private profileListPresenter: ProfileListPresenterService,
     private router: Router, private overlay: Overlay)

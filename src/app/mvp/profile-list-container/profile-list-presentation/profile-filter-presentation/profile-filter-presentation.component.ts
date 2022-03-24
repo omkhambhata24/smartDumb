@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Department } from 'src/app/shared/model/profile.model';
 
 @Component({
   selector: 'app-profile-filter-presentation',
@@ -10,16 +11,22 @@ export class ProfileFilterPresentationComponent implements OnInit {
 
   public profileForm={} as FormGroup;
 
+  @Output() submit : EventEmitter<Event>;
+  @Output() close : EventEmitter<Event>;
+
+
+  public departmentlist?: Department[];
+  
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onclose(){
-
+  onclose() {
+    this.close.emit();
   }
 
-  onsubmit(){
+  onfilter(){
 
   }
 

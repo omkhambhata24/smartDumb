@@ -22,7 +22,7 @@ export class ProfileFormPresenterService {
       lastName: ['',Validators.required],
       email: ['',[Validators.email]],
       phone:['',[Validators.pattern(/\([0-9]{3}\)-\([0-9]{3}\)-[0-9]{4}$/),Validators.required]],
-      // department: [''],
+      department: [''],
       gender: ['',Validators.required],
       employment: ['', Validators.required],
       

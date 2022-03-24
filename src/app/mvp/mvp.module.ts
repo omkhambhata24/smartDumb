@@ -9,7 +9,7 @@ import { ProfileFormPresentationComponent } from './profile-form-container/profi
 import { ProfileListPresentationComponent } from './profile-list-container/profile-list-presentation/profile-list-presentation.component';
 import { ProfilesService } from './services/profiles.service';
 import { SharedModule } from '../shared/shared.module';
-import { ProfileFilterPresentationComponent } from './profile-list-container/profile-filter-presentation/profile-filter-presentation.component';
+import { ProfileFilterPresentationComponent } from './profile-list-container/profile-list-presentation/profile-filter-presentation/profile-filter-presentation.component';
 
 
 @NgModule({

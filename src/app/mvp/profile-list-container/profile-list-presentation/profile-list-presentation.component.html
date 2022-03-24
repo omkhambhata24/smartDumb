@@ -17,12 +17,12 @@
 
     <thead>
       <tr class="th-color th-font-size">
-        <th class="th-font-weight" scope="col"> </th>
         <th class="th-font-weight" scope="col">#</th>
-        <th class="th-font-weight" scope="col">Name</th>
+        <th class="th-font-weight" scope="col">First Name</th>
+        <th class="th-font-weight" scope="col">Last Name</th>
         <th class="th-font-weight" scope="col">Email-id</th>
         <th class="th-font-weight" scope="col">Date of Employment</th>
-        <!-- <th class="th-font-weight" scope="col">Department</th> -->
+        <th class="th-font-weight" scope="col">Department</th>
         <th class="th-font-weight" scope="col">Phone No.</th>
         <th class="th-font-weight" scope="col">Gender</th>
         <th class="th-font-weight" scope="col">Action</th>
@@ -30,14 +30,12 @@
     </thead>
     <tbody>
       <tr *ngFor="let profile of profileList  let i=index; trackBy:profileTrack" class="text-center">
-        <td class="text-color td-font-size">
-          <input type="checkbox">
-        </td>
         <td class="text-color td-font-size" scope="row">{{i+1}}.</td>
-        <td class="text-color td-font-size">{{profile.firstName + ' ' + profile.lastName}}</td>
+        <td class="text-color td-font-size">{{profile.firstName}}</td>
+        <td class="text-color td-font-size">{{profile.lastName}}</td>
         <td class="text-color td-font-size">{{profile.email}}</td>
         <td class="text-color td-font-size">{{profile.employment}}</td>
-        <!-- <td class="text-color td-font-size">{{profile.department}}</td> -->
+        <td class="text-color td-font-size">{{profile.department}}</td>
         <td class="text-color td-font-size">{{profile.phone}}</td>
         <td class="text-color td-font-size">{{profile.gender}}</td>
         <td>
