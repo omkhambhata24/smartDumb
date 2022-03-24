@@ -43,7 +43,8 @@ export class ProfileFilterPresentationComponent implements OnInit {
   }
 
   onfilter(){
-
+    console.log('filter');
+    this.ProfileFilterPresenterService.onfilter(this.filterForm.value);
   }
 
 

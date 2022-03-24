@@ -54,6 +54,10 @@ export class ProfileListPresentationComponent implements OnInit {
     this.getProfileList();
     this.profileListPresenter.delete$.subscribe((id: number) => {
       this.delete.emit(id);
+
+      // this.profileListPresenter.filteredData$.subscribe(data => {
+      //   this._profileList = data;
+      // });
     })
   }
 
@@ -110,5 +114,7 @@ export class ProfileListPresentationComponent implements OnInit {
       overlayRef.detach();
     })
   }
+
+    
 }
 
