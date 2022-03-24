@@ -3,20 +3,20 @@
     (ngSubmit)="onSubmit()">
     <h1> Log-In </h1>
     <div class="mb-3 d-flex flex-column">
-        <label for="userName" class="form-label">Email/UserName:</label>
+        <label for="Email" class="form-label">Email:</label>
         <div>
-            <input type="text" formControlName="userName" class="form-control" id="userName"
-                placeholder="Enter First Name">
-            <div *ngIf="LoginForm.controls['userName']?.touched && LoginForm.controls['userName'].errors?.['email']"
-                class="form-text text-danger">This field is required.</div>
+            <input type="text" formControlName="Email" class="form-control" id="Email"
+                placeholder="Enter Email">
+            <div *ngIf="LoginForm.controls['Email']?.touched && LoginForm.controls['Email'].errors?.['email']"
+                class="form-text text-danger">Improper Format.</div>
         </div>
     </div>
 
     <div class="mb-3 d-flex flex-column">
         <label for="password" class="form-label "> Password:</label>
         <div>
-            <input type="text" formControlName="password" class="form-control" id="password"
-                placeholder="Enter Last Name">
+            <input type="password" formControlName="password" class="form-control" id="password"
+                placeholder="Enter Password">
             <div *ngIf="LoginForm.controls['password']?.touched && LoginForm.controls['password'].errors?.['required']"
                 class="form-text text-danger">This field is required.</div>
         </div>
