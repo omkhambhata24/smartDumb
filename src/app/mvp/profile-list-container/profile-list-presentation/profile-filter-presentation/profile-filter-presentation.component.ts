@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Department } from 'src/app/shared/model/profile.model';
 
 @Component({
@@ -17,7 +18,9 @@ export class ProfileFilterPresentationComponent implements OnInit {
 
   public departmentlist?: Department[];
   
-  constructor() { }
+  constructor(private router: Router) {
+    this.close = new EventEmitter;
+   }
 
   ngOnInit(): void {
   }

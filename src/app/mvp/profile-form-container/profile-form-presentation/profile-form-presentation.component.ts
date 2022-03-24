@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Department, Profile } from 'src/app/shared/model/profile.model';
 import { ProfileFormPresenterService } from '../profile-form-presenter/profile-form-presenter.service';
 
@@ -34,10 +35,10 @@ export class ProfileFormPresentationComponent implements OnInit {
   @Output() public edit: EventEmitter<Profile>
 
   public profileForm={} as FormGroup;
-  public departmentlist?: Department[];
   public formTitle: string;
 
-  constructor(private ProfileFormPresenter: ProfileFormPresenterService) { 
+  constructor(private ProfileFormPresenter: ProfileFormPresenterService, private router: Router) {
+      this._departmentOptions = new Array<Department>(); 
       this.profileForm = this.ProfileFormPresenter.buildProfileForm();
       this.add = new EventEmitter();
       this.edit = new EventEmitter();
@@ -50,9 +51,25 @@ export class ProfileFormPresentationComponent implements OnInit {
     })
   }
 
-  onclose() { }
+  private _departmentOptions: Department[];
+  @Input() public set departmentOptions(val: Department[] | null) {
+    if (val) {
+      console.log(val);
+      this._departmentOptions = val;
+    }
+  };
 
-  clearForm() { }
+  public get departmentOptions(): Department[] {
+    return this._departmentOptions;
+  }
+
+  onclose() { 
+    this.router.navigateByUrl('/mvp/list');
+  }
+
+  clearForm() { 
+    this.profileForm.reset();
+  }
 
   onsubmit() {
     this.ProfileFormPresenter.onsubmit(this.profileForm)

@@ -25,7 +25,7 @@ export class ProfilesService {
   }
 
   public addProf(profile: Profile): Observable<Profile> {
-    return this.http.post<Profile>(`${this.apiCall}/mvp/`, profile);
+    return this.http.post<Profile>(`${this.apiCall}/profile/`, profile);
   }
 
   public editProf(profile: Profile): Observable<Profile> {

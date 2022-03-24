@@ -1,4 +1,5 @@
 <app-profile-form-presentation 
+    [departmentOptions]="departmentOptions$ | async" 
     [profileData]="profileData$ | async"
     (add)="addProfile($event)"
     (edit)="editProfile($event)"

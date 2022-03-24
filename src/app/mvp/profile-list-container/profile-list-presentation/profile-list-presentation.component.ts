@@ -28,6 +28,14 @@ export class ProfileListPresentationComponent implements OnInit {
     return this._profileList;
   }
 
+  private _departmentOptions: Department[];
+  @Input() public set departmentOptions(val: Department[]) {
+    this._departmentOptions = val;
+  }
+  public get departmentOptions(): Department[] {
+    return this._departmentOptions;
+  }
+
   @Output() public delete: EventEmitter<number>;
   @Output() public cancel: EventEmitter<number>;
 
@@ -37,6 +45,7 @@ export class ProfileListPresentationComponent implements OnInit {
   constructor(private profileListPresenter: ProfileListPresenterService,
     private router: Router, private overlay: Overlay)
    { 
+    this._departmentOptions = new Array<Department>();
     this.delete = new EventEmitter();
    }
 
@@ -73,6 +82,7 @@ export class ProfileListPresentationComponent implements OnInit {
   }
 
 
+
   public openFilter(profileData?: Profile){
   let componentRef: ComponentRef<ProfileFilterPresentationComponent>;
     let overlayRef: OverlayRef;
@@ -94,10 +104,9 @@ export class ProfileListPresentationComponent implements OnInit {
     // attach overlay with portal
     componentRef = overlayRef.attach(portal);
     // listen to backdrop click
-    overlayRef.backdropClick()
-      // .pipe(take(1)).subscribe(() => {
-      //   overlayRef.detach();
-      // });
+    componentRef.instance.close.subscribe((res) =>{
+      overlayRef.detach();
+    })
   }
 }
 

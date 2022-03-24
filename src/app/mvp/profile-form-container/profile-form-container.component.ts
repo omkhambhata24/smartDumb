@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Profile } from 'src/app/shared/model/profile.model';
+import { Department, Profile } from 'src/app/shared/model/profile.model';
 import { ProfilesService } from '../services/profiles.service';
 
 @Component({
@@ -14,10 +14,17 @@ export class ProfileFormContainerComponent implements OnInit {
   public id!: string;
   public profileData$: Observable<Profile>
 
+  private _departmentOptions$: Observable<Department[]>;
+  public get departmentOptions$() {
+    return this._departmentOptions$;
+  }
+
+
   constructor(private profileService: ProfilesService,
     private router: Router,
     private activatedRoute: ActivatedRoute) 
     {
+    this._departmentOptions$ = this.profileService.getDeptList();
     this.profileData$ = new Observable();
     console.log(this.activatedRoute)
     this.id = this.activatedRoute.snapshot.params['id'];

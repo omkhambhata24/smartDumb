@@ -5,5 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ProfileListPresenterService {
 
-  constructor() { }
+  constructor() {
+    
+   }
 }

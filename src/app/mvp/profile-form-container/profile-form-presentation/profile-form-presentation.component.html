@@ -57,7 +57,7 @@
         <div>
             <select class="form-select" formControlName="department">
                 <option [value]="0">Select Department</option>
-                <option *ngFor="let department of this.departmentlist" [value]="department.id"> {{department.name}}</option>
+                <option *ngFor="let department of departmentOptions" [value]="department.id"> {{department.name}}</option>
             </select>
         </div>
     </div>
