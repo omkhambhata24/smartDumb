@@ -2,6 +2,7 @@
     <div>
         <app-profile-list-presentation
             [profileList]="ProfileList$ | async"
+            [departmentOptions]="this.departmentOptions$ | async"
             (delete)="delete($event)"
         ></app-profile-list-presentation>
     </div>

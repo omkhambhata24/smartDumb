@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Profile } from 'src/app/shared/model/profile.model';
+import { Department, Profile } from 'src/app/shared/model/profile.model';
 import { ProfilesService } from '../services/profiles.service';
 
 @Component({
@@ -12,9 +12,14 @@ export class ProfileListContainerComponent implements OnInit {
 
   public ProfileList$: Observable<Profile[]>;
   
+  private _departmentOptions$: Observable<Department[]>;
+  public get departmentOptions$() {
+    return this._departmentOptions$;
+  }
 
   constructor(private profileService: ProfilesService) 
   { 
+    this._departmentOptions$ = this.profileService.getDeptList();
     this.ProfileList$ = new Observable();
   }
 
@@ -28,5 +33,6 @@ export class ProfileListContainerComponent implements OnInit {
       this.ProfileList$ = this.profileService.getProfileList();
     });
   }
+
 
 }

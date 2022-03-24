@@ -1,8 +1,7 @@
-import { GlobalPositionStrategy, Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
+import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { ChangeDetectionStrategy, Component, ComponentRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { take } from 'rxjs/internal/operators/take';
 import { Department, Profile } from 'src/app/shared/model/profile.model';
 import { ProfileFilterPresentationComponent } from './profile-filter-presentation/profile-filter-presentation.component';
 import { ProfileListPresenterService } from '../profile-list-presenter/profile-list-presenter.service';
@@ -29,8 +28,10 @@ export class ProfileListPresentationComponent implements OnInit {
   }
 
   private _departmentOptions: Department[];
-  @Input() public set departmentOptions(val: Department[]) {
-    this._departmentOptions = val;
+  @Input() public set departmentOptions(val: Department[] | null) {
+    if (val) {
+      this._departmentOptions = val;
+    }
   }
   public get departmentOptions(): Department[] {
     return this._departmentOptions;
@@ -45,7 +46,7 @@ export class ProfileListPresentationComponent implements OnInit {
   constructor(private profileListPresenter: ProfileListPresenterService,
     private router: Router, private overlay: Overlay)
    { 
-    this._departmentOptions = new Array<Department>();
+    // this._departmentOptions = new Array<Department>();
     this.delete = new EventEmitter();
    }
 
@@ -57,7 +58,7 @@ export class ProfileListPresentationComponent implements OnInit {
   }
 
   public onfilter() {
-    this.openFilter();
+    this.openFilter(this.departmentOptions);
   }
 
   getProfileList() {
@@ -83,7 +84,7 @@ export class ProfileListPresentationComponent implements OnInit {
 
 
 
-  public openFilter(profileData?: Profile){
+  public openFilter(departmentOptions: Department[] | null){
   let componentRef: ComponentRef<ProfileFilterPresentationComponent>;
     let overlayRef: OverlayRef;
     // set overlay config
@@ -103,6 +104,7 @@ export class ProfileListPresentationComponent implements OnInit {
 
     // attach overlay with portal
     componentRef = overlayRef.attach(portal);
+    componentRef.instance.departmentOptions = departmentOptions;
     // listen to backdrop click
     componentRef.instance.close.subscribe((res) =>{
       overlayRef.detach();

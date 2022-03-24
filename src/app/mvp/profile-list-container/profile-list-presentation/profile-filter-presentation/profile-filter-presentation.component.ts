@@ -1,7 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Department } from 'src/app/shared/model/profile.model';
+import { ProfileFilterPresenterService } from '../profile-filter-presenter/profile-filter-presenter.service';
 
 @Component({
   selector: 'app-profile-filter-presentation',
@@ -10,16 +11,28 @@ import { Department } from 'src/app/shared/model/profile.model';
 })
 export class ProfileFilterPresentationComponent implements OnInit {
 
-  public profileForm={} as FormGroup;
+  public filterForm={} as FormGroup;
 
   @Output() submit : EventEmitter<Event>;
   @Output() close : EventEmitter<Event>;
 
+  private _departmentOptions: Department[];
+  @Input() public set departmentOptions(val: Department[] | null) {
+    if (val) {
+      console.log('val', val);
+      this._departmentOptions = val;
+    }
+  }
 
-  public departmentlist?: Department[];
+  public get departmentOptions(): Department[] {
+    return this._departmentOptions;
+  }
   
-  constructor(private router: Router) {
+  constructor(private router: Router,
+    private ProfileFilterPresenterService :ProfileFilterPresenterService) {
     this.close = new EventEmitter;
+
+    this.filterForm = this.ProfileFilterPresenterService.generatedFilterForm(this.departmentOptions);
    }
 
   ngOnInit(): void {
