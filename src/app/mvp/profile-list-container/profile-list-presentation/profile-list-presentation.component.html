@@ -5,7 +5,7 @@
 
   <div>
     <button type="button" class="btn btn-primary" routerLink="../add">+ Add Profile</button>
-    <button type="button" class="btn btn-success"><i class="icon-filter"></i></button>
+    <button type="button" class="btn btn-success" (click)="onfilter()"><i class="icon-filter"></i></button>
   </div>
 
 
@@ -22,7 +22,7 @@
         <th class="th-font-weight" scope="col">Name</th>
         <th class="th-font-weight" scope="col">Email-id</th>
         <th class="th-font-weight" scope="col">Date of Employment</th>
-        <th class="th-font-weight" scope="col">Department</th>
+        <!-- <th class="th-font-weight" scope="col">Department</th> -->
         <th class="th-font-weight" scope="col">Phone No.</th>
         <th class="th-font-weight" scope="col">Gender</th>
         <th class="th-font-weight" scope="col">Action</th>
@@ -37,7 +37,7 @@
         <td class="text-color td-font-size">{{profile.firstName + ' ' + profile.lastName}}</td>
         <td class="text-color td-font-size">{{profile.email}}</td>
         <td class="text-color td-font-size">{{profile.employment}}</td>
-        <td class="text-color td-font-size">{{profile.department}}</td>
+        <!-- <td class="text-color td-font-size">{{profile.department}}</td> -->
         <td class="text-color td-font-size">{{profile.phone}}</td>
         <td class="text-color td-font-size">{{profile.gender}}</td>
         <td>

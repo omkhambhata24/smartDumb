@@ -1,6 +1,10 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { GlobalPositionStrategy, Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
+import { ComponentPortal } from '@angular/cdk/portal';
+import { ChangeDetectionStrategy, Component, ComponentRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { take } from 'rxjs/internal/operators/take';
 import { Profile } from 'src/app/shared/model/profile.model';
+import { ProfileFilterPresentationComponent } from '../profile-filter-presentation/profile-filter-presentation.component';
 import { ProfileListPresenterService } from '../profile-list-presenter/profile-list-presenter.service';
 
 @Component({
@@ -25,11 +29,12 @@ export class ProfileListPresentationComponent implements OnInit {
   }
 
   @Output() public delete: EventEmitter<number>;
+  @Output() public cancel: EventEmitter<number>;
 
   private _profileList!: Profile[];
 
   constructor(private profileListPresenter: ProfileListPresenterService,
-    private router: Router)
+    private router: Router, private overlay: Overlay)
    { 
     this.delete = new EventEmitter();
    }
@@ -39,6 +44,10 @@ export class ProfileListPresentationComponent implements OnInit {
     this.profileListPresenter.delete$.subscribe((id: number) => {
       this.delete.emit(id);
     })
+  }
+
+  public onfilter() {
+    this.openFilter();
   }
 
   getProfileList() {
@@ -61,4 +70,33 @@ export class ProfileListPresentationComponent implements OnInit {
   onEdit(id: number) {
     this.router.navigateByUrl(`mvp/edit/${id}`);
   }
+
+
+  public openFilter(profileData?: Profile){
+  let componentRef: ComponentRef<ProfileFilterPresentationComponent>;
+    let overlayRef: OverlayRef;
+    // set overlay config
+    let overlayConfig: OverlayConfig = new OverlayConfig();
+    overlayConfig.hasBackdrop = true;
+    // create overlay reference
+    overlayRef = this.overlay.create({
+      
+    positionStrategy: this.overlay
+    .position()
+    .global()
+    .centerVertically()
+    .right()
+    .height('100%')
+    });
+    const portal: ComponentPortal<ProfileFilterPresentationComponent> = new ComponentPortal<ProfileFilterPresentationComponent>(ProfileFilterPresentationComponent);
+
+    // attach overlay with portal
+    componentRef = overlayRef.attach(portal);
+    // listen to backdrop click
+    overlayRef.backdropClick()
+      // .pipe(take(1)).subscribe(() => {
+      //   overlayRef.detach();
+      // });
+  }
 }
+
