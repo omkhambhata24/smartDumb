@@ -35,14 +35,6 @@ export class ProfileListPresenterService {
     return this._filterData$;
   }
 
-  // filteredData(mentorList: Profile[]): void {
-  //   this.ProfileFilterPresentationComponent.instance.applyFilters.subscribe((val: FilterForm) => {
-  //     this._appliedFilters = val;
-  //     this.applyFilters(mentorList);
-  //     this.overlayRef.detach();
-  //   });
-  // }
-
   applyFilters(profileList: Profile[]): void {
     if(this._appliedFilters){
       let firstname = this._appliedFilters.searchBy.firstname.trim();
@@ -72,8 +64,6 @@ export class ProfileListPresenterService {
           return profile.phone.includes(mobile);
         })
       }
-
-      console.log(profileList);
     }
     this._filterData.next(profileList);
   }

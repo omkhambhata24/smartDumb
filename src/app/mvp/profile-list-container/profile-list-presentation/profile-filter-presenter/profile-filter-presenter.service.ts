@@ -11,7 +11,7 @@ import { Department } from 'src/app/shared/model/profile.model';
 export class ProfileFilterPresenterService {
 
   private _filterForm: Subject<FilterForm>;
-  private _filterForm$: Observable<FilterForm>;
+  public _filterForm$: Observable<FilterForm>;
   public get filterForm$(): Observable<FilterForm> {
     return this._filterForm$;
   }
@@ -23,9 +23,8 @@ export class ProfileFilterPresenterService {
     
   }
 
-  generatedFilterForm(departmentOptions: Department[]): FormGroup{
-    return this.fb.group({
-    
+  generatedFilterForm(): FormGroup{
+    return this.fb.group({    
     firstName: [''],
     lastName: [''],
     email: [''],
@@ -35,7 +34,7 @@ export class ProfileFilterPresenterService {
     })
   }
 
-  onfilter(filteredData: FilterForm): void {
-    this._filterForm.next(filteredData);
+  onfilter(formData:any): void {
+    this._filterForm.next(formData);
   }
 }

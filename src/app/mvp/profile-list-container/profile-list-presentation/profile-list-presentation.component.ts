@@ -1,6 +1,6 @@
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { ChangeDetectionStrategy, Component, ComponentRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Department, Profile } from 'src/app/shared/model/profile.model';
 import { ProfileFilterPresentationComponent } from './profile-filter-presentation/profile-filter-presentation.component';
@@ -52,7 +52,7 @@ export class ProfileListPresentationComponent implements OnInit {
   depts: Department[];
 
   constructor(private profileListPresenter: ProfileListPresenterService,
-    private router: Router, private overlay: Overlay)
+    private router: Router, private overlay: Overlay ,private profileFilterService:ProfileListPresenterService,private cdr:ChangeDetectorRef)
    { 
     // this._departmentOptions = new Array<Department>();
     this.delete = new EventEmitter();
@@ -66,8 +66,12 @@ export class ProfileListPresentationComponent implements OnInit {
 
       this.profileListPresenter.filterData$.subscribe(data => {
         this._profileList = data;
+        console.log(data);
       });
     })
+
+   
+
   }
 
   public onfilter() {
@@ -119,6 +123,9 @@ export class ProfileListPresentationComponent implements OnInit {
     componentRef = overlayRef.attach(portal);
     componentRef.instance.departmentOptions = departmentOptions;
     // listen to backdrop click
+    componentRef.instance.emitoverlaydata.subscribe(data => {
+      console.log(data);
+    })
     componentRef.instance.close.subscribe((res) =>{
       overlayRef.detach();
     })
