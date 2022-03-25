@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Department, Profile } from 'src/app/shared/model/profile.model';
@@ -37,7 +37,7 @@ export class ProfileFormPresentationComponent implements OnInit {
   public profileForm={} as FormGroup;
   public formTitle: string;
 
-  constructor(private ProfileFormPresenter: ProfileFormPresenterService, private router: Router) {
+  constructor(private ProfileFormPresenter: ProfileFormPresenterService, private router: Router, private cdr: ChangeDetectorRef) {
       this._departmentOptions = new Array<Department>(); 
       this.profileForm = this.ProfileFormPresenter.buildProfileForm();
       this.add = new EventEmitter();
@@ -48,6 +48,7 @@ export class ProfileFormPresentationComponent implements OnInit {
   ngOnInit(): void {
     this.ProfileFormPresenter.profileFormData$.subscribe((res: Profile) => {
       this.formTitle === 'Add Customer' ? this.add.emit(res) : this.edit.emit(res);;
+      this.cdr.markForCheck()
     })
   }
 

@@ -29,7 +29,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let profile of profileList  let i=index; trackBy:profileTrack" class="text-center">
+      <tr *ngFor="let profile of profileList let i=index; trackBy:profileTrack" class="text-center">
         <td class="text-color td-font-size" scope="row">{{i+1}}.</td>
         <td class="text-color td-font-size">{{profile.firstName}}</td>
         <td class="text-color td-font-size">{{profile.lastName}}</td>

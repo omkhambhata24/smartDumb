@@ -13,10 +13,10 @@ import { ProfileFilterPresenterService } from '../profile-filter-presenter/profi
 })
 export class ProfileFilterPresentationComponent implements OnInit {
 
-  public filterForm={} as FormGroup;
-  @Output() emitoverlaydata:EventEmitter<FilterForm>;
-  @Output() filter : EventEmitter<Event>;
-  @Output() close : EventEmitter<Event>;
+  public filterForm = {} as FormGroup;
+  @Output() emitoverlaydata: EventEmitter<FilterForm>;
+  // @Output() filter : EventEmitter<Event>;
+  @Output() close: EventEmitter<Event>;
 
   private _departmentOptions: Department[];
   @Input() public set departmentOptions(val: Department[] | null) {
@@ -29,27 +29,36 @@ export class ProfileFilterPresentationComponent implements OnInit {
   public get departmentOptions(): Department[] {
     return this._departmentOptions;
   }
-  
+
   constructor(private router: Router,
-    private ProfileFilterPresenterService :ProfileFilterPresenterService) {
+    private ProfileFilterPresenterService: ProfileFilterPresenterService) {
     this.close = new EventEmitter;
-      this.emitoverlaydata = new EventEmitter<FilterForm>();
+
+    this.emitoverlaydata = new EventEmitter<FilterForm>();
     this.filterForm = this.ProfileFilterPresenterService.generatedFilterForm();
-   }
+  }
 
   ngOnInit(): void {
-   this.ProfileFilterPresenterService.filterForm$.subscribe(data => {
-    this.emitoverlaydata.emit(data)
-   })
+    //  this.ProfileFilterPresenterService.filterForm$.subscribe(data => {
+    //   this.emitoverlaydata.emit(data)
+    //  })
   }
 
   onclose() {
     this.close.emit();
   }
 
-  onfilter(){
+  onfilter() {
     // console.log(this.filterForm.value);
+    
     this.ProfileFilterPresenterService.onfilter(this.filterForm.value);
+    this.onclose()
+    this.emitoverlaydata.emit(this.filterForm.value)
+    console.log(this.filterForm.value);
+    
+
+
+
   }
 
 
