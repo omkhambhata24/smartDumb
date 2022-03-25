@@ -82,12 +82,32 @@ export class ProfileListPresenterService {
     
     // profileList = profileList.filter(profile => {
     //   console.log(profile.department);
-    //   return profile.department == filter.department?.toLowerCase();
+    //   return profile.department == filter.department?.toLowerCase()
     // })
     
     profileList = profileList.filter(profile => {
       console.log(profile.firstName);
-      return profile.firstName?.toLowerCase() == filter.firstName?.toLowerCase();
+      return profile.firstName?.toLowerCase().includes(filter.firstName?.toLowerCase())
+    })
+
+    profileList = profileList.filter(profile => {
+      console.log(profile.lastName);
+      return profile.lastName?.toLowerCase().includes(filter.lastName?.toLowerCase())
+    })
+
+    profileList = profileList.filter(profile => {
+      console.log(profile.email);
+      return profile.email?.toLowerCase().includes(filter.email?.toLowerCase())
+    })
+
+    profileList = profileList.filter(profile => {
+      console.log(profile.phone);
+      return profile.phone?.toLowerCase().includes(filter.phone?.toLowerCase())
+    })
+
+    profileList = profileList.filter(profile => {
+      console.log(profile.gender);
+      return profile.gender?.toLowerCase().includes(filter.gender?.toLowerCase())
     })
     console.log("filtered",profileList);
     
