@@ -15,6 +15,7 @@ export class ProfileFilterPresentationComponent implements OnInit {
 
   @Output() submit : EventEmitter<Event>;
   @Output() close : EventEmitter<Event>;
+  
 
   private _departmentOptions: Department[];
   @Input() public set departmentOptions(val: Department[] | null) {
@@ -43,7 +44,7 @@ export class ProfileFilterPresentationComponent implements OnInit {
   }
 
   onfilter(){
-    console.log('filter');
+    console.log(this.filterForm.value);
     this.ProfileFilterPresenterService.onfilter(this.filterForm.value);
   }
 

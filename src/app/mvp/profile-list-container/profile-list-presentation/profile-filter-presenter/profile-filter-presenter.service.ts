@@ -35,7 +35,7 @@ export class ProfileFilterPresenterService {
     })
   }
 
-  onfilter(filterData: FilterForm): void {
-    this._filterForm.next(filterData);
+  onfilter(filteredData: FilterForm): void {
+    this._filterForm.next(filteredData);
   }
 }

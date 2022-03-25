@@ -16,6 +16,14 @@ import { ProfileListPresenterService } from '../profile-list-presenter/profile-l
 export class ProfileListPresentationComponent implements OnInit {
 
 
+  private _searchStr: string;
+  public set searchStr(val: string) {
+    this._searchStr = val;
+  }
+  public get searchStr(): string {
+    return this._searchStr;
+  }
+
   @Input() public set profileList(value : Profile[] | null) {
     // console.log(value);
     if (value) {
@@ -48,6 +56,7 @@ export class ProfileListPresentationComponent implements OnInit {
    { 
     // this._departmentOptions = new Array<Department>();
     this.delete = new EventEmitter();
+    this._searchStr = "";
    }
 
   ngOnInit(): void {
@@ -55,9 +64,9 @@ export class ProfileListPresentationComponent implements OnInit {
     this.profileListPresenter.delete$.subscribe((id: number) => {
       this.delete.emit(id);
 
-      // this.profileListPresenter.filteredData$.subscribe(data => {
-      //   this._profileList = data;
-      // });
+      this.profileListPresenter.filterData$.subscribe(data => {
+        this._profileList = data;
+      });
     })
   }
 

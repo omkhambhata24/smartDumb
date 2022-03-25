@@ -1,3 +1,4 @@
+import { OverlayRef } from '@angular/cdk/overlay';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Profile } from 'src/app/shared/model/profile.model';
@@ -10,14 +11,16 @@ export class ProfileListPresenterService {
   private delete: Subject<number>;
   public delete$: Observable<number>;
 
+  overlayRef: OverlayRef;
+  
   constructor() 
   { 
     this.delete = new Subject();
     this.delete$ = new Observable();
     this.delete$ = this.delete.asObservable();
 
-    this._filteredData = new Subject();
-    this._filteredData$ = this._filteredData.asObservable();
+    this._filterData = new Subject();
+    this._filterData$ = this._filterData.asObservable();
   }
 
 
@@ -25,12 +28,20 @@ export class ProfileListPresenterService {
     this.delete.next(id);
   }
 
-  private _filteredData: Subject<Profile[]>;
-  private _filteredData$: Observable<Profile[]>;
+  private _filterData: Subject<Profile[]>;
+  private _filterData$: Observable<Profile[]>;
 
-  public get filteredData$(): Observable<Profile[]> {
-    return this._filteredData$;
+  public get filterData$(): Observable<Profile[]> {
+    return this._filterData$;
   }
+
+  // filteredData(mentorList: Profile[]): void {
+  //   this.ProfileFilterPresentationComponent.instance.applyFilters.subscribe((val: FilterForm) => {
+  //     this._appliedFilters = val;
+  //     this.applyFilters(mentorList);
+  //     this.overlayRef.detach();
+  //   });
+  // }
 
   applyFilters(profileList: Profile[]): void {
     if(this._appliedFilters){
@@ -64,6 +75,6 @@ export class ProfileListPresenterService {
 
       console.log(profileList);
     }
-    this._filteredData.next(profileList);
+    this._filterData.next(profileList);
   }
 }
