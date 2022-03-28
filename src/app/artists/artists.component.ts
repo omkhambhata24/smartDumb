@@ -25,7 +25,7 @@ export class ArtistsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // drop(event: CdkDragDrop<String[]>) {
+  // drop(event: CdkDragDrop<string[]>) {
   //   moveItemInArray(this.artists, event.previousIndex, event.currentIndex);
   // }
 
