@@ -25,18 +25,18 @@ export class ArtistsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // drop(event: CdkDragDrop<string[]>) {
-  //   moveItemInArray(this.artists, event.previousIndex, event.currentIndex);
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.artists, event.previousIndex, event.currentIndex);
+  }
+
+  // drop(event: Event)  {
+  //   if (this.isDragDrop(event)) {
+  //     moveItemInArray(this.artists, event.previousIndex, event.currentIndex);
+  //   }
   // }
 
-  drop(event: Event)  {
-    if (this.isDragDrop(event)) {
-      moveItemInArray(this.artists, event.previousIndex, event.currentIndex);
-    }
-  }
-
-  isDragDrop(object: any): object is CdkDragDrop<string[]> {
-    return 'previousIndex' in object;
-  }
+  // isDragDrop(object: any): object is CdkDragDrop<string[]> {
+  //   return 'previousIndex' in object;
+  // }
 
 }
