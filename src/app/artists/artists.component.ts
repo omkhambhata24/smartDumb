@@ -1,6 +1,5 @@
-
 import { Component, OnInit } from '@angular/core';
-import { CdkDrag, CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-artists',
@@ -24,6 +23,7 @@ export class ArtistsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.artists, event.previousIndex, event.currentIndex);

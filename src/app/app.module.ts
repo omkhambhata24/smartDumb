@@ -21,6 +21,7 @@ import { SharedModule } from './shared/shared.module';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { SharedModule } from './shared/shared.module';
     BrowserAnimationsModule,
     SharedModule,
     MVPModule,
-    DragDropModule
+    DragDropModule,
+    
   ],
   
   providers: [
