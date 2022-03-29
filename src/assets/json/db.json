@@ -23,16 +23,6 @@
   ],
   "profile": [
     {
-      "firstName": "dumb",
-      "lastName": "module",
-      "email": "dumb@abcd.com",
-      "phone": "(123)-(789)-4560",
-      "department": "1",
-      "gender": "female",
-      "employment": "2022-01-11",
-      "id": 7
-    },
-    {
       "firstName": "Jason",
       "lastName": "Roy",
       "email": "omkhambhata@gmail.com",
@@ -71,6 +61,16 @@
       "gender": "female",
       "employment": "2022-03-20",
       "id": 13
+    },
+    {
+      "firstName": "ergrtre",
+      "lastName": "gerg",
+      "email": "reterf@gnd.com",
+      "phone": "(152)-(195)-1256",
+      "department": "1",
+      "gender": "female",
+      "employment": "2022-01-07",
+      "id": 14
     }
   ],
   "resume": [

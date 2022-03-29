@@ -19,9 +19,8 @@ export class ProfileListPresenterService {
   public filteredData$: Observable<Profile[]>;
 
   overlayRef: OverlayRef;
-  
-  constructor(private overlay: Overlay) 
-  { 
+
+  constructor(private overlay: Overlay) {
     this.delete = new Subject();
     this.delete$ = new Observable();
     this.delete$ = this.delete.asObservable();
@@ -33,37 +32,37 @@ export class ProfileListPresenterService {
 
 
 
-  public openFilter(departmentOptions: Department[] | null, profileList : Profile[]){
+  public openFilter(departmentOptions: Department[] | null, profileList: Profile[]) {
     let componentRef: ComponentRef<ProfileFilterPresentationComponent>;
-      let overlayRef: OverlayRef;
-      // set overlay config
-      let overlayConfig: OverlayConfig = new OverlayConfig();
-      overlayConfig.hasBackdrop = true;
-      // create overlay reference
-      overlayRef = this.overlay.create({
-        
+    let overlayRef: OverlayRef;
+    // set overlay config
+    let overlayConfig: OverlayConfig = new OverlayConfig();
+    overlayConfig.hasBackdrop = true;
+    // create overlay reference
+    overlayRef = this.overlay.create({
+
       positionStrategy: this.overlay
-      .position()
-      .global()
-      .centerVertically()
-      .right()
-      .height('100%')
-      });
-      const portal: ComponentPortal<ProfileFilterPresentationComponent> = new ComponentPortal<ProfileFilterPresentationComponent>(ProfileFilterPresentationComponent);
-  
-      // attach overlay with portal
-      componentRef = overlayRef.attach(portal);
-      componentRef.instance.departmentOptions = departmentOptions;
-      // listen to backdrop click
-      componentRef.instance.emitoverlaydata.subscribe(data => {
-        console.log(data);
-        this.applyFilters(profileList, data)
-        
-      })
-      componentRef.instance.close.subscribe((res) =>{
-        overlayRef.detach();
-      })
-    }
+        .position()
+        .global()
+        .centerVertically()
+        .right()
+        .height('100%')
+    });
+    const portal: ComponentPortal<ProfileFilterPresentationComponent> = new ComponentPortal<ProfileFilterPresentationComponent>(ProfileFilterPresentationComponent);
+
+    // attach overlay with portal
+    componentRef = overlayRef.attach(portal);
+    componentRef.instance.departmentOptions = departmentOptions;
+    // listen to backdrop click
+    componentRef.instance.emitoverlaydata.subscribe(data => {
+      console.log(data);
+      this.applyFilters(profileList, data)
+
+    })
+    componentRef.instance.close.subscribe((res) => {
+      overlayRef.detach();
+    })
+  }
 
 
   public onDelete(id: number) {
@@ -79,12 +78,12 @@ export class ProfileListPresenterService {
 
   applyFilters(profileList: Profile[], filter: any): void {
     console.log(filter);
-    
+
     // profileList = profileList.filter(profile => {
     //   console.log(profile.department);
     //   return profile.department == filter.department?.toLowerCase()
     // })
-    
+
     profileList = profileList.filter(profile => {
       console.log(profile.firstName);
       return profile.firstName?.toLowerCase().includes(filter.firstName?.toLowerCase())
@@ -109,8 +108,8 @@ export class ProfileListPresenterService {
       console.log(profile.gender);
       return profile.gender?.toLowerCase().includes(filter.gender?.toLowerCase())
     })
-    console.log("filtered",profileList);
-    
+    console.log("filtered", profileList);
+
     this.sendFilteredData(profileList)
     this._filteredData.next(profileList);
   }
@@ -121,35 +120,64 @@ export class ProfileListPresenterService {
 
 
   // if(this._appliedFilters){
-    //   let firstname = this._appliedFilters.searchBy.firstname.trim();
-    //   if (firstname != '') {
-    //     profileList = profileList.filter(profile => {
-    //       return profile.firstName.includes(firstname);
-    //     })
-    //   }
+  //   let firstname = this._appliedFilters.searchBy.firstname.trim();
+  //   if (firstname != '') {
+  //     profileList = profileList.filter(profile => {
+  //       return profile.firstName.includes(firstname);
+  //     })
+  //   }
 
-    //   let lastname = this._appliedFilters.searchBy.firstname.trim();
-    //   if (lastname != '') {
-    //     profileList = profileList.filter(profile => {
-    //       return profile.lastName.includes(lastname);
-    //     })
-    //   }
-  
-    //   let email = this._appliedFilters.searchBy.email.trim();
-    //   if (email != '') {
-    //     profileList = profileList.filter(profile => {
-    //       return profile.email.includes(email);
-    //     })
-    //   }
-  
-    //   let mobile = this._appliedFilters.searchBy.mobile.trim();
-    //   if (mobile != '') {
-    //     profileList = profileList.filter(profile => {
-    //       return profile.phone.includes(mobile);
-    //     })
-    //   }
-    // }
+  //   let lastname = this._appliedFilters.searchBy.firstname.trim();
+  //   if (lastname != '') {
+  //     profileList = profileList.filter(profile => {
+  //       return profile.lastName.includes(lastname);
+  //     })
+  //   }
+
+  //   let email = this._appliedFilters.searchBy.email.trim();
+  //   if (email != '') {
+  //     profileList = profileList.filter(profile => {
+  //       return profile.email.includes(email);
+  //     })
+  //   }
+
+  //   let mobile = this._appliedFilters.searchBy.mobile.trim();
+  //   if (mobile != '') {
+  //     profileList = profileList.filter(profile => {
+  //       return profile.phone.includes(mobile);
+  //     })
+  //   }
+  // }
+
+  // public sortData(field: string, pro: Profile[], flag: number) {
+  //   switch (field) {
+  //     case 'Last Name':
+  //       return (flag === 1) ? pro?.sort((a, b) => (a.lastName < b.lastName) ? -1 : (a.lastName > b.lastName) ? 1 : 0) : pro?.sort((c, b) => (c.lastName < b.lastName) ? 1 : (c.lastName > b.lastName) ? -1 : 0);
+  //       break;
 
 
+  //     default:
+  //       return pro;
+  //       break;
+  //   }
+  // }
 
+  sort(property: keyof Profile, profileList: Profile[], isDesc: boolean) {
+
+    //change the direction    
+    let direction = isDesc ? -1 : 1;
+
+    profileList.sort(function (a, b) {
+
+      if (a[property] < b[property]) {
+        return -1 * direction;
+      }
+      else if (a[property] > b[property]) {
+        return 1 * direction;
+      }
+      else {
+        return 0;
+      }
+    });
+  };
 }

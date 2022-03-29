@@ -16,6 +16,8 @@ export class ProfileListPresentationComponent implements OnInit {
 
 
   private _searchStr: string;
+  flag !: number;
+  profileListPresenterService: any;
   public set searchStr(val: string) {
     this._searchStr = val;
   }
@@ -75,6 +77,7 @@ export class ProfileListPresentationComponent implements OnInit {
       this.delete.emit(id);
 
     })
+    this.flag == 1;
   }
 
   public onfilter() {
@@ -137,6 +140,35 @@ export class ProfileListPresentationComponent implements OnInit {
   //   })
   // }
 
+ 
+
+//   //Sort Table
+//  public SortTable(data: any)
+//  {
+//   if(this.flag === 1)
+//   {
+//     this.flag = -1;
+//   }
+//   else
+//   {
+//     this.flag = 1;
+//   };
+//   this._profileList = this.profileListPresenter.sortData(data.target['innerText'], this._profileList, this.flag);
+//  }
+
+isDesc: boolean = false;
+column: string = 'id';
+
+
+sort(column: string) {
+  if (this.column === column) {
+    this.isDesc = !this.isDesc;
+  } else {
+    this.column = column;
+    this.isDesc = false;
+  }
+ this.profileListPresenter.sort(this.column as keyof Profile, this._profileList, this.isDesc)
+}
 
 }
 

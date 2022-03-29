@@ -13,18 +13,18 @@
 </div>
 
 <div class="margin d-flex overflow-auto max-table-height">
-  <table class="table-border w-100 ">
+  <table class="table-border w-100">
 
     <thead>
       <tr class="th-color th-font-size">
         <th class="th-font-weight" scope="col">#</th>
-        <th class="th-font-weight" scope="col">First Name</th>
-        <th class="th-font-weight" scope="col">Last Name</th>
-        <th class="th-font-weight" scope="col">Email-id</th>
-        <th class="th-font-weight" scope="col">Date of Employment</th>
-        <th class="th-font-weight" scope="col">Department</th>
-        <th class="th-font-weight" scope="col">Phone No.</th>
-        <th class="th-font-weight" scope="col">Gender</th>
+        <th class="th-font-weight" scope="col" (click)="sort('firstName')">First Name</th>
+        <th class="th-font-weight" scope="col" (click)="sort('lastName')">Last Name</th>
+        <th class="th-font-weight" scope="col" (click)="sort('email')">Email-id</th>
+        <th class="th-font-weight" scope="col" (click)="sort('employment')">Date of Employment</th>
+        <th class="th-font-weight" scope="col" (click)="sort('department')">Department</th>
+        <th class="th-font-weight" scope="col" (click)="sort('phone')">Phone No.</th>
+        <th class="th-font-weight" scope="col" (click)="sort('gender')">Gender</th>
         <th class="th-font-weight" scope="col">Action</th>
       </tr>
     </thead>
