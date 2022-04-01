@@ -47,6 +47,10 @@ const routes: Routes = [
   path: 'form-list',
    loadChildren: () => import('./form-list/form-list.module').then(m => m.FormListModule)
  },
+ {
+  path: 'file-upload',
+   loadChildren: () => import('./file-upload/file-upload.module').then(m => m.FileUploadModule)
+ },
 
 
 ];

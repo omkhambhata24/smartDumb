@@ -5,10 +5,12 @@
 @import "https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap";
 @import '@angular/cdk/overlay-prebuilt.css';
 
-$primary-color: #2f55e4;
+$primary-color: #b452bd;
 $danger-color: #e95755;
 $success-color: #20b261;
 $border-color: #f7f8fa;
+$gray: #797878;
+
 $border-radius: 8px;
 
 %border-radius {
@@ -521,6 +523,11 @@ table th {
 
 .text-danger {
     color: $danger-color;
+}
+
+.text-primary {
+    color: $primary-color;
+    font-size: 1.125rem;
 }
 
 .section-padding {

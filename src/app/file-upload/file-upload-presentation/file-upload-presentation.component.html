@@ -1,1 +1,21 @@
-<p>file-upload-presentation works!</p>
+<div class="d-flex justify-content-center">
+    <div class="dropzone d-flex align-items-center justify-content-center" FileDragDrop
+        (filesChangeEmitter)="onFileChange($event)">
+        <div class="text-wrapper">
+            <div class="centered">
+                <input type="file" name="file" id="file" class="d-none" (change)="onFileChange($event)" multiple />
+                <label for="file" class="text-primary">
+                    <!-- <button class="mx-2 p-2"> Select File </button> -->
+                    Drag and Drop File here!</label>
+            </div>
+            <div class="row fileItem" *ngFor="let file of files; let ind = index">
+                <div class="col-sm-12 fileItemIconDiv" (click)="openConfirmDialog(ind)">
+                    <i class="fa-6x fileItemIcon"></i>
+                </div>
+                <div class="col-sm-12 fileItemText">
+                    <span>{{ file.name }}</span><span class="text-danger p-2">remove</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
