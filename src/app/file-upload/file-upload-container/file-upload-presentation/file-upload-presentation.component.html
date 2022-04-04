@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center flex-column">
+    <!-- <div class="dropzone d-flex align-items-center justify-content-center" FileDragDrop
+        (filesChangeEmitter)="onFileChange($event)">
+        <div class="text-wrapper">
+            <div class="centered">
+                <input type="file" name="file" id="file" class="d-none" (change)="onFileChange($event)" multiple />
+                <label for="file" class="text-primary">
+                    <button class="mx-2 p-2"> Select File </button>
+                    Drag and Drop File here!</label>
+            </div>
+            <div class="row fileItem" *ngFor="let file of files; let ind = index">
+                <div class="col-sm-12 fileItemIconDiv" (click)="openConfirmDialog(ind)">
+                    <i class="fa-6x fileItemIcon"></i>
+                </div>
+                <div class="col-sm-12 fileItemText">
+                    <span>{{ file.name }}</span><span class="text-danger p-2" (click)="removeFiles(file.name)">remove</span>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div FileDragDrop
+        class="d-flex flex-column align-items-center justify-content-center dropzone"
+        (readFile)="readFile($event)">
+        <input type="file" name="" id="file" (change)="readFile($event.target)">
+        <button type="button" (click)="uploadFile()">Upload</button>
+        <p *ngIf="file">{{file.name}} File is Ready to Upload</p>
+        <!-- <span>{{ file.name }}</span><span class="text-danger p-2" (click)="removeFiles(file.name)">remove</span> -->
+    </div>
+
+    <div class="d-flex justify-content-center section-padding">
+        <form>
+            <label for="startDate" class="padding">From:</label>
+            <input type="date"  (change)="StartDate($event)" min="{{startDate}}">
+    
+            <label for="endDate">To:</label>
+            <input type="date" (change)="EndDate($event)" max="{{endDate}}">
+        </form>
+    </div>
+</div>

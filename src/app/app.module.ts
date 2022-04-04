@@ -10,6 +10,7 @@ import { Assessment1Module } from './assessment-1/assessment-1.module';
 import { CoreModule } from './core/core.module';
 import { HeaderComponent } from './core/header/header.component';
 import { AuthenticationInterceptor } from './core/helper/authentication.interceptor';
+import { FileUploadModule } from './file-upload/file-upload.module';
 import { MVPModule } from './mvp/mvp.module';
 import { ChildComponent } from './parent/child/child.component';
 import { ParentComponent } from './parent/parent.component';
@@ -43,7 +44,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     MVPModule,
     DragDropModule,
-    
+    FileUploadModule
   ],
   
   providers: [

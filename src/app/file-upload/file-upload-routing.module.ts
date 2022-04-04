@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FileUploadPresentationComponent } from './file-upload-presentation/file-upload-presentation.component';
-import { FileUploadComponent } from './file-upload.component';
+import { FileUploadContainerComponent } from './file-upload-container/file-upload-container.component';
+
 
 const routes: Routes = [
   {
@@ -14,7 +14,7 @@ const routes: Routes = [
       //   path: 'add', component: ProfileFormComponent
       // },
       {
-        path: 'file-upload', component: FileUploadComponent
+        path: 'file-upload', component: FileUploadContainerComponent
       },
     ]
   },
