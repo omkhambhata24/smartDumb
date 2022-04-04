@@ -25,16 +25,17 @@ export class FileUploadService {
       toDate: [null],
     })
   }
-  
 
-  getFiles(file:any){
+
+  getFiles(file: any) {
     this._filesUpload.next(file);
   }
 
-  removeFiles(filename:string,data:any){
-    const index = data.findIndex((file:any )=> file.name == filename);
-     return data.splice(index,1);
-  }
+  // removeFiles(filename: string, data: any) {
+  //   const index = data.findIndex((file: any) => file.name == filename);
+  //   return data.splice(index, 1);
+  // }
+
 
   uploadFile(file: File) {
     //size in mb
@@ -43,22 +44,17 @@ export class FileUploadService {
       this.file.name = file.name;
       this.file.size = size;
       this.file.type = file.type;
-      if (this.file.type === "image/png" || "image/jpg" || "image/jpge") {
-        console.log(file.type)
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = (event) => {
-          this.file.content = event.target?.result as string;
-          this._filesUpload.next(this.file);
-        };
-      }
-      else {
-        alert("Please Select an img");
-        return;
-      }
+      // if (this.file.type === "image/png" || "image/jpg" || "image/jpeg") {
+      //   console.log(file.type)
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (event) => {
+        this.file.content = event.target?.result as string;
+        this._filesUpload.next(this.file);
+      };
     }
     else {
-      alert("File Size is above 2mb")
+      alert("File Size is above 2MB")
     }
   }
 

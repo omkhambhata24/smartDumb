@@ -8,6 +8,7 @@
 $primary-color: #b452bd;
 $danger-color: #e95755;
 $success-color: #20b261;
+$secondary-color: #0609b4;
 $border-color: #f7f8fa;
 $gray: #797878;
 
@@ -58,6 +59,10 @@ a {
 
 .mb-3 {
     margin-bottom: 0.75rem;
+}
+
+.p-3{
+    padding: 1rem;
 }
 
 .w-100 {
@@ -523,6 +528,17 @@ table th {
 
 .text-danger {
     color: $danger-color;
+    font-size: 1rem;
+}
+
+.text-success {
+    color: $success-color;
+    font-size: 1rem;
+}
+
+.text-secondary {
+    color: $secondary-color;
+    font-size: 1rem;
 }
 
 .text-primary {

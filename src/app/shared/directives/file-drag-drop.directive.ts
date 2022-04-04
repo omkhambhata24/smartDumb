@@ -1,5 +1,5 @@
 import { Directive, EventEmitter, HostBinding, HostListener, Output } from '@angular/core';
-import { Files } from 'src/app/file-upload/model/file.model';
+
 
 @Directive({
   selector: '[FileDragDrop]'

@@ -17,12 +17,12 @@
             <input type="checkbox">
           </td>
           <td class="text-color td-font-size">{{data.name}}.</td>
-          <td class="text-color td-font-size">{{data.size}}</td>
+          <td class="text-color td-font-size">{{data.size}} MB</td>
           <td class="text-color td-font-size">{{data.type}}</td>
-          <!-- <td>
-            <span class="icon icon-pencil2" (click)="onEdit(profile)"></span>
-            <span class="icon icon-trash-can" (click)="onDelete(i)"></span>
-          </td> -->
+          <td>
+            <button class="btn btn-success" >View File</button>
+            <!-- <button class="btn btn-danger" (click)="removeFile(data.name)">Delete File</button> -->
+          </td>
         </tr>
       </tbody>
   

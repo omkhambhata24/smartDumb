@@ -17,7 +17,7 @@ export class FileUploadPresentationComponent implements OnInit {
   public file: File;
   public startDate:string;
   public endDate:string;
-  private dateForm : FormGroup
+  public dateForm : FormGroup
  
   @Output() filesUpload: EventEmitter<Files>;
 
@@ -38,6 +38,7 @@ export class FileUploadPresentationComponent implements OnInit {
   readFile(files: any) {
     this.file = files.files[0];
   }
+
 
   uploadFile() {
     if (this.file) {

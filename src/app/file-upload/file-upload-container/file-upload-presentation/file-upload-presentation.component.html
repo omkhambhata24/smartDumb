@@ -1,5 +1,27 @@
 <div class="d-flex justify-content-center flex-column">
-    <!-- <div class="dropzone d-flex align-items-center justify-content-center" FileDragDrop
+    <div class="d-flex justify-content-center">
+        <div FileDragDrop class="d-flex flex-column align-items-center justify-content-center dropzone"
+            (readFile)="readFile($event)">
+            <input type="file" name="" id="file"  class="text-secondary p-2" (change)="readFile($event.target)">
+            <p *ngIf="file" class="text-primary p-2">{{file.name}} File is Ready to Upload</p>
+            <button type="button" (click)="uploadFile()" class="btn btn-success">Upload</button>
+            <!-- <span>{{ file.name }}</span><span class="text-danger p-2" (click)="removeFile(file.name)">remove</span> -->
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between section-padding">
+        <form [formGroup]="dateForm">
+            <label for="fromDate">From:</label>
+            <input type="date" id="fromDate" formControlName="fromDate" (change)="StartDate($event)" max="{{endDate}}">
+    
+            <label class="ms-4" for="toDate">To:</label>
+            <input type="date" id="toDate" formArrayName="toDate" (change)="EndDate($event)" min="{{startDate}}">
+        </form>
+    </div>
+</div>
+
+
+<!-- <div class="dropzone d-flex align-items-center justify-content-center" FileDragDrop
         (filesChangeEmitter)="onFileChange($event)">
         <div class="text-wrapper">
             <div class="centered">
@@ -18,23 +40,3 @@
             </div>
         </div>
     </div> -->
-
-    <div FileDragDrop
-        class="d-flex flex-column align-items-center justify-content-center dropzone"
-        (readFile)="readFile($event)">
-        <input type="file" name="" id="file" (change)="readFile($event.target)">
-        <button type="button" (click)="uploadFile()">Upload</button>
-        <p *ngIf="file">{{file.name}} File is Ready to Upload</p>
-        <!-- <span>{{ file.name }}</span><span class="text-danger p-2" (click)="removeFiles(file.name)">remove</span> -->
-    </div>
-
-    <div class="d-flex justify-content-center section-padding">
-        <form>
-            <label for="startDate" class="padding">From:</label>
-            <input type="date"  (change)="StartDate($event)" min="{{startDate}}">
-    
-            <label for="endDate">To:</label>
-            <input type="date" (change)="EndDate($event)" max="{{endDate}}">
-        </form>
-    </div>
-</div>

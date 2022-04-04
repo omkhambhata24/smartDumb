@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Files } from '../../model/file.model';
+import { ListService } from '../list-presenter/list.service';
 
 @Component({
   selector: 'app-list-presentation',
@@ -20,9 +21,10 @@ export class ListPresentationComponent implements OnInit {
   private _fileList: Files[];
 
 
-  constructor() { }
+  constructor(private _fls: ListService) { }
 
   ngOnInit(): void {
   }
+
 
 }
