@@ -1,4 +1,4 @@
 <app-file-upload-presentation (filesUpload)="UploadFile($event)"></app-file-upload-presentation>
 
 
-<app-list-presentation [fileList]="filesList$ | async"></app-list-presentation>
+<app-list-presentation [fileList]="filesList$ | async" (deleteId)="deleteFile($event)"></app-list-presentation>

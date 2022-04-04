@@ -23,4 +23,8 @@ export class FileService {
   addFile(file:any):Observable<any>{
     return this.http.post<any>(`${this.url}/files`,file);
   }
+
+  deleteFile(id: number) {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
 }

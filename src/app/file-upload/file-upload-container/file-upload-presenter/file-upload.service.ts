@@ -39,13 +39,13 @@ export class FileUploadService {
 
   uploadFile(file: File) {
     //size in mb
-    let size = Math.round(file.size / 1024 / 1024)
+    let size = Math.round(file.size / 1024 /1024)
+    let sizeinKb = Math.round(file.size / 1024)
     if (size <= 2) {
       this.file.name = file.name;
-      this.file.size = size;
+      this.file.size = sizeinKb;
       this.file.type = file.type;
-      // if (this.file.type === "image/png" || "image/jpg" || "image/jpeg") {
-      //   console.log(file.type)
+
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = (event) => {

@@ -3,4 +3,5 @@ export class Files{
     size:number;
     type:string;
     content:string;
+    id: number;
 }
