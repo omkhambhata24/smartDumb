@@ -41,6 +41,7 @@ export class FileUploadService {
     let totalFile = kfiles.length;
 
     kfiles.forEach(async (file) => {
+      debugger
       //size in mb
       let size = Math.round(file.size / 1024 / 1024)
       let sizeinKb = Math.round(file.size / 1024)
@@ -57,6 +58,7 @@ export class FileUploadService {
         this.kfiles.push(newfile);
         if (totalFile === 0) {
           this.kfiles.forEach((file) => {
+            debugger
             this._filesUpload.next(file)
           })
           this.kfiles = [];
