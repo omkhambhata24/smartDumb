@@ -7,8 +7,8 @@ export class ListService {
 
   constructor() { }
 
-  private decodeBase64(b64: string): Uint8Array {
-    const byteCharacters = atob(b64);
+  private decodeBase64(base64: string): Uint8Array {
+    const byteCharacters = atob(base64);
     const byteNumbers = new Array(byteCharacters.length);
     for (let i = 0; i < byteCharacters.length; i++) {
       byteNumbers[i] = byteCharacters.charCodeAt(i);
@@ -22,13 +22,13 @@ export class ListService {
     return blob;
   }
 
-   windowFeatures = "left=50%,top=50%,width=800,height=800";
+   windowFeatures = "left=50%,top=70%,width=1200,height=700";
 
   public openFile(content:string,type:string){
-    const b64:string = content.split(",")[1];
-    const byteArray:Uint8Array = this.decodeBase64(b64);
+    const base64:string = content.split(",")[1];
+    const byteArray:Uint8Array = this.decodeBase64(base64);
     const fileBlob:Blob = this.createblob(byteArray,type);
-    const url:string = window.URL.createObjectURL(fileBlob);
+    const url:string = URL.createObjectURL(fileBlob);
     window.open(url,"FileView",this.windowFeatures);
   }
 }

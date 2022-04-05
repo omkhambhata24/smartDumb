@@ -14,7 +14,7 @@ import { FileUploadService } from '../file-upload-presenter/file-upload.service'
 })
 export class FileUploadPresentationComponent implements OnInit {
 
-  public file: File;
+  public kfile: File[];
   public startDate:string;
   public endDate:string;
   public dateForm : FormGroup;
@@ -23,6 +23,7 @@ export class FileUploadPresentationComponent implements OnInit {
   @Output() filesUpload: EventEmitter<Files>;
 
   constructor(private _fups: FileUploadService) {
+    this.kfile = [];
     this.filesUpload = new EventEmitter<Files>();
     this.fileInput = new FormControl(null);
   }
@@ -31,23 +32,27 @@ export class FileUploadPresentationComponent implements OnInit {
     this.dateForm = this._fups.buildDateForm();
     this._fups.filesUpload$.subscribe({
       next: (file) => {
+        console.log(file)
         this.filesUpload.emit(file);
+        this.kfile = [];
       },
       error: (e) => { console.log(e) }
     })
   }
 
   readFile(files: any) {
-    this.file = files.files[0];
-    this.fileInput.reset();
+    this.kfile = Array.from(files.files);
   }
 
 
   uploadFile() {
-    if (this.file) {
-      this._fups.uploadFile(this.file)
-      debugger
-      this.fileInput.reset();
+    // if (this.file) {
+    //   this._fups.uploadFile(this.file)
+    //   debugger
+    //   this.fileInput.reset();
+    // }
+    if (this.kfile.length !== 0) {
+      this._fups.uploadFile(this.kfile);
     }
     else {
       alert("No File is Selected")
@@ -60,6 +65,10 @@ export class FileUploadPresentationComponent implements OnInit {
 
   EndDate(input:any){
     this.endDate=input.value;
+  }
+
+  removeFile(index: number) {
+    this.kfile.splice(index, 1);
   }
 
   // onFileChange(file:any){

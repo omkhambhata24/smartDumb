@@ -3,13 +3,14 @@
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 @import "https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap";
-@import '@angular/cdk/overlay-prebuilt.css';
+@import "@angular/cdk/overlay-prebuilt.css";
 
-$primary-color: #b452bd;
+$primary-color: #d37cdb;
 $danger-color: #e95755;
 $success-color: #20b261;
 $secondary-color: #0609b4;
 $border-color: #f7f8fa;
+$light-color: #f1f1f1;
 $gray: #797878;
 
 $border-radius: 8px;
@@ -61,7 +62,7 @@ a {
     margin-bottom: 0.75rem;
 }
 
-.p-3{
+.p-3 {
     padding: 1rem;
 }
 
@@ -181,7 +182,7 @@ a {
     margin: 0 0.4rem;
 }
 
-.icon{
+.icon {
     padding: 0 0.75rem;
     font-size: 1rem;
 }
@@ -473,6 +474,21 @@ table th {
     }
 }
 
+.bg {
+    &-transparent {
+        background-color: transparent;
+    }
+
+    &-aqua {
+        background-color: aquamarine;
+    }
+}
+
+button {
+    border-width: 0px;
+}
+
+
 .form-control,
 .form-select {
     font-family: "Poppins", sans-serif;
@@ -546,12 +562,22 @@ table th {
     font-size: 1.125rem;
 }
 
+.text-light {
+    color: $light-color;
+    font-size: 1rem;
+}
+
 .section-padding {
     padding: 1rem 0;
 }
 
 .text-align-center {
     text-align: center;
+}
+
+.card {
+    padding: 0.5rem;
+    @extend %border-radius;
 }
 
 ////////  MEDIA QUERIES  ////////////
@@ -705,8 +731,20 @@ table th {
     }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
