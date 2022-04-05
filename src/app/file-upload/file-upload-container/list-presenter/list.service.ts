@@ -17,17 +17,19 @@ export class ListService {
     return byteArray;
   }
 
-  private createBolb(byteArray: Uint8Array, type: string): Blob {
+  private createblob(byteArray: Uint8Array, type: string): Blob {
     const blob = new Blob([byteArray], { type: type });
     return blob;
   }
 
+   windowFeatures = "left=50%,top=50%,width=800,height=800";
+
   public openFile(content:string,type:string){
     const b64:string = content.split(",")[1];
     const byteArray:Uint8Array = this.decodeBase64(b64);
-    const fileBlob:Blob = this.createBolb(byteArray,type);
+    const fileBlob:Blob = this.createblob(byteArray,type);
     const url:string = window.URL.createObjectURL(fileBlob);
-    window.open(url,"FileView","popup");
+    window.open(url,"FileView",this.windowFeatures);
   }
 }
 

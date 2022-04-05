@@ -46,6 +46,7 @@ export class FileUploadPresentationComponent implements OnInit {
   uploadFile() {
     if (this.file) {
       this._fups.uploadFile(this.file)
+      debugger
       this.fileInput.reset();
     }
     else {
