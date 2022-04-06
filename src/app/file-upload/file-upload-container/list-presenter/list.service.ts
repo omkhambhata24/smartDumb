@@ -22,7 +22,7 @@ export class ListService {
     return blob;
   }
 
-   windowFeatures = "left=50%,top=70%,width=1200,height=700";
+   windowFeatures = "left=350px,top=150px,width=1200,height=700";
 
   public openFile(content:string,type:string){
     const base64:string = content.split(",")[1];
