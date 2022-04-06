@@ -5,8 +5,8 @@
             <input type="file" name="" id="file"  class="text-secondary p-2" (change)="readFile($event.target)" multiple>
             <!-- <p *ngIf="file" class="text-primary p-2">{{file.name}} File is Ready to Upload</p> -->
 
-            <div *ngIf="kfile.length !== 0" class="d-flex flex-column">
-                There are kfiles to upload
+            <div *ngIf="kfile.length !== 0" class="d-flex">
+                {{kfile.length}} - Files Ready For Upload.
                 
                 <div class="bg-aqua card" *ngFor="let file of kfile; index as index">{{file.name}}
                     <button class="bg-transparent m-2" (click)="removeFile(index)">X</button></div>
