@@ -31,14 +31,12 @@ export class ListPresentationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  viewFile(type: string, content: string) {
-    this._fls.openFile(content, type);
+  viewFile(file: any): void{
+    this._fls.displayFileOverlay(file);
   }
 
   deleteFile(id: number) {
     this.deleteId.emit(id);
   }
-
-
 
 }

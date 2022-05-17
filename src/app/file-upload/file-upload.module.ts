@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FileUploadContainerComponent } from './file-upload-container/file-upload-container.component';
 import { FileUploadPresentationComponent } from './file-upload-container/file-upload-presentation/file-upload-presentation.component';
 import { ListPresentationComponent } from './file-upload-container/list-presentation/list-presentation.component';
+import { FileOverlayComponent } from './file-upload-container/list-presentation/file-overlay/file-overlay.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ListPresentationComponent } from './file-upload-container/list-presenta
     FileUploadComponent,
     FileUploadContainerComponent,
     FileUploadPresentationComponent,
-    ListPresentationComponent
+    ListPresentationComponent,
+    FileOverlayComponent
   ],
   imports: [
     CommonModule,

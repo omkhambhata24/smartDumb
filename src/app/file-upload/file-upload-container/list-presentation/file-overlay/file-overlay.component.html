@@ -1,0 +1,10 @@
+<div class="file-view-overlay card-file overflow-hidden p-3 position-relative">
+    <div class="d-flex justify-content-between">
+        <h3>{{file.name}}</h3>
+        <button class="p-0 m-2 border-0 bg-transparent" (click)="onButtonClick('close')">
+            <span class="icon icon-trash-can"></span>
+        </button>
+    </div>
+    <!-- <iframe  width="992px" height="100%"  (load)="onLoad($event.target)" [src]="this.safeUrl"></iframe> -->
+    <iframe class="frame-body" (load)="onLoad($event.target)" [src]="this.safeUrl"></iframe>
+</div>

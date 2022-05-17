@@ -580,6 +580,31 @@ button {
     @extend %border-radius;
 }
 
+
+.file-overlay-backdrop {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: saturate(180%) blur(10px);
+}
+
+.card-file {
+    background-color: #fff;
+    border-radius: $border-radius;
+    padding: 1rem;
+    margin-left: 1rem;
+    height: 700px;
+    width: 1200px;
+    flex-direction: column;
+}
+
+.frame-body{
+    height: 92%;
+    width: 100%;
+}
+
+.cdk-overlay-pane{
+    align-items: center;
+    justify-content: center;
+}
 ////////  MEDIA QUERIES  ////////////
 
 // Extra large devices (large desktops, 1200px and up)
