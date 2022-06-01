@@ -51,7 +51,10 @@ const routes: Routes = [
   path: 'file-upload',
    loadChildren: () => import('./file-upload/file-upload.module').then(m => m.FileUploadModule)
  },
-
+ {
+  path: 'progress-form',
+   loadChildren: () => import('./progress-form-container/progress-form-container.module').then(m => m.ProgressFormContainerModule)
+ },
 
 ];
 
