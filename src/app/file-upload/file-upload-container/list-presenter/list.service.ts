@@ -1,7 +1,6 @@
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { ComponentRef, Injectable } from '@angular/core';
-import { Button } from 'src/app/shared/model/button.model';
 import { FileOverlayComponent } from '../list-presentation/file-overlay/file-overlay.component';
 
 @Injectable({
@@ -64,14 +63,14 @@ export class ListService {
   }
 
   private _closeFileOverlay(): void {
-    this._fileOverlayRef.backdropClick().subscribe(() => {
-      this._fileOverlayRef.detach();
-    });
+    // this._fileOverlayRef.backdropClick().subscribe(() => {
+    //   this._fileOverlayRef.detach();
+    // });
 
     this._fileOverlayComponentRef.instance.buttonClick.subscribe((val) => {
-      if (val === 'close') {
+      // if (val === 'close') {
         this._fileOverlayRef.detach();
-      }
+      // }
     });
   }
   

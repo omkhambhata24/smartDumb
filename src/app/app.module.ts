@@ -18,6 +18,8 @@ import { PipesModule } from './pipes/pipes.module';
 import { ProfileModule } from './profile/profile.module';
 import { DeletePopupComponent } from './shared/delete-popup/delete-popup.component';
 import { SharedModule } from './shared/shared.module';
+import { ProgressFormContainerComponent } from './progress-form-container/progress-form-container.component';
+import { ProgressFormPresentationComponent } from './progress-form-container/progress-form-presentation/progress-form-presentation.component';
 
 
 
@@ -31,6 +33,8 @@ import { SharedModule } from './shared/shared.module';
     HeaderComponent,
     ArtistsComponent,
     DeletePopupComponent,
+    ProgressFormContainerComponent,
+    ProgressFormPresentationComponent,
     
   ],
   imports: [

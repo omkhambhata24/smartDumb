@@ -9,8 +9,8 @@ import { Button } from 'src/app/shared/model/button.model';
   styleUrls: ['./file-overlay.component.scss']
 })
 export class FileOverlayComponent implements OnInit {
-  @Input() buttons!: Button[];
-	@Output() buttonClick: EventEmitter<string>;
+//   @Input() buttons!: Button[];
+  @Output() buttonClick: EventEmitter<string>;
 
 	private _file!: Files;
 	@Input() public set file(v: Files | null) {
@@ -25,7 +25,7 @@ export class FileOverlayComponent implements OnInit {
 	}
 
 	public safeUrl!: SafeResourceUrl;
-
+	
 	constructor(private sanitizer: DomSanitizer) {
 		this.buttonClick = new EventEmitter();
 	}
