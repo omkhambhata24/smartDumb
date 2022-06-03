@@ -16,14 +16,14 @@
     color: red;
 }
 #msform fieldset {
-    background: white;
+    background: #fff;
     border: 0 none;
     border-radius: 0px;
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-    padding: 20px 30px;
+    padding: 1.25rem 2rem;
     box-sizing: border-box;
-    width: 80%;
-    margin: 0 10%;
+    width: 76%;
+    margin: 5% 12%;
     /*stacking fieldsets above each other*/
     position: relative;
 }
@@ -106,20 +106,19 @@
     line-height: 26px;
     display: block;
     font-size: 12px;
-    background: white;
     border-radius: 25px;
     margin: 0 auto 10px auto;
 }
 /*progressbar connectors*/
 #progressbar li:after {
-    content: '';
-    width: 100%;
-    height: 2px;
-    background: rgb(214, 28, 28);
+    content: "";
+    width: 94%;
+    height: 4px;
     position: absolute;
-    left: -50%;
-    top: 9px;
-    z-index: -1; /*put it behind the numbers*/
+    background: red;
+    left: -47%;
+    top: 10px;
+    transition: all 4s;
 }
 #progressbar li:first-child:after {
     /*connector not needed before the first step*/
