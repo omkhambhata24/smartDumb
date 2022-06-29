@@ -55,6 +55,10 @@ const routes: Routes = [
   path: 'progress-form',
    loadChildren: () => import('./progress-form-container/progress-form-container.module').then(m => m.ProgressFormContainerModule)
  },
+ {
+  path: 'content-projection',
+   loadChildren: () => import('./projection-form/projection-form.module').then(m => m.ProjectionFormModule)
+ }
 
 ];
 

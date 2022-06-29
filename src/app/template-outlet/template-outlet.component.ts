@@ -3,7 +3,6 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 @Component({
   selector: 'app-template-outlet',
   templateUrl: './template-outlet.component.html',
-  styleUrls: ['./template-outlet.component.scss']
 })
 export class TemplateOutletComponent implements OnInit {
   @ViewChild('cardTemplate') cardTemplate:TemplateRef<HTMLElement>;
